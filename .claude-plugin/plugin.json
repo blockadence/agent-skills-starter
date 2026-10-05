@@ -1,0 +1,8 @@
+{
+  "name": "my-agent-skills",
+  "version": "0.1.0",
+  "description": "Personal composable agent skills",
+  "skills": [
+    "./skills/productivity/in-my-voice"
+  ]
+}
