@@ -16,10 +16,10 @@ The purpose is to prevent future maintenance from depending on conversational me
 
 | Area | Classification | Disposition |
 | --- | --- | --- |
-| BBB proper title slide | Regression | Restore in `bbb-story-plan`; add regression fixture. |
-| BBB opening narrative | Regression | Restore engineering adaptation of Hook -> Relevance -> Challenge -> Desired state -> Map before detailed solution mechanics. |
-| BBB headline-only story | Never encoded strongly enough | Require headline-story test in planner and comprehension audit. |
-| BBB visual/verbal channels | Weakened contract | Require complementary headline/visual/notes planning and a usable rehearsal script. |
+| BBP proper title slide | Regression | Restore in `bbp-story-plan`; add regression fixture. |
+| BBP opening narrative | Regression | Restore engineering adaptation of Hook -> Relevance -> Challenge -> Desired state -> Map before detailed solution mechanics. |
+| BBP headline-only story | Never encoded strongly enough | Require headline-story test in planner and comprehension audit. |
+| BBP visual/verbal channels | Weakened contract | Require complementary headline/visual/notes planning and a usable rehearsal script. |
 | Design-doc prose density | Never encoded strongly enough | Add representation selection to design-doc and evidence planning; optimize for information density and scanability rather than shortness. |
 | Artifact-level comprehension | Contract ambiguity | Extend comprehension audit beyond local prose to document/deck/PR flow. |
 | Mechanism before consequence | Partial regression | Restore to `explanatory-model` and comprehension audit. |
@@ -81,4 +81,4 @@ Do not roll back the composable architecture. Recovered behaviors belong in the 
 
 ## Acceptance consequence
 
-After reconciliation changes, rerun the canonical Evals fixture from the beginning. Do not mark the suite production-ready merely because the default design document looks good. The full default package, reviewer variants, BBB narrative, rendering, PR communication, plugin discovery, and independent fixtures remain acceptance gates.
+After reconciliation changes, rerun the canonical Evals fixture from the beginning. Do not mark the suite production-ready merely because the default design document looks good. The full default package, reviewer variants, BBP narrative, rendering, PR communication, plugin discovery, and independent fixtures remain acceptance gates.
