@@ -26,13 +26,15 @@ source
   -> human review
 ```
 
-`to-design-package` orchestrates this pipeline for an engineering design document and a sibling BBB-style presentation. The presentation does not derive from the design document; both derive from the same explanatory model.
+`to-design-package` is the canonical design workflow. It orchestrates an engineering design document and a sibling BBB-style presentation. The presentation does not derive from the design document; both derive from the same explanatory model.
 
-`to-design-doc` remains a narrower producer for reshaping a human-reviewed `understanding.md` into a supplied design-document template.
+The former `to-design-doc` skill is intentionally removed rather than retained as a compatibility path. Useful ideas from it must live at their natural ownership boundary. Examples include source support in `source-model` and `source-fidelity-audit`, reader sequencing in `design-doc-plan`, evidence selection in `design-evidence-plan`, and expression constraints in compatible modifiers.
 
 ## PR review pipeline
 
-`to-pr-comments` consumes verified deep code-review findings. It does not replace the upstream investigation. It normalizes the findings, builds a reviewer mental model, plans the communication, then produces a preamble and localized comments.
+`to-pr-comments` consumes verified deep code-review findings. It does not replace the upstream investigation. It normalizes findings, builds a reviewer mental model, plans communication, then produces a preamble and localized comments.
+
+The current implementation supersedes the earlier `to-pr-comments`. Optional batch posting is retained only as a delivery reference and cannot change technical findings or choose a review disposition without explicit user instruction.
 
 ## Fix the earliest owning stage
 
