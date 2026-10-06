@@ -51,6 +51,7 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Evals default design doc excludes Wayfinder/session bookkeeping and passes decision-load review.
 - [ ] Evals default design doc is materially compressed relative to the explanatory model while retaining decision-critical tradeoffs, risks, compatibility concerns, and uncertainty.
 - [ ] Evals CTO variant is materially adapted and no more detailed than its decision task requires.
+- [ ] Evals CTO variant subtracts established Conductor primers and retains only changed behavior, non-obvious dependencies, material consequences, and risks needed for the decision.
 - [ ] PR-review acceptance reconciles every upstream finding and validates diff anchoring, severity ordering, and comment communication form.
 
 ## Operational quality
@@ -83,4 +84,5 @@ When all mandatory gates pass, the production-ready claim is supported by instal
 - [ ] Regenerated Evals deck demonstrates distinguishable Anchor / Explanation / Detail visual hierarchy and coherent Core / Standard / Deep inheritance.
 - [ ] Evals reviewer runs reuse the same canonical slides; duration/depth variants are sibling selections from one slide tree.
 - [ ] Regenerated Evals design document is materially terser, does not reteach established Conductor behavior beyond decision need, and preserves useful supported technical diagrams/contracts.
+- [ ] Regenerated Evals evidence plan uses supported diagrams/contracts as compression where they reduce prose and records an explicit representation decision for every applicable relationship class.
 - [ ] Comprehension audit rejects unnecessary authored vocabulary when ordinary engineering language is clearer.
