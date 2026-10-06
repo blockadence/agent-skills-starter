@@ -32,7 +32,13 @@ The former `to-design-doc` skill is intentionally removed rather than retained a
 
 ## PR review pipeline
 
-`to-pr-comments` consumes verified deep code-review findings. It does not replace the upstream investigation. It normalizes findings, builds a reviewer mental model, plans communication, then produces a preamble and localized comments.
+`to-pr-comments` has two input modes.
+
+By default, it consumes supplied verified review findings. It does not replace or rerun the upstream investigation.
+
+When the user supplies `--review-skill=<skill-name>`, the wrapper first invokes that explicitly named installed review skill against the review target. The named skill owns investigation and verification. Its output then enters the same source-model, explanatory-model, communication-planning, and audit pipeline as pre-existing findings.
+
+The wrapper must not silently substitute another review skill when the requested skill is unavailable, and it must not hard-code assumptions about a skill's author or implementation based on its name.
 
 The current implementation supersedes the earlier `to-pr-comments`. Optional batch posting is retained only as a delivery reference and cannot change technical findings or choose a review disposition without explicit user instruction.
 
