@@ -23,7 +23,7 @@ Evidence selection, representation selection, canonical notation, source-support
 
 ## Process
 
-1. Read source model, explanatory model, document plan, and optional reviewer adaptation.
+1. Read source model, explanatory model, document plan, and optional reviewer adaptation. Treat the document plan and reviewer adaptation as selection contracts, not invitations to re-decide settled upstream facts.
 2. For each candidate artifact or structured representation, state the engineering question it answers.
 3. State the conclusion the reader should be able to reach after seeing it.
 4. Classify it as explanatory or technical.
@@ -49,6 +49,8 @@ Do not turn a conceptual behavioral contract into plausible-looking Java, SQL, s
 For each prose-heavy section in the document plan, ask whether its primary job is reasoning or structured comparison/relationship.
 
 If structured representation would materially reduce interpretation, plan it here. If prose is retained, record why prose carries information that the structured form would lose.
+
+Reviewer adaptation may remove explanatory context, but reviewer expertise alone does not justify removing decision-relevant technical evidence. Reconsider any representation that exposes a changed boundary, runtime interaction, concurrency property, failure mode, compatibility constraint, irreversible choice, or other material relationship.
 
 Compression must not remove a source-supported technical diagram merely because the same facts can be stated in prose. When a diagram replaces paragraphs, preserves an important relationship, or gives reviewers a faster inspection surface, prefer the diagram and shorten the prose around it.
 
