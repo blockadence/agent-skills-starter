@@ -101,6 +101,8 @@ When review or an audit finds a defect, classify it and repair the earliest stag
 Information may remain true and useful while being absent from a particular reader artifact.
 
 - `design-doc-plan` selects the minimum approval surface. Downstream implementation usefulness alone is not a reason to include content.
+- `reviewer-adapt` subtracts established reviewer knowledge before adding emphasis. Known platform behavior remains upstream unless the design changes it, relies on a non-obvious property of it, or exposes a material consequence or risk.
+- `design-evidence-plan` treats supported technical representations as compression surfaces. Prefer a diagram, contract, or structured representation when it preserves the decision-relevant relationship with less reconstruction work than prose.
 - `bbp-story-plan` selects presentation depth hierarchically: Core Anchors, Standard Explanations, Deep Details. Longer views select additional slides from one canonical tree while preserving every shared slide unchanged.
 - Reviewer profiles do not fork presentation stories. Audience-aware delivery guidance belongs in speaker notes.
 - BBP's approximate 5/15/45-minute versions and Rule of Three guide prioritization; they are not rigid timing or cardinality constraints.
