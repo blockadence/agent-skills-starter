@@ -18,7 +18,19 @@ The former `to-design-doc` implementation is superseded and removed. Template ha
 
 ## PR communication pipeline
 
-`code-review` output -> `source-model` -> `explanatory-model` -> optional `reviewer-adapt` -> `pr-communication-plan` -> `to-pr-comments`.
+Default:
+
+```text
+verified review findings -> source-model -> explanatory-model -> optional reviewer-adapt -> pr-communication-plan -> to-pr-comments output
+```
+
+Optional composition:
+
+```text
+specified review skill -> verified findings -> the same to-pr-comments pipeline
+```
+
+Use `--review-skill=<skill-name>` when `to-pr-comments` should invoke a particular installed review skill first. Without it, `to-pr-comments` assumes the supplied findings are already verified and does not redo the investigation.
 
 The current `to-pr-comments` supersedes the earlier implementation. Its preserved batch-posting reference owns delivery mechanics only.
 
