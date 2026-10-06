@@ -19,8 +19,8 @@ These cases preserve failures found while developing the engineering documentati
 | EVID-001 | conceptual contract rendered as concrete Java | Fail evidence/source-support audit. |
 | EVID-002 | proprietary sequence notation where UML sequence fits | Prefer canonical notation. |
 | RENDER-001 | edge label overlaps container header | Fail render audit. |
-| BBB-001 | opening starts in the middle of the population-testing argument | Reorder to establish topic and problem first. |
-| BBB-002 | solution headline before problem | Reorder. |
+| BBP-001 | opening starts in the middle of the population-testing argument | Reorder to establish topic and problem first. |
+| BBP-002 | solution headline before problem | Reorder. |
 | PR-001 | preamble lacks what, why, mechanism, scope, or risk | Fail comprehension gate. |
 | PR-002 | inline comment requires reconstructing the whole investigation | Fail comprehension gate. |
 | GLOBAL-001 | reviewer variants disagree on a technical fact | Fail source-fidelity audit. |
@@ -32,10 +32,10 @@ Source terms are not banned words. `denominator`, `seam`, and `substrate` are le
 
 | ID | Fixture | Expected behavior |
 | --- | --- | --- |
-| BBB-003 | first slide is an argumentative question such as `Does this workflow behave acceptably?` with no title slide | Fail. Produce a proper subject/title slide before the narrative opening. |
-| BBB-004 | individual slides make sense but headline-only sequence does not form a coherent story | Fail `bbb-story-plan` or comprehension audit and repair narrative order upstream. |
-| BBB-005 | deck jumps from organizational/customer pain directly into implementation detail | Fail unless a bridge establishes the technical mechanism and why it follows. |
-| BBB-006 | slides carry explanatory paragraphs while notes are thin | Fail. Plan complementary visual/verbal channels and move spoken reasoning to notes. |
+| BBP-003 | first slide is an argumentative question such as `Does this workflow behave acceptably?` with no title slide | Fail. Produce a proper subject/title slide before the narrative opening. |
+| BBP-004 | individual slides make sense but headline-only sequence does not form a coherent story | Fail `bbp-story-plan` or comprehension audit and repair narrative order upstream. |
+| BBP-005 | deck jumps from organizational/customer pain directly into implementation detail | Fail unless a bridge establishes the technical mechanism and why it follows. |
+| BBP-006 | slides carry explanatory paragraphs while notes are thin | Fail. Plan complementary visual/verbal channels and move spoken reasoning to notes. |
 | COMP-006 | consequence stated before the mechanism that makes it true | Fail explanatory/comprehension stage. |
 | COMP-007 | same fact is fully explained in several sections without a distinct reasoning need | Fail one-home test. |
 | COMP-008 | passage needs a second read because a causal connection is missing | Fail. Add the missing connection at the explanatory stage rather than surrounding it with more prose. |
