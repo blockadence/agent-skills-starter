@@ -38,6 +38,56 @@ Workflow orchestration, checkpoint/resume behavior, reviewer-variant branching, 
 10. Preserve inspectable intermediate artifacts.
 11. Stop only when the requested final outputs have been produced and blocking gates pass, or an unresolved source problem is explicitly reported.
 
+## Package topology
+
+The package has one shared semantic root and zero or more reviewer-specific branches.
+
+Everything before reviewer adaptation is shared because it represents common source truth. Everything at or after reviewer adaptation belongs to a reviewer branch.
+
+Use this topology:
+
+```text
+design-package/
+  source/
+    source-model.md
+    explanatory-model.md
+    ...other shared source/evidence artifacts
+  default/
+    ...variant planning artifacts
+    design-doc.md
+    design-doc.html
+    slides.html
+    speaker-notes.md
+    speaker-notes.html
+    audits/
+  cto/
+    review-adaptation.md
+    ...variant planning artifacts
+    design-doc.md
+    design-doc.html
+    slides.html
+    speaker-notes.md
+    speaker-notes.html
+    audits/
+  adversarial/
+    review-adaptation.md
+    ...variant planning artifacts
+    design-doc.md
+    design-doc.html
+    slides.html
+    speaker-notes.md
+    speaker-notes.html
+    audits/
+```
+
+The original specification remains an external source input unless the user asks to copy it into the package. Shared generated artifacts may reference that source input using a stable path appropriate to the repository.
+
+`source/explanatory-model.md` is the normal reviewer branch point. All reviewer variants derived from it must share the same technical truth and decision status.
+
+Do not duplicate `source-model.md` or `explanatory-model.md` inside reviewer branches. Do not make one reviewer branch depend semantically on another reviewer branch.
+
+The default package is the unprofiled/default ENGINEERING branch. Explicit reviewer profiles create sibling branches from the shared explanatory model.
+
 ## Checkpoints and resume
 
 Preserved intermediate and final artifacts are valid workflow checkpoints. Do not repeat an upstream stage merely because this wrapper was invoked again.
@@ -94,12 +144,15 @@ Reviewer variants must preserve technical truth and decision status while allowi
 
 ### Variant output isolation
 
-Never overwrite another reviewer variant or the default package.
+Never overwrite another reviewer variant, the default package, or shared source artifacts when creating a downstream reviewer branch.
 
-Write each explicit reviewer variant under a stable reviewer-specific namespace, for example:
+Write shared pre-adaptation artifacts once under `design-package/source/`. Write each explicit reviewer variant under a stable sibling namespace, for example:
 
 ```text
 design-package/
+  source/
+    source-model.md
+    explanatory-model.md
   default/
     design-doc.md
     design-doc.html
