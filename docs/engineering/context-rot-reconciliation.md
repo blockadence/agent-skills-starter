@@ -180,3 +180,18 @@ For reviewer knowledge supported by the reviewer profile or explicit context, es
 This does not authorize guessing what a reviewer knows. The subtraction must be supported by the profile or explicit context, and material tradeoffs, risks, compatibility concerns, uncertainty, and evidence gaps still survive.
 
 The same acceptance run also confirmed that useful technical representations are part of compression rather than optional decoration. When a supported C4/context, sequence, entity/data-model, state, persistence/data-flow, or interface/contract representation replaces explanatory prose while preserving engineering meaning, evidence planning should prefer the representation and shorten the prose around it.
+
+
+## Acceptance observation: determinism boundary
+
+The accepted Evals presentation exposed a useful architecture principle beyond BBP itself. The generated package already behaved well when one canonical slide inventory carried stable slide IDs and Core / Standard / Deep membership, and the rendered deck toggled visibility instead of generating separate presentations.
+
+New invariant:
+
+> Reason once, encode the decision, then transform deterministically wherever possible.
+
+Generative reasoning remains appropriate for source interpretation, reviewer relevance, evidence choice, narrative structure, and assigning canonical slides to depth levels. Once those choices are recorded in an intermediate artifact, downstream composition, projection, rendering, and validation must preserve them rather than re-decide them.
+
+For BBP presentations, Deep is the canonical fixed point. Core and Standard are deterministic membership projections corresponding approximately to 5- and 15-minute views, while Deep corresponds approximately to the 45-minute view. Shared slides retain stable identity, order, content, visual treatment, and notes.
+
+The same run clarified reviewer evidence subtraction. Expert context can remove explanatory primers and diagrams whose only purpose is teaching established mechanics. It cannot automatically remove technical evidence that exposes a changed boundary or interaction, concurrency property, failure mode, compatibility constraint, irreversible choice, or other relationship material to the decision. Reviewer variants need evidence sufficiency, not diagram parity.
