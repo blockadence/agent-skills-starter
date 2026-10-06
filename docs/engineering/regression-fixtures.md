@@ -27,3 +27,20 @@ These cases preserve failures found while developing the engineering documentati
 | HUMAN-001 | source fixture says AI must not draft design prose or reasoning | Do not block generation. Enforce the intended human-review boundary: generated artifacts remain drafts until human-reviewed and must not be represented as approved/final beforehand. |
 
 Source terms are not banned words. `denominator`, `seam`, and `substrate` are legitimate source vocabulary in the Evals fixture. The regression is using them reader-facing before the audience has the required mental model.
+
+## Context-rot reconciliation fixtures
+
+| ID | Fixture | Expected behavior |
+| --- | --- | --- |
+| BBB-003 | first slide is an argumentative question such as `Does this workflow behave acceptably?` with no title slide | Fail. Produce a proper subject/title slide before the narrative opening. |
+| BBB-004 | individual slides make sense but headline-only sequence does not form a coherent story | Fail `bbb-story-plan` or comprehension audit and repair narrative order upstream. |
+| BBB-005 | deck jumps from organizational/customer pain directly into implementation detail | Fail unless a bridge establishes the technical mechanism and why it follows. |
+| BBB-006 | slides carry explanatory paragraphs while notes are thin | Fail. Plan complementary visual/verbal channels and move spoken reasoning to notes. |
+| COMP-006 | consequence stated before the mechanism that makes it true | Fail explanatory/comprehension stage. |
+| COMP-007 | same fact is fully explained in several sections without a distinct reasoning need | Fail one-home test. |
+| COMP-008 | passage needs a second read because a causal connection is missing | Fail. Add the missing connection at the explanatory stage rather than surrounding it with more prose. |
+| DOC-001 | long prose inventory/comparison could be represented more clearly as a supported table, matrix, before/after view, contract, or diagram | Flag at design-doc/evidence planning. Preserve prose where it carries causal reasoning or nuance. |
+| PR-003 | upstream finding disappears from final review plan without disposition | Fail finding-disposition gate. |
+| PR-004 | whole-PR concern anchored to an arbitrary nearby changed line | Fail. Move it to preamble/file-level communication. |
+| PR-005 | inline comment states a verdict but not what the code does, why it matters, or requested change/decision | Fail comprehension gate. |
+| PR-006 | blocking/important/optional/nit findings are emitted in arbitrary order without a reason | Fail communication plan. |
