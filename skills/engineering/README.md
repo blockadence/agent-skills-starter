@@ -1,10 +1,10 @@
 # Engineering skills
 
-Small, composable skills for engineering analysis, design communication, review communication, and evidence quality.
+Small, composable skills for engineering analysis, design communication, review communication, rendering, and evidence quality.
 
 ## Design communication pipeline
 
-`source-model` -> `explanatory-model` -> optional `reviewer-adapt` -> artifact planning -> composition -> audits.
+`source-model` -> `explanatory-model` -> optional `reviewer-adapt` -> artifact planning -> composition -> rendering -> audits.
 
 - `source-model`: normalize facts, decisions, constraints, uncertainty, and source support.
 - `explanatory-model`: build the causal and conceptual model a cold reader needs.
@@ -12,7 +12,10 @@ Small, composable skills for engineering analysis, design communication, review 
 - `design-doc-plan`: plan engineering design-document information architecture.
 - `design-evidence-plan`: select source-supported explanatory and technical evidence.
 - `bbb-story-plan`: plan a Beyond Bullet Points technical presentation.
-- `to-design-package`: canonical orchestrator for the design document and presentation package.
+- `render-html-document`: render existing Markdown artifacts as polished, navigable HTML without semantic rewriting.
+- `to-design-package`: canonical orchestrator for the design document and presentation package, including checkpoint/resume behavior.
+
+A complete design package normally includes Markdown and HTML versions of the design document and speaker notes, plus the BBB HTML slide deck.
 
 The former `to-design-doc` implementation is superseded and removed. Template handling, source fidelity, constructed-vs-sourced discipline, and presentation constraints belong in the composable stages that own those concerns.
 
@@ -39,5 +42,5 @@ The current `to-pr-comments` supersedes the earlier implementation. Its preserve
 - `source-fidelity-audit`: detect invented facts, lost uncertainty, and changed decision status.
 - `comprehension-audit`: detect cold-reader comprehension failures and generated-text artifacts.
 - `intent-leak-audit`: keep authoring mechanics and reviewer classification out of reader-facing artifacts.
-- `visual-render-audit`: inspect rendered diagrams for collisions, ambiguity, and readability defects.
+- `visual-render-audit`: inspect rendered diagrams and documents for collisions, ambiguity, and readability defects.
 - `reviewer-profile-author`: create reusable internal reviewer profiles based on information needs.
