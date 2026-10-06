@@ -39,7 +39,10 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Known C4 collision is rejected by render QA.
 - [ ] Fake-Java regression is rejected.
 - [ ] Intent-leak regressions are rejected.
-- [ ] BBB output starts with topic and pain and preserves progressive disclosure.
+- [ ] BBB output includes a proper title slide, passes the headline-only story test, establishes Act I orientation before solution mechanics, and preserves progressive disclosure.
+- [ ] BBB visual and verbal channels are complementary, with speaker notes forming a usable rehearsal script.
+- [ ] Design-doc acceptance catches prose transcription when a supported structured representation would materially improve scanability.
+- [ ] PR-review acceptance reconciles every upstream finding and validates diff anchoring, severity ordering, and comment communication form.
 
 ## Operational quality
 
@@ -49,6 +52,7 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Confirm outputs are stable enough across repeated runs for human use.
 - [ ] Document installation, invocation, intermediate artifacts, and troubleshooting.
 - [ ] Version the suite and record compatibility assumptions.
+- [ ] Verify `.claude-plugin/plugin.json` exposes the promoted engineering skills expected for plugin installation.
 
 ## Claim rule
 
