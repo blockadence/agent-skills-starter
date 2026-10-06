@@ -173,8 +173,13 @@ for base in "$AGENTS_SKILLS" "$CLAUDE_SKILLS"; do
   for dest in "$base"/*; do
     [ -L "$dest" ] || continue
     target="$(readlink "$dest")"
+    # Besides links into the current ROOT, match dead links into any
+    # skills/<bucket>/<name> path, which is what a renamed or moved checkout
+    # of this repo leaves behind. Live links are skipped below either way.
     case "$target" in
       "$ROOT"/*) ;;
+      */skills/engineering/*|*/skills/productivity/*|*/skills/misc/*) ;;
+      */skills/in-progress/*|*/skills/deprecated/*) ;;
       *) continue ;;
     esac
     [ -e "$dest" ] && continue
