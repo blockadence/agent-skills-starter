@@ -18,6 +18,10 @@ The engineering documentation suite may be described as production-ready only wh
 - [x] Outputs and prohibitions are explicit.
 - [x] Audit findings route to an owning stage.
 - [x] Source vocabulary and reader-facing vocabulary are treated separately.
+- [x] Engineering substance and source/process provenance have separate source-model treatment.
+- [x] Reviewer adaptation explicitly selects required, supporting, and upstream-only information.
+- [x] Design-document planning has a decision-sufficiency/compression contract.
+- [x] Fidelity audit distinguishes dangerous omission from successful compression.
 - [ ] Exercise every skill against at least one positive fixture.
 - [ ] Exercise every audit against at least one failing fixture.
 - [ ] Verify wrapper retry and routing behavior in Claude Code.
@@ -42,6 +46,9 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] BBB output includes a proper title slide, passes the headline-only story test, establishes Act I orientation before solution mechanics, and preserves progressive disclosure.
 - [ ] BBB visual and verbal channels are complementary, with speaker notes forming a usable rehearsal script.
 - [ ] Design-doc acceptance catches prose transcription when a supported structured representation would materially improve scanability.
+- [ ] Evals default design doc excludes Wayfinder/session bookkeeping and passes decision-load review.
+- [ ] Evals default design doc is materially compressed relative to the explanatory model while retaining decision-critical tradeoffs, risks, compatibility concerns, and uncertainty.
+- [ ] Evals CTO variant is materially adapted and no more detailed than its decision task requires.
 - [ ] PR-review acceptance reconciles every upstream finding and validates diff anchoring, severity ordering, and comment communication form.
 
 ## Operational quality
