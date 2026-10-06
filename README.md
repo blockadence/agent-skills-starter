@@ -43,28 +43,23 @@ Primary orchestrators:
 - `to-design-package`: rigorous engineering specification to design document plus BBB-style presentation package.
 - `to-pr-comments`: verified deep code-review findings to reviewer preamble plus comprehensible inline comments.
 
+These supersede the repository's earlier `to-design-doc` and `to-pr-comments` implementations. Useful rules from those implementations belong in the composable stages that own them rather than in compatibility wrappers.
+
 See `skills/engineering/README.md`, `docs/engineering/skill-composition.md`, and `docs/engineering/production-readiness.md`.
 
 ## Seed skill: `in-my-voice`
 
-`in-my-voice` is a modifier skill. It should shape the expression of another skill's output without changing that skill's substance or output contract.
+`in-my-voice` is a modifier skill. It shapes another skill's output without changing that skill's substance or output contract.
 
 Typical use:
 
 ```text
-Use to-design-doc on proposal.md and apply in-my-voice.
-```
-
-With an override:
-
-```text
-Use to-design-doc on proposal.md and apply in-my-voice with register=professional-formal.
-Audience: senior engineers familiar with this subsystem.
+Use to-design-package on spec.md and apply in-my-voice.
 ```
 
 For Claude Code, the most deterministic pattern is to explicitly invoke the producing skill and mention the modifier in the same instruction.
 
-There is no assumption in this starter repo that two independent slash commands form an atomic pipeline. If a producer needs to call `in-my-voice` internally, keep `in-my-voice` model-reachable and describe that composition in the producer skill.
+There is no assumption in this starter repo that two independent slash commands form an atomic pipeline. If a producer needs to call a modifier internally, keep the modifier model-reachable and describe that composition in the producer skill.
 
 ## Adding a skill
 
