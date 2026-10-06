@@ -12,7 +12,9 @@ This skill follows the repository composition rules.
 - Explicit user instructions have highest precedence.
 - Preserve source truth, uncertainty, terminology, and decision status.
 - Do not invent implementation detail to make an artifact look complete.
-- Reviewer adaptation may change emphasis, order, evidence density, and code-nearness, never facts.
+- Reviewer adaptation may change emphasis, order, evidence density, code-nearness, and reader-facing inclusion, never facts.
+- Fidelity preserves truth, not volume. Reader-facing artifacts should be decision-sufficient rather than source-exhaustive.
+- Keep source-process bookkeeping and exploration history out of reader-facing artifacts unless the process itself is materially part of the engineering decision.
 - Keep reviewer classification, persuasion strategy, generation mechanics, notation choice, and renderer choice out of reader-facing content.
 - Treat source vocabulary and reader-facing vocabulary differently. Preserve source terms internally; introduce or translate them for readers when needed.
 - Route defects to the earliest stage that owns them instead of patching only the final artifact.
@@ -212,7 +214,7 @@ A complete package normally includes:
 - requested intermediate semantic/planning artifacts;
 - audit reports.
 
-Sibling outputs and reviewer variants must agree on technical truth. HTML representations derive from their Markdown source and do not become independent semantic sources.
+Sibling outputs and reviewer variants must agree on technical truth. They need not contain the same volume of information; omission is expected when a detail is not material to that artifact or reviewer's decision task. HTML representations derive from their Markdown source and do not become independent semantic sources.
 
 ## Do not
 
