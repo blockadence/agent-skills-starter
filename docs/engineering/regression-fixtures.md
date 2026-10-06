@@ -44,3 +44,17 @@ Source terms are not banned words. `denominator`, `seam`, and `substrate` are le
 | PR-004 | whole-PR concern anchored to an arbitrary nearby changed line | Fail. Move it to preamble/file-level communication. |
 | PR-005 | inline comment states a verdict but not what the code does, why it matters, or requested change/decision | Fail comprehension gate. |
 | PR-006 | blocking/important/optional/nit findings are emitted in arbitrary order without a reason | Fail communication plan. |
+
+## Decision-relevance and compression fixtures
+
+| ID | Fixture | Expected behavior |
+| --- | --- | --- |
+| PROV-001 | reader-facing prose says `24 in the decision map: 20 resolved, 4 closed out of scope, none open` | Fail intent-leak audit. Preserve map bookkeeping only as internal provenance if traceability requires it. |
+| PROV-002 | generic `Decisions and scope` section primarily inventories how source decisions were resolved | Fail planning/intent audit. Replace with engineering-subject structure only when the underlying choices are material to approval. |
+| COMPRESS-001 | design doc faithfully recounts every resolved design branch and edge case from the spec | Fail decision-load audit. Remove branches that do not materially affect understanding, tradeoffs, risk, compatibility, or approval. |
+| COMPRESS-002 | every section is locally clear but the central design proposition is buried under exhaustive supporting detail | Fail comprehension audit for global cognitive load. |
+| COMPRESS-003 | reviewer adaptation is mostly a reordered copy of the explanatory model | Fail reviewer adaptation. Classify required/supporting/upstream-only and materially select. |
+| COMPRESS-004 | CTO variant is longer solely because the reviewer is code-near/senior | Fail unless the extra detail is decision-relevant. Existing reviewer context may justify greater compression. |
+| COMPRESS-005 | compressed document omits a material alternative whose tradeoff could change approval | Fail source-fidelity audit as dangerous omission. |
+| COMPRESS-006 | compressed document omits a material risk, compatibility concern, or unresolved evidence gap | Fail source-fidelity audit as dangerous omission. |
+| COMPRESS-007 | document omits exploration chronology, ticket counts, non-material rejected branches, and source bookkeeping | Pass fidelity when the resulting artifact remains decision-sufficient. |
