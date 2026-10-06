@@ -40,15 +40,16 @@ Omission from the reviewer surface does not delete or contradict the underlying 
 ## Process
 
 1. Read the explanatory model and optional reviewer profile.
-2. Identify the reviewer's likely information needs, questions, and decision task.
-3. Classify explanatory-model material as:
+2. Identify the reviewer's likely information needs, questions, decision task, and established system knowledge supported by the reviewer profile or explicit context.
+3. Run a **knowledge-subtraction pass** before adding emphasis. For each established platform behavior, ask whether this design changes it, depends on a non-obvious property of it, or exposes a material consequence or risk. If not, presume the reviewer knows it and keep the primer upstream.
+4. Classify explanatory-model material as:
    - **required:** needed for this reviewer's decision;
    - **supporting:** useful evidence/context that may be included when it earns its space;
-   - **upstream-only:** true but unnecessary for this reviewer's decision surface.
-4. Adjust priority, ordering, evidence density, code-nearness, and inclusion.
-5. Convert anticipated pushback into candidate objectives, invariants, evidence, limitations, or implementation details only when decision-relevant.
-6. Keep profile labels and source-process provenance private.
-7. Write `review-adaptation.md`.
+   - **upstream-only:** true but unnecessary for this reviewer's decision surface, including established behavior removed by the knowledge-subtraction pass.
+5. Adjust priority, ordering, evidence density, code-nearness, and inclusion. Prefer the delta, dependency, consequence, or challenge over a tutorial on the surrounding system.
+6. Convert anticipated pushback into candidate objectives, invariants, evidence, limitations, or implementation details only when decision-relevant.
+7. Keep profile labels and source-process provenance private.
+8. Write `review-adaptation.md`.
 
 ## Compression principle
 
@@ -56,7 +57,7 @@ Reviewer adaptation is allowed and expected to remove information from the reade
 
 Preserve decision sufficiency, not exhaustive source coverage. A reviewer should receive enough information to understand, challenge, and decide without replaying the source's exploration history.
 
-More senior or code-near reviewers are not automatically entitled to more text. Their variant may be more compressed when their existing context allows it.
+More senior or code-near reviewers are not automatically entitled to more text. Their variant should be more compressed when established context removes the need for explanation. Do not reteach known platform mechanics merely to make the document self-contained; preserve only the changed behavior, non-obvious dependency, material consequence, or risk needed for this decision.
 
 ## Must preserve
 
@@ -68,4 +69,4 @@ Do not invent reassurance, flatter or manipulate the reviewer, narrate the sourc
 
 ## Completion gate
 
-Before returning, verify every required item survives, upstream-only material is not carried forward by default, and the adaptation is materially selective rather than a reordered copy of the explanatory model.
+Before returning, verify every required item survives, upstream-only material is not carried forward by default, the knowledge-subtraction pass removed unnecessary primers for established reviewer knowledge, and the adaptation is materially selective rather than a reordered copy of the explanatory model.
