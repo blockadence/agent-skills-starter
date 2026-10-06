@@ -1,6 +1,6 @@
 ---
 name: to-design-package
-description: "Orchestrate or resume a production engineering design package from a Wayfinder spec, rigorous engineering specification, or preserved pipeline checkpoint. Use for design documents, BBB-style technical presentations, speaker notes, polished HTML renderings, or downstream regeneration after a specific completed stage."
+description: "Orchestrate or resume a production engineering design package from a Wayfinder spec, rigorous engineering specification, or preserved pipeline checkpoint. Use for design documents, BBB-style technical presentations, speaker notes, polished HTML renderings, reviewer-specific variants, or downstream regeneration after a specific completed stage."
 ---
 
 # to-design-package
@@ -16,10 +16,11 @@ This skill follows the repository composition rules.
 - Keep reviewer classification, persuasion strategy, generation mechanics, notation choice, and renderer choice out of reader-facing content.
 - Treat source vocabulary and reader-facing vocabulary differently. Preserve source terms internally; introduce or translate them for readers when needed.
 - Route defects to the earliest stage that owns them instead of patching only the final artifact.
+- AI authorship is permitted. Generated artifacts remain drafts until a human reviews them; never represent generated content as human-reviewed, approved, or final before that review occurs.
 
 ## Owns
 
-Workflow orchestration, checkpoint/resume behavior, sibling-output consistency, defect routing, and stopping conditions. Leaf skills own their individual transformations.
+Workflow orchestration, checkpoint/resume behavior, reviewer-variant branching, sibling-output consistency, defect routing, and stopping conditions. Leaf skills own their individual transformations.
 
 ## Full pipeline
 
@@ -27,30 +28,36 @@ Workflow orchestration, checkpoint/resume behavior, sibling-output consistency, 
 2. Run `source-model`.
 3. Run `explanatory-model`.
 4. Apply optional `reviewer-adapt`.
-5. Fork from the explanatory model:
+5. Fork from the resulting explanatory/adaptation model:
    - design doc: `design-doc-plan` -> `design-evidence-plan` -> compose Markdown;
    - presentation: `bbb-story-plan` -> evidence/visual planning as needed -> compose HTML slides plus Markdown speaker notes.
 6. Run `source-fidelity-audit`, `comprehension-audit`, and `intent-leak-audit` on semantic artifacts.
 7. Run `render-html-document` for Markdown reader artifacts that require polished HTML representations, including the design document and speaker notes by default for a complete package.
 8. Run `visual-render-audit` for rendered artifacts when visual inspection is available.
-9. Route blocking defects to the earliest owning stage and regenerate only that stage and affected downstream artifacts.
+9. Route blocking defects to the earliest owning stage and regenerate that stage and every affected downstream stage.
 10. Preserve inspectable intermediate artifacts.
-11. Stop only when blocking gates pass or an unresolved source problem is explicitly reported.
+11. Stop only when the requested final outputs have been produced and blocking gates pass, or an unresolved source problem is explicitly reported.
 
 ## Checkpoints and resume
 
 Preserved intermediate and final artifacts are valid workflow checkpoints. Do not repeat an upstream stage merely because this wrapper was invoked again.
+
+`--from=<stage>` means **start execution at this stage and continue through every downstream stage required to produce the requested final package**. It does not mean run only that stage.
 
 When the user asks to resume, regenerate, rerender, or continue from existing artifacts:
 
 1. Identify the earliest stage required by the requested change.
 2. Verify the artifacts required by that stage exist and are readable.
 3. Treat those artifacts as authoritative checkpoint inputs for downstream work.
-4. Run only the requested stage and stages that depend on its changed output.
-5. Do not reread the original spec or rebuild semantic models unless the requested operation depends on them or checkpoint validation exposes a missing/inconsistent prerequisite.
-6. Report which checkpoint was used and which stages were skipped.
+4. Execute the selected stage.
+5. Continue through every downstream stage affected by its output until the requested final artifacts and audits are complete.
+6. Skip unaffected stages before the selected checkpoint.
+7. Do not reread the original spec or rebuild earlier semantic models unless the requested operation depends on them or checkpoint validation exposes a missing/inconsistent prerequisite.
+8. Report which checkpoint was used, which upstream stages were skipped, and which downstream stages ran.
 
-The user may optionally specify `--from=<stage>` to make the checkpoint explicit. Supported conceptual stages are:
+If the user wants only a leaf-stage artifact, invoke that leaf skill directly rather than using `to-design-package`.
+
+Supported conceptual `--from` stages are:
 
 - `source-model`
 - `explanatory-model`
@@ -63,26 +70,82 @@ The user may optionally specify `--from=<stage>` to make the checkpoint explicit
 - `render-html`
 - `visual-audit`
 
-Treat `--from` as a workflow composition hint, not a reason to invent a larger CLI. Validate that the inputs required by the named stage exist. If they do not, stop and identify the missing checkpoint rather than silently rerunning the entire pipeline.
+Validate that the inputs required by the named stage exist. If they do not, stop and identify the missing checkpoint rather than silently rerunning the entire pipeline.
 
-### Rendering-only resume
+## Reviewer variants
+
+The optional `--reviewer=<profile>` parameter selects a reviewer adaptation. It is meaningful when the run includes `reviewer-adapt`, including a resume from that stage.
+
+Known profiles may include `collaborator`, `cto`, and `adversarial`. Resolve the requested profile through the installed reviewer profile/adaptation machinery rather than exposing the private classification inside reader-facing prose.
+
+Examples:
+
+```text
+/to-design-package --from=reviewer-adapt --reviewer=cto
+```
+
+```text
+/to-design-package --from=reviewer-adapt --reviewer=adversarial
+```
+
+A reviewer variant is a complete downstream package, not merely `review-adaptation.md`. The adaptation artifact is the branch checkpoint. Continue from it through planning, composition, semantic audits, HTML rendering, and visual QA.
+
+Reviewer variants must preserve technical truth and decision status while allowing materially different information architecture, emphasis, evidence density, code-nearness, risk treatment, and explanatory connective tissue.
+
+### Variant output isolation
+
+Never overwrite another reviewer variant or the default package.
+
+Write each explicit reviewer variant under a stable reviewer-specific namespace, for example:
+
+```text
+design-package/
+  default/
+    design-doc.md
+    design-doc.html
+    slides.html
+    speaker-notes.md
+    speaker-notes.html
+  cto/
+    review-adaptation.md
+    design-doc.md
+    design-doc.html
+    slides.html
+    speaker-notes.md
+    speaker-notes.html
+  adversarial/
+    review-adaptation.md
+    design-doc.md
+    design-doc.html
+    slides.html
+    speaker-notes.md
+    speaker-notes.html
+```
+
+Intermediate planning artifacts and audit reports for a variant belong in that variant's namespace as well.
+
+## Rendering-only resume
 
 If Markdown design and speaker-note artifacts already exist and the user only wants their HTML representations, resume at `render-html`.
-
-Example:
 
 ```text
 /to-design-package --from=render-html design-doc.md speaker-notes.md
 ```
 
-Equivalent natural-language invocation:
+This path runs `render-html-document` for the supplied Markdown artifacts and then rendered visual QA when available. Because the requested final outputs are the HTML representations, it does not rerun source modeling, explanation, reviewer adaptation, planning, composition, or semantic audits unless explicitly requested.
 
-```text
-Resume to-design-package at HTML rendering using design-doc.md and speaker-notes.md.
-Do not regenerate upstream artifacts.
-```
+## Human review boundary
 
-This path runs `render-html-document` for the supplied Markdown artifacts and then rendered visual QA when available. It does not rerun source modeling, explanation, reviewer adaptation, design planning, BBB story planning, composition, or semantic audits unless the user explicitly asks.
+The workflow exists to produce AI-authored engineering artifacts that humans can understand and review.
+
+Do not enforce a blanket source constraint that says AI may not draft design-document prose or reasoning. If such a constraint appears in the source fixture, interpret the intended process requirement as human review before presentation as reviewed or approved work, unless the user explicitly instructs otherwise.
+
+Human review is the authority boundary:
+
+- generation and reasoning may be AI-assisted;
+- generated artifacts are drafts;
+- a human must review them before they are represented as human-reviewed, approved, or final;
+- do not leak internal deliberation about this boundary into normal reader-facing artifacts or wrapper completion prose.
 
 ## Output
 
@@ -96,12 +159,12 @@ A complete package normally includes:
 - requested intermediate semantic/planning artifacts;
 - audit reports.
 
-Sibling outputs must agree on technical truth. HTML representations derive from their Markdown source and do not become independent semantic sources.
+Sibling outputs and reviewer variants must agree on technical truth. HTML representations derive from their Markdown source and do not become independent semantic sources.
 
 ## Do not
 
-Do not collapse the pipeline into one giant prompt. Do not use the design doc as the source for the slide deck. Do not patch only final rendering when an upstream stage owns the defect. Do not rerun valid upstream checkpoints when the requested work is downstream-only.
+Do not collapse the pipeline into one giant prompt. Do not use the design doc as the source for the slide deck. Do not patch only final rendering when an upstream stage owns the defect. Do not rerun valid upstream checkpoints when the requested work is downstream-only. Do not stop a wrapper run at an intermediate artifact when downstream final outputs were requested.
 
 ## Completion gate
 
-Before returning, verify this skill's output contract. For resumed runs, also report the checkpoint used, skipped upstream stages, regenerated outputs, and unresolved defects with the earliest owning stage.
+Before returning, verify the requested final outputs exist and satisfy this skill's output contract. For resumed runs, also report the checkpoint used, skipped upstream stages, downstream stages executed, regenerated outputs, and unresolved defects with the earliest owning stage.
