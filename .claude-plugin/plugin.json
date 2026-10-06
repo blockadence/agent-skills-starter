@@ -1,5 +1,5 @@
 {
-  "name": "my-agent-skills",
+  "name": "agent-skills",
   "version": "0.1.0",
   "description": "Personal composable agent skills",
   "skills": [

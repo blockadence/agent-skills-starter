@@ -1,11 +1,11 @@
 {
-  "name": "my-agent-skills-marketplace",
+  "name": "agent-skills-marketplace",
   "owner": {
     "name": "local"
   },
   "plugins": [
     {
-      "name": "my-agent-skills",
+      "name": "agent-skills",
       "source": "./",
       "description": "Personal composable agent skills"
     }

@@ -1,4 +1,4 @@
-# My Agent Skills
+# Agent Skills
 
 A starter repository for small, composable agent skills. The layout is inspired by Matt Pocock's `skills` repository, but this repo is intentionally minimal so it can evolve around your own workflows.
 
