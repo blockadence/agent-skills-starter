@@ -4,6 +4,31 @@ Producing skills own substance, structure, evidence, and output contracts. Modif
 
 Apply modifiers during generation, not as blind post-processing rewrites.
 
+## Reason once, transform deterministically
+
+Use generative reasoning where engineering judgment is still unresolved. Once a stage records a decision in an explicit intermediate artifact, downstream stages should consume that decision as a contract rather than repeatedly re-deciding it.
+
+As the pipeline moves downstream, generative freedom should decrease:
+
+```text
+reason -> classify -> select -> plan
+                         |
+                         v
+                    contract
+                         |
+                         v
+              compose -> project -> render -> validate
+```
+
+Examples:
+
+- source interpretation, reviewer relevance, evidence choice, and slide depth membership require judgment;
+- once reviewer relevance is classified, composition must not casually resurrect upstream-only material;
+- once an evidence plan selects a representation, composition/rendering must not silently replace it with prose;
+- once the canonical Deep slide inventory records stable slide IDs and depth membership, Core and Standard are deterministic projections that change visibility only.
+
+This is a determinism boundary, not a prohibition on language generation. Composition may still realize planned prose and visuals, but it must preserve settled upstream semantics and structural decisions.
+
 ## Precedence
 
 1. Explicit user instructions.
@@ -103,7 +128,7 @@ Information may remain true and useful while being absent from a particular read
 - `design-doc-plan` selects the minimum approval surface. Downstream implementation usefulness alone is not a reason to include content.
 - `reviewer-adapt` subtracts established reviewer knowledge before adding emphasis. Known platform behavior remains upstream unless the design changes it, relies on a non-obvious property of it, or exposes a material consequence or risk.
 - `design-evidence-plan` treats supported technical representations as compression surfaces. Prefer a diagram, contract, or structured representation when it preserves the decision-relevant relationship with less reconstruction work than prose.
-- `bbp-story-plan` selects presentation depth hierarchically: Core Anchors, Standard Explanations, Deep Details. Longer views select additional slides from one canonical tree while preserving every shared slide unchanged.
+- `bbp-story-plan` authors Deep as the canonical presentation fixed point, records stable slide identity and depth membership once, then derives Core and Standard as deterministic projections. Shared slides remain unchanged across views.
 - Reviewer profiles do not fork presentation stories. Audience-aware delivery guidance belongs in speaker notes.
 - BBP's approximate 5/15/45-minute versions and Rule of Three guide prioritization; they are not rigid timing or cardinality constraints.
 - Presentation layout and recurring motifs carry story-level orientation in addition to the headline sequence.
