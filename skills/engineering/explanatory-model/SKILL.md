@@ -19,19 +19,28 @@ This skill follows the repository composition rules.
 
 ## Owns
 
-Causal explanation, concept dependencies, design objectives and invariants, change surface, unknown disposition, and the cold-reader mental model.
+Causal explanation, concept dependencies, design objectives and invariants, change surface, unknown disposition, evidence needs, and the cold-reader mental model.
 
 ## Process
 
 1. Read `source-model.md`.
 2. State the topic in one sentence.
-3. Build problem -> consequence -> design-response chains.
-4. Order concepts by dependency: what must be understood before what.
-5. Identify design objectives and invariants.
-6. Describe meaningful change surface as unchanged, modified, and new.
-7. Record compatibility implications, risks, mitigations, unknown dispositions, evidence plans, and the supported implementation path.
-8. Flag any explanation that would require an unsupported assumption.
-9. Write `explanatory-model.md`.
+3. Establish how the important systems, actors, boundaries, and artifacts fit together before relying on their consequences.
+4. Build problem -> mechanism -> consequence -> design-response chains.
+5. Apply **mechanism before consequence**: for every non-self-evident claim, explain the causal connection before asking the reader to accept what follows from it.
+6. Order concepts by dependency: what must be understood before what.
+7. Identify design objectives and invariants.
+8. Describe meaningful change surface as unchanged, modified, and new.
+9. Record compatibility implications, risks, mitigations, unknown dispositions, evidence plans, and the supported implementation path.
+10. Give each fact or explanation one primary home. Refer back rather than fully re-explaining the same fact in multiple conceptual sections.
+11. Flag any explanation that requires an unsupported assumption or leaves a causal step for the reader to infer.
+12. Write `explanatory-model.md`.
+
+## Comprehension tests
+
+- **Predictive test:** after reading a mechanism, could a competent cold reader derive the stated consequence?
+- **Second-read test:** if a passage or causal chain requires rereading because a connection is missing, the model is incomplete. Add the missing connection rather than surrounding it with more prose.
+- **One-home test:** repeated full explanations of the same fact are a modeling defect unless the contexts genuinely require different reasoning.
 
 ## Output
 
@@ -43,8 +52,8 @@ All source truth and uncertainty from `source-model.md`.
 
 ## Do not
 
-Do not write final reader-facing prose, choose renderers, expose reviewer strategy, or replace precise source meaning with a lossy simplification.
+Do not write final reader-facing prose, choose renderers, expose reviewer strategy, replace precise source meaning with a lossy simplification, or make the reader infer a load-bearing connection that can be stated.
 
 ## Completion gate
 
-Before returning, verify this skill's output contract. Report unresolved defects with the earliest owning stage.
+Before returning, run the predictive, second-read, and one-home tests on the load-bearing reasoning. Report unresolved defects with the earliest owning stage.
