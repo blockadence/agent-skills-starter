@@ -59,9 +59,17 @@ Preserve decision sufficiency, not exhaustive source coverage. A reviewer should
 
 More senior or code-near reviewers are not automatically entitled to more text. Their variant should be more compressed when established context removes the need for explanation. Do not reteach known platform mechanics merely to make the document self-contained; preserve only the changed behavior, non-obvious dependency, material consequence, or risk needed for this decision.
 
+## Evidence-preservation rule
+
+Knowledge subtraction applies to explanation, not automatically to technical evidence.
+
+A reviewer may not need a diagram that only reteaches established mechanics. However, preserve or explicitly reconsider a technical representation when it exposes a proposed change, new or changed boundary, runtime interaction, concurrency property, failure mode, compatibility constraint, irreversible choice, or other decision-relevant relationship. Expert familiarity is not by itself a reason to delete that evidence.
+
+Reviewer variants do not need diagram parity. They need decision-evidence sufficiency.
+
 ## Must preserve
 
-Technical truth and decision status. Do not omit a material tradeoff, risk, compatibility concern, unresolved question, or evidence gap merely to shorten the artifact.
+Technical truth and decision status. Do not omit a material tradeoff, risk, compatibility concern, unresolved question, evidence gap, or decision-relevant technical representation merely to shorten the artifact.
 
 ## Do not
 
@@ -69,4 +77,4 @@ Do not invent reassurance, flatter or manipulate the reviewer, narrate the sourc
 
 ## Completion gate
 
-Before returning, verify every required item survives, upstream-only material is not carried forward by default, the knowledge-subtraction pass removed unnecessary primers for established reviewer knowledge, and the adaptation is materially selective rather than a reordered copy of the explanatory model.
+Before returning, verify every required item survives, upstream-only material is not carried forward by default, the knowledge-subtraction pass removed unnecessary primers for established reviewer knowledge, decision-relevant technical evidence was not removed merely because the reviewer is expert, and the adaptation is materially selective rather than a reordered copy of the explanatory model.
