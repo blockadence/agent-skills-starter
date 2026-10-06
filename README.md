@@ -73,12 +73,36 @@ Use frontmatter with `name` and a short, trigger-oriented `description`.
 
 Add a human-facing `README.md` for promoted skills. Add linked reference files when the skill needs stable detail without bloating its main instructions.
 
-## Local linking
+## Local installation
 
-`scripts/link-skills.sh` symlinks this repo's skills into `~/.claude/skills` and `~/.agents/skills`.
+`scripts/install-skills.sh` installs this repository's skills into the local setup. One symlink per skill goes into each of:
 
-```bash
-./scripts/link-skills.sh
+```text
+~/.agents/skills/<name>   # skill store shared across agent tools
+~/.claude/skills/<name>   # what Claude Code reads
 ```
 
-Re-run it after adding or renaming skills.
+```bash
+./scripts/install-skills.sh            # engineering, productivity, misc
+./scripts/install-skills.sh --dry-run  # report changes without making them
+```
+
+Options:
+
+- `--buckets a,b`: install only these buckets.
+- `--all-buckets`: include `in-progress` and `deprecated`.
+- `--only a,b`: install only these skill names.
+- `--dry-run`: report what would change and change nothing.
+- `--no-lock-prune`: leave `~/.agents/.skill-lock.json` untouched.
+
+### Name conflicts
+
+Skills installed from elsewhere live in `~/.agents/skills` as real directories and are tracked in `~/.agents/.skill-lock.json`. When a skill in this repository has the same name as one of those, the installer:
+
+1. moves the installed copy to `~/.agents/skills-backup/<timestamp>/`,
+2. links the name to this repository instead,
+3. drops the name from `.skill-lock.json` (backed up alongside it) so the upstream installer does not reinstall over the symlink.
+
+A packaged `<name>.skill` archive that would shadow the same name is backed up the same way.
+
+The installer is idempotent, so re-run it after adding or renaming skills. It also removes links into this repository whose target no longer exists, which is how a renamed or deleted skill gets cleaned up.

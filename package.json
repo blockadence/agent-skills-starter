@@ -5,6 +5,6 @@
   "description": "Personal composable agent skills",
   "license": "UNLICENSED",
   "scripts": {
-    "link-skills": "bash scripts/link-skills.sh"
+    "install-skills": "bash scripts/install-skills.sh"
   }
 }
