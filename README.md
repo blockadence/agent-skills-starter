@@ -7,8 +7,10 @@ A starter repository for small, composable agent skills. The layout is inspired 
 - Keep skills small and composable.
 - Let producing skills own substance and artifact structure.
 - Let modifier skills own cross-cutting concerns such as voice, tone, review discipline, or presentation.
+- Let audit skills verify contracts and route defects without silently becoming authors.
 - Prefer predictable process over giant prompts.
 - Keep detailed reference material out of `SKILL.md` when it does not need to be loaded every time.
+- Fix defects at the earliest skill stage that owns them.
 
 ## Repository layout
 
@@ -25,6 +27,23 @@ docs/                   # human-facing notes for promoted skills
 .claude-plugin/          # optional Claude Code plugin manifest
 scripts/                 # local helper scripts
 ```
+
+## Engineering documentation suite
+
+The engineering bucket includes a composable documentation and review-communication pipeline. The shared center is:
+
+```text
+source-model -> explanatory-model -> optional reviewer-adapt
+```
+
+Artifact-specific planners then produce design-document, presentation, or PR-review communication plans. Shared fidelity, comprehension, intent-leak, and rendered-visual audits act as gates.
+
+Primary orchestrators:
+
+- `to-design-package`: rigorous engineering specification to design document plus BBB-style presentation package.
+- `to-pr-comments`: verified deep code-review findings to reviewer preamble plus comprehensible inline comments.
+
+See `skills/engineering/README.md`, `docs/engineering/skill-composition.md`, and `docs/engineering/production-readiness.md`.
 
 ## Seed skill: `in-my-voice`
 
@@ -43,11 +62,7 @@ Use to-design-doc on proposal.md and apply in-my-voice with register=professiona
 Audience: senior engineers familiar with this subsystem.
 ```
 
-For Claude Code, the most deterministic pattern is to explicitly invoke the producing skill and mention the modifier in the same instruction, for example:
-
-```text
-/to-design-doc proposal.md. Apply in-my-voice with register=professional-formal.
-```
+For Claude Code, the most deterministic pattern is to explicitly invoke the producing skill and mention the modifier in the same instruction.
 
 There is no assumption in this starter repo that two independent slash commands form an atomic pipeline. If a producer needs to call `in-my-voice` internally, keep `in-my-voice` model-reachable and describe that composition in the producer skill.
 
@@ -59,16 +74,9 @@ Create a folder under the appropriate bucket:
 skills/<bucket>/<skill-name>/SKILL.md
 ```
 
-Use frontmatter like:
+Use frontmatter with `name` and a short, trigger-oriented `description`.
 
-```yaml
----
-name: my-skill
-description: "Short, trigger-oriented description."
----
-```
-
-Add linked reference files when the skill needs stable detail without bloating its main instructions.
+Add a human-facing `README.md` for promoted skills. Add linked reference files when the skill needs stable detail without bloating its main instructions.
 
 ## Local linking
 
