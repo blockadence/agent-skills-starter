@@ -36,6 +36,20 @@ Comprehension verification at sentence, section, and whole-artifact levels, plus
 11. Emit findings with owning stage.
 12. Return PASS only when no blocking comprehension findings remain.
 
+## Decision-load checks
+
+Comprehension includes deciding what the reader should not have to consume.
+
+For reader-facing approval/review artifacts:
+
+- flag sections or detail that do not materially help the reader understand, evaluate, challenge, or decide;
+- flag exploration history and source-process bookkeeping that survived without decision value;
+- flag documents whose central design proposition is obscured by exhaustive treatment of peripheral truths;
+- distinguish useful depth from completeness-for-its-own-sake;
+- do not demand removal of material tradeoffs, risks, compatibility concerns, or uncertainty merely to shorten the artifact.
+
+A locally clear document can still fail globally if the reader must absorb too much non-material information before reaching a decision.
+
 ## Artifact-level checks
 
 ### Design documents
@@ -44,6 +58,9 @@ Comprehension verification at sentence, section, and whole-artifact levels, plus
 - Sections follow conceptual dependencies rather than source order.
 - Long prose runs are flagged when a supported table, diagram, matrix, contract, or before/after representation would materially reduce reconstruction work.
 - Structured representations do not replace necessary causal reasoning.
+- Every major section earns its place by serving the review/approval decision.
+- The document presents the resulting design rather than replaying the source's exploration history.
+- The central proposition, material mechanism, tradeoffs, risks, and decision request remain prominent relative to supporting detail.
 
 ### BBB presentations
 
@@ -70,4 +87,4 @@ Do not maintain a simplistic banned-word list or silently rewrite final prose.
 
 ## Completion gate
 
-Before returning, verify both local comprehension and whole-artifact progression. Report unresolved defects with the earliest owning stage.
+Before returning, verify local comprehension, whole-artifact progression, and decision-relevant cognitive load. Report unresolved defects with the earliest owning stage.
