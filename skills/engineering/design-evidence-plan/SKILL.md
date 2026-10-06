@@ -28,6 +28,7 @@ Evidence selection, representation selection, canonical notation, source-support
 3. State the conclusion the reader should be able to reach after seeing it.
 4. Classify it as explanatory or technical.
 5. Choose the representation that minimizes reconstruction work without losing causal reasoning: prose, table, matrix, before/after view, canonical diagram, contract block, source-supported code/schema/API/SQL excerpt, or no additional artifact.
+   For architecture, interaction, data-shape, lifecycle, boundary, or contract questions, actively consider C4/context, UML sequence, ER/entity-model, state/activity/deployment, and interface/contract representations before accepting prose.
 6. For technical diagrams, choose canonical notation when available.
 7. Classify support as concrete, conceptual, or unsupported.
 8. Choose renderer separately from notation and state layout intent.
@@ -48,6 +49,8 @@ Do not turn a conceptual behavioral contract into plausible-looking Java, SQL, s
 For each prose-heavy section in the document plan, ask whether its primary job is reasoning or structured comparison/relationship.
 
 If structured representation would materially reduce interpretation, plan it here. If prose is retained, record why prose carries information that the structured form would lose.
+
+Compression must not remove a source-supported technical diagram merely because the same facts can be stated in prose. When a diagram replaces paragraphs, preserves an important relationship, or gives reviewers a faster inspection surface, prefer the diagram and shorten the prose around it.
 
 ## Do not
 

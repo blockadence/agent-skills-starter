@@ -30,7 +30,7 @@ Comprehension verification at sentence, section, and whole-artifact levels, plus
 5. Flag unexplained abstractions and specialist jargon when audience fluency is not established.
 6. Flag passages that require a second read because a causal connection, referent, boundary, or prerequisite is missing.
 7. Flag repeated full explanations of the same fact when one primary home plus a reference would be clearer.
-8. Flag interpretation-heavy sentences, vague referents, rhetorical/meta headings, and repetitive generated-text habits.
+8. Flag interpretation-heavy sentences, vague referents, rhetorical/meta headings, repetitive generated-text habits, and conspicuously authored vocabulary when ordinary engineering language would be clearer. Examples include clever metaphors, literary synonyms, unnecessary taxonomy, or abstract labels such as `load-bearing` where `required`, `critical`, or the concrete dependency says the same thing more directly. Judge by context, not a banned-word list.
 9. Inspect diagrams, tables, labels, and captions for guessing burden.
 10. Audit whole-artifact flow, not only local prose.
 11. Emit findings with owning stage.
@@ -55,6 +55,8 @@ A locally clear document can still fail globally if the reader must absorb too m
 ### Design documents
 
 - A cold reader gets a usable system/problem mental model early.
+- A known expert is not retaught established platform behavior unless it is changed, relied upon in a non-obvious way, or creates a material consequence or risk.
+- Prose is terse enough for a human design decision; implementation-complete explanatory detail remains upstream.
 - Sections follow conceptual dependencies rather than source order.
 - Long prose runs are flagged when a supported table, diagram, matrix, contract, or before/after representation would materially reduce reconstruction work.
 - Structured representations do not replace necessary causal reasoning.
@@ -64,12 +66,14 @@ A locally clear document can still fail globally if the reader must absorb too m
 
 ### BBP presentations
 
-- A proper title slide exists.
+- A proper holding/title slide exists before the story and remains intentionally inert: subject/context only, with no argument, map, or decision request.
 - Read only the slide headlines in order; they must form a coherent progressive story.
 - Opening slides establish subject, relevance, challenge/current state, desired state, and direction before detailed solution mechanics.
 - No slide depends on terminology or a concept introduced later.
 - Visual and verbal channels complement one another.
 - Speaker notes carry spoken reasoning and collectively form a usable rehearsal script.
+- One canonical slide tree underlies all duration/depth variants; shared slides are identical and longer variants add slides rather than regenerating the story.
+- Reviewer knowledge may alter note guidance but does not create a separate presentation narrative or visual language.
 
 ### PR communication
 

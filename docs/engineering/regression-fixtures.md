@@ -58,3 +58,10 @@ Source terms are not banned words. `denominator`, `seam`, and `substrate` are le
 | COMPRESS-005 | compressed document omits a material alternative whose tradeoff could change approval | Fail source-fidelity audit as dangerous omission. |
 | COMPRESS-006 | compressed document omits a material risk, compatibility concern, or unresolved evidence gap | Fail source-fidelity audit as dangerous omission. |
 | COMPRESS-007 | document omits exploration chronology, ticket counts, non-material rejected branches, and source bookkeeping | Pass fidelity when the resulting artifact remains decision-sufficient. |
+
+| DOC-COMPRESS-010 | human design doc teaches established platform mechanics at implementation-agent depth even though the decision depends only on the delta/dependency/risk | Fail decision-load audit. Retain only the mechanism needed to evaluate the design. |
+| DOC-VISUAL-002 | compression removes supported C4/context, sequence, entity/data-model, or interface/contract diagrams and replaces them with longer prose | Fail design-doc/evidence planning. Restore the useful technical representation and shorten surrounding prose. |
+| LANG-001 | reader prose uses conspicuously authored terms such as `load-bearing` or an unnecessary taxonomy such as `Lexical` where ordinary engineering language is clearer | Fail comprehension audit when context does not require the term. Prefer the concrete engineering term; do not enforce a banned-word list. |
+| BBP-011 | title slide contains the three-part argument/map or decision request | Fail. The holding slide is inert; the story begins on the next slide. |
+| BBP-012 | default and CTO runs generate different slide headlines, story maps, or visual languages from the same explanatory model | Fail. One canonical presentation tree serves all reviewer profiles. |
+| BBP-013 | Standard or Deep regenerates/rewords a slide that also appears in Core | Fail. Shared slides are identical; longer variants only add canonical slides. |

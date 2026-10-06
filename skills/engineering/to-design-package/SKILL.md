@@ -29,10 +29,9 @@ Workflow orchestration, checkpoint/resume behavior, reviewer-variant branching, 
 1. Require and read the complete spec.
 2. Run `source-model`.
 3. Run `explanatory-model`.
-4. Apply optional `reviewer-adapt`.
-5. Fork from the resulting explanatory/adaptation model:
-   - design doc: `design-doc-plan` -> `design-evidence-plan` -> compose Markdown;
-   - presentation: `bbp-story-plan` -> evidence/visual planning as needed -> compose HTML slides plus Markdown speaker notes.
+4. Fork by artifact responsibility:
+   - design doc: apply optional `reviewer-adapt`, then `design-doc-plan` -> `design-evidence-plan` -> compose Markdown;
+   - presentation: branch directly from the shared `explanatory-model`, then `bbp-story-plan` -> evidence/visual planning as needed -> compose one canonical HTML slide tree plus Markdown speaker notes and sibling depth/duration selections. Reviewer profiles may add delivery guidance to notes but do not create independent slide stories.
 6. Run `source-fidelity-audit`, `comprehension-audit`, and `intent-leak-audit` on semantic artifacts.
 7. Run `render-html-document` for Markdown reader artifacts that require polished HTML representations, including the design document and speaker notes by default for a complete package.
 8. Run `visual-render-audit` for rendered artifacts when visual inspection is available.
@@ -42,9 +41,9 @@ Workflow orchestration, checkpoint/resume behavior, reviewer-variant branching, 
 
 ## Package topology
 
-The package has one shared semantic root and zero or more reviewer-specific branches.
+The package has one shared semantic root, one canonical presentation branch, and zero or more reviewer-specific design-document branches.
 
-Everything before reviewer adaptation is shared because it represents common source truth. Everything at or after reviewer adaptation belongs to a reviewer branch.
+Everything before reviewer adaptation is shared because it represents common source truth. The canonical presentation also remains shared and derives from the explanatory model. Reviewer adaptation branches the design document and may contribute optional audience-aware speaker-note guidance, but it does not fork slide content or visual structure.
 
 Use this topology:
 
@@ -54,31 +53,28 @@ design-package/
     source-model.md
     explanatory-model.md
     ...other shared source/evidence artifacts
-  default/
-    ...variant planning artifacts
-    design-doc.md
-    design-doc.html
+  presentation/
+    bbp-story-plan.md
     slides.html
     speaker-notes.md
     speaker-notes.html
+    ...depth selections / audits
+  default/
+    ...design-doc planning artifacts
+    design-doc.md
+    design-doc.html
     audits/
   cto/
     review-adaptation.md
-    ...variant planning artifacts
+    ...design-doc planning artifacts
     design-doc.md
     design-doc.html
-    slides.html
-    speaker-notes.md
-    speaker-notes.html
     audits/
   adversarial/
     review-adaptation.md
-    ...variant planning artifacts
+    ...design-doc planning artifacts
     design-doc.md
     design-doc.html
-    slides.html
-    speaker-notes.md
-    speaker-notes.html
     audits/
 ```
 
@@ -88,7 +84,7 @@ The original specification remains an external source input unless the user asks
 
 Do not duplicate `source-model.md` or `explanatory-model.md` inside reviewer branches. Do not make one reviewer branch depend semantically on another reviewer branch.
 
-The default package is the unprofiled/default ENGINEERING branch. Explicit reviewer profiles create sibling branches from the shared explanatory model.
+The default design document is the unprofiled/default ENGINEERING branch. Explicit reviewer profiles create sibling design-document branches from the shared explanatory model. The presentation is canonical and shared across those branches.
 
 ## Checkpoints and resume
 
@@ -140,9 +136,9 @@ Examples:
 /to-design-package --from=reviewer-adapt --reviewer=adversarial
 ```
 
-A reviewer variant is a complete downstream package, not merely `review-adaptation.md`. The adaptation artifact is the branch checkpoint. Continue from it through planning, composition, semantic audits, HTML rendering, and visual QA.
+A reviewer variant is a complete downstream **design-document** package, not merely `review-adaptation.md`. The adaptation artifact is the branch checkpoint. Continue from it through design-doc planning, composition, semantic audits, HTML rendering, and visual QA. Reuse the canonical presentation; do not regenerate slides for the reviewer.
 
-Reviewer variants must preserve technical truth and decision status while allowing materially different information architecture, emphasis, evidence density, code-nearness, risk treatment, and explanatory connective tissue.
+Reviewer design-document variants must preserve technical truth and decision status while allowing materially different information architecture, emphasis, evidence density, code-nearness, risk treatment, and explanatory connective tissue. Presentation slides remain invariant; audience-aware delivery differences belong in speaker notes.
 
 ### Variant output isolation
 
@@ -155,26 +151,21 @@ design-package/
   source/
     source-model.md
     explanatory-model.md
-  default/
-    design-doc.md
-    design-doc.html
+  presentation/
     slides.html
     speaker-notes.md
     speaker-notes.html
+  default/
+    design-doc.md
+    design-doc.html
   cto/
     review-adaptation.md
     design-doc.md
     design-doc.html
-    slides.html
-    speaker-notes.md
-    speaker-notes.html
   adversarial/
     review-adaptation.md
     design-doc.md
     design-doc.html
-    slides.html
-    speaker-notes.md
-    speaker-notes.html
 ```
 
 Intermediate planning artifacts and audit reports for a variant belong in that variant's namespace as well.
@@ -214,7 +205,7 @@ A complete package normally includes:
 - requested intermediate semantic/planning artifacts;
 - audit reports.
 
-Sibling outputs and reviewer variants must agree on technical truth. They need not contain the same volume of information; omission is expected when a detail is not material to that artifact or reviewer's decision task. HTML representations derive from their Markdown source and do not become independent semantic sources.
+Sibling outputs and reviewer design-document variants must agree on technical truth. They need not contain the same volume of information; omission is expected when a detail is not material to that artifact or reviewer's decision task. HTML representations derive from their Markdown source and do not become independent semantic sources.
 
 ## Do not
 

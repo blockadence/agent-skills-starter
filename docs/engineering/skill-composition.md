@@ -19,8 +19,8 @@ A modifier may change expression, emphasis, or presentation. It must not change 
 source
   -> source-model
   -> explanatory-model
-  -> reviewer-adapt (optional)
-  -> artifact-specific planning
+       -> reviewer-adapt (optional) -> design-doc planning
+       -> canonical BBP story/slide tree
   -> composition
   -> rendering
   -> audits
@@ -35,15 +35,16 @@ The former `to-design-doc` skill is intentionally removed rather than retained a
 
 ## Shared source and reviewer branches
 
-Artifacts before reviewer adaptation represent common technical truth and belong in a shared source namespace. Artifacts at or after reviewer adaptation belong to the selected reviewer branch.
+Artifacts before reviewer adaptation represent common technical truth and belong in a shared source namespace. Reviewer adaptation branches design-document work only. The BBP presentation remains a shared sibling derived from the explanatory model so reviewer profiles cannot reinvent its story or visual language.
 
 ```text
 spec
   -> source/source-model
   -> source/explanatory-model
-       -> default/...
-       -> cto/...
-       -> adversarial/...
+       -> presentation/...  (canonical slide tree + depth selections)
+       -> default/...       (design document)
+       -> cto/...           (adapted design document)
+       -> adversarial/...   (adapted design document)
 ```
 
 Reviewer branches are siblings. They may reference the shared source artifacts but must not derive from one another. This makes `source/explanatory-model.md` both the normal branch point and the truth-equivalence anchor for reviewer variants.
@@ -100,6 +101,7 @@ When review or an audit finds a defect, classify it and repair the earliest stag
 Information may remain true and useful while being absent from a particular reader artifact.
 
 - `design-doc-plan` selects the minimum approval surface. Downstream implementation usefulness alone is not a reason to include content.
-- `bbp-story-plan` selects presentation depth hierarchically: Core Anchors, Standard Explanations, Deep Details. Longer views expand shorter views while preserving the same thesis.
+- `bbp-story-plan` selects presentation depth hierarchically: Core Anchors, Standard Explanations, Deep Details. Longer views select additional slides from one canonical tree while preserving every shared slide unchanged.
+- Reviewer profiles do not fork presentation stories. Audience-aware delivery guidance belongs in speaker notes.
 - BBP's approximate 5/15/45-minute versions and Rule of Three guide prioritization; they are not rigid timing or cardinality constraints.
 - Presentation layout and recurring motifs carry story-level orientation in addition to the headline sequence.

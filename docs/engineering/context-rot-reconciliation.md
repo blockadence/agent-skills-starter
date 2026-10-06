@@ -115,3 +115,24 @@ New invariants:
 - story levels have distinguishable visual treatment;
 - map/Anchor motifs provide orientation across the deck;
 - deviations from three siblings are allowed when the subject's natural structure warrants them.
+
+
+## Acceptance observation: canonical presentation and human-review compression
+
+The next Evals default/CTO run showed that the CTO deck had materially stronger visual organization than the default deck even though both represented the same design. Independent reviewer-specific presentation generation was the cause: reviewer adaptation sat upstream of BBP planning, allowing each run to invent a different story map and visual language.
+
+The default design document also remained too close to implementation-agent depth and lost useful technical diagrams during compression.
+
+New invariants:
+
+- one design has one canonical BBP story and slide tree;
+- reviewer profiles do not fork slide content or visual language;
+- Core / Standard / Deep (or practical 15/30/45-ish) variants are sibling selections from that tree, not independent generations;
+- a slide shared by variants is identical in headline, content, visual treatment, and narrative position;
+- audience-aware differences belong primarily in design-document adaptation and speaker-note delivery guidance;
+- the first slide is a holding slide for the room before the talk begins and contains no story argument or map;
+- human design documents are intentionally terser than implementation-agent context;
+- supported C4/context, sequence, entity/data-model, and interface/contract diagrams are compression tools and must not disappear merely because prose can restate them;
+- prefer ordinary engineering language over conspicuously authored synonyms or taxonomy when meaning is unchanged.
+
+The successful visual lesson from the CTO deck remains: a small number of strongly differentiated story stations, recurring map motifs, and unmistakable Anchor / Explanation / Detail treatments are preferable to a visually flat deck. The exact labels are content decisions, not a requirement to preserve `Cheap / Honest / Committed` as vocabulary.

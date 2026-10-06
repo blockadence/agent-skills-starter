@@ -29,7 +29,7 @@ The design document is an approval/review artifact, not an exhaustive replay of 
 Include the minimum information necessary for the intended reviewer to:
 
 1. understand the problem and desired outcome;
-2. understand the proposed design and its load-bearing mechanism;
+2. understand the proposed design and the mechanism that makes it work;
 3. evaluate material alternatives and tradeoffs;
 4. identify material risks, failure modes, and unresolved evidence;
 5. assess compatibility, migration, and blast radius when relevant;
@@ -55,8 +55,14 @@ A true detail that does not materially serve one of those jobs normally remains 
    - the reviewer question it answers;
    - why that question is material to approval;
    - what upstream detail is deliberately omitted.
-11. Decide which information should remain prose and which should become a structured representation.
-12. Write `design-doc-plan.md`.
+11. Build an internal information-priority tree for the document:
+   - **Scan:** design proposition, a small set of major design pillars, material consequences, and decision requested;
+   - **Review:** the mechanism, tradeoffs, compatibility, risks, and evidence needed to evaluate those pillars;
+   - **Deep reference:** decision-relevant edge cases, detailed alternatives, validation detail, API specifics, and other material reference information that would interrupt the main argument.
+   Prefer roughly three major design pillars when the subject naturally supports it. This is a prioritization heuristic, never a quota. Deeper levels elaborate the same proposition rather than introducing a competing structure.
+12. Decide which information should remain prose and which should become a structured representation.
+13. Treat technical diagrams as compression tools, not decoration. Preserve or introduce supported context/C4, sequence, entity/data-model, state, deployment, and interface/contract views when they replace substantial prose or make a decision-critical relationship easier to inspect. Compression must not delete a useful technical representation merely because its facts also exist in prose.
+14. Write `design-doc-plan.md`.
 
 ## Compression rule
 
@@ -69,6 +75,8 @@ Include a rejected alternative when understanding why it lost materially helps e
 **Decision-relevant does not mean downstream-useful.** Information may be useful to implementers or ticket authors while still being unnecessary for design approval. Keep that material upstream.
 
 Compression is not summarization by word deletion. Remove entire non-material branches of information before polishing the material that remains.
+
+Prefer terse engineering prose. A human design reviewer does not need the implementation agent's complete explanatory context. Keep enough causal reasoning to defend the design, then stop. If a paragraph mainly teaches established platform behavior to a reviewer who already knows it, retain only the changed behavior, non-obvious dependency, consequence, or risk.
 
 ## Representation rule
 
@@ -95,6 +103,8 @@ Before returning:
 1. apply the decision-sufficiency test to every section;
 2. remove sections/details that cannot justify their place;
 3. verify no material tradeoff/risk/compatibility issue was lost;
-4. inspect remaining prose for better structured representations.
+4. inspect remaining prose for better structured representations;
+5. verify Scan, Review, and Deep-reference information elaborate one design proposition rather than competing structures;
+6. verify useful supported technical diagrams/contracts were not lost during compression.
 
 Report unresolved defects with the earliest owning stage.

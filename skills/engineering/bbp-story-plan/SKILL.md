@@ -12,7 +12,7 @@ This skill follows the repository composition rules.
 - Explicit user instructions have highest precedence.
 - Preserve source truth, uncertainty, terminology, and decision status.
 - Do not invent implementation detail to make an artifact look complete.
-- Reviewer adaptation may change emphasis, order, evidence density, and code-nearness, never facts.
+- The canonical presentation story derives from the shared explanatory model, not from reviewer adaptation. Reviewer knowledge may affect speaker-note guidance, never create a different slide story or visual language.
 - Keep reviewer classification, persuasion strategy, generation mechanics, notation choice, and renderer choice out of reader-facing content.
 - Treat source vocabulary and reader-facing vocabulary differently. Preserve source terms internally; introduce or translate them for readers when needed.
 - Route defects to the earliest stage that owns them instead of patching only the final artifact.
@@ -23,8 +23,8 @@ Presentation narrative, title-to-resolution sequence, hierarchical progressive d
 
 ## Process
 
-1. Establish the audience's starting mental model and the review or decision task.
-2. Create a proper title slide that names the engineering subject. Do not use an argumentative question or a mid-story claim as the title slide.
+1. Establish the shared engineering subject and review or decision task from the explanatory model. Do not create a new narrative spine for each reviewer profile.
+2. Create a **holding/title slide** before the story begins. It exists to remain on screen while the audience gathers. Keep it intentionally inert: engineering subject, optional short subtitle/context, and optional presenter/team/date. Do not put the argument, story map, decision request, three-part thesis, or other narrative content on it. The holding slide does not consume one of the opening story functions.
 3. Plan the opening story before the technical body. Adapt the BBP Act I functions to engineering communication:
    - **Hook:** establish the subject and why this discussion exists.
    - **Relevance:** connect the subject to the audience's concrete responsibility, system, or decision.
@@ -36,11 +36,11 @@ Presentation narrative, title-to-resolution sequence, hierarchical progressive d
    - **Explanation level:** the reasoning needed to understand and evaluate each Anchor;
    - **Detail level:** supporting mechanism, evidence, examples, edge cases, and qualification needed for deeper review.
    Prefer roughly three siblings at a major narrative level as the BBP Rule of Three heuristic. Do not invent, merge, or omit substantive concepts merely to hit three.
-5. Plan three depth views from the same hierarchy. Treat BBP's approximately 5-, 15-, and 45-minute versions as useful planning lenses, not clock contracts:
+5. Plan sibling duration/depth variants from one canonical slide tree. Treat BBP's approximately 5-, 15-, and 45-minute versions as useful planning lenses, not clock contracts:
    - **Core view:** title/opening plus Anchors and resolution;
    - **Standard view:** Core plus the material Explanations;
    - **Deep view:** Standard plus decision-relevant Details.
-   A real presentation may be 7, 25, 60, or another duration. Preserve the information-priority hierarchy rather than forcing exact timings.
+   A real presentation may be 15, 30, 45, 60, or another duration. Preserve the information-priority hierarchy rather than forcing exact timings. A slide included in more than one variant is the **same canonical slide**: same headline, content, visual treatment, and narrative position. Variants select slides; they do not regenerate or rewrite them.
 6. Require story inheritance: every longer view expands the shorter view. It must not replace its thesis, reorder the causal spine into a different story, or depend on Details to make an Anchor intelligible.
 7. Sequence each depth by explanatory dependency. Introduce mechanism before consequences that depend on it.
 8. Reveal solution details only after the problem and desired state are understandable.
@@ -48,7 +48,7 @@ Presentation narrative, title-to-resolution sequence, hierarchical progressive d
 10. Plan the verbal and visual channels together:
    - the headline carries the story thread;
    - the visual makes the slide's main relationship, mechanism, comparison, or evidence easier to grasp;
-   - speaker notes carry the spoken explanation, nuance, transitions, and evidence that should not crowd the slide.
+   - speaker notes carry the spoken explanation, nuance, transitions, evidence, and optional audience-aware delivery guidance that should not crowd or fork the slide.
    - layout and visual treatment communicate story level and orientation, not decoration alone.
    - Anchor, Explanation, and Detail slides must be visually distinguishable without reader-facing labels such as "Anchor slide" or "Detail slide".
    - reuse visual motifs from the map and prior Anchors so the audience can recognize where the current slide belongs in the larger story.
@@ -87,9 +87,10 @@ For each slide record:
 
 Also include:
 
-- title-slide plan;
-- explicit Anchor → Explanation → Detail story tree;
-- Core / Standard / Deep slide selections with approximate presentation depth, not mandatory durations;
+- holding/title-slide plan;
+- explicit canonical Anchor → Explanation → Detail story tree;
+- Core / Standard / Deep sibling slide selections with approximate presentation depth, not mandatory durations;
+- stable slide identities so shared slides are identical across depth variants;
 - Rule-of-Three deviations and why the subject's natural structure warrants them;
 - visual hierarchy/layout system for Anchor, Explanation, and Detail levels;
 - map-to-Anchor visual continuity plan;
@@ -100,18 +101,18 @@ Also include:
 
 ## Do not
 
-Do not flatten the technical body into a sequence of peer slides. Do not force exact 5/15/45-minute durations or exact groups of three when the subject does not fit. Do not use identical visual hierarchy for every story level and rely on a small kicker alone for orientation. Do not compress design-doc headings into slides. Do not omit a proper title slide. Do not start in the middle of the argument. Do not reveal solution mechanics before the problem is legible. Do not overload slides with prose. Do not treat speaker notes as optional leftovers. Do not force a theatrical or sales framing when the engineering audience needs a direct technical story.
+Do not generate independent audience-specific decks from reviewer adaptations. Do not rewrite shared slides between duration variants. Do not flatten the technical body into a sequence of peer slides. Do not force exact 5/15/45-minute durations or exact groups of three when the subject does not fit. Do not use identical visual hierarchy for every story level and rely on a small kicker alone for orientation. Do not compress design-doc headings into slides. Do not omit a proper title slide. Do not start in the middle of the argument. Do not reveal solution mechanics before the problem is legible. Do not overload slides with prose. Do not treat speaker notes as optional leftovers. Do not force a theatrical or sales framing when the engineering audience needs a direct technical story.
 
 ## Completion gate
 
 Before returning:
 
 1. run the headline-story test;
-2. verify the title slide exists;
+2. verify the holding/title slide exists and contains no story argument or map;
 3. verify every dependent concept appears after its prerequisite;
 4. verify each substantive slide has a visual purpose or an explicit reason prose/code is the better representation;
 5. verify the Core view stands alone as a coherent story;
-6. verify Standard expands Core and Deep expands Standard rather than replacing either;
+6. verify Standard expands Core and Deep expands Standard by selecting additional canonical slides rather than rewriting shared slides;
 7. verify the Rule of Three was used as a prioritization heuristic rather than a quota;
 8. verify story levels are visually distinguishable and recurring motifs preserve orientation;
 9. verify speaker notes collectively form a usable rehearsal script.

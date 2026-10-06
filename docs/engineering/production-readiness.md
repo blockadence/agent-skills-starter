@@ -28,7 +28,8 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Verify `to-design-package` checkpoint/resume skips unaffected upstream stages and completes downstream closure.
 - [ ] Verify reviewer-specific resumes produce complete isolated packages rather than only adaptation checkpoints.
 - [ ] Verify pre-adaptation artifacts are shared once under the package source root and reviewer branches reuse the same explanatory-model checkpoint.
-- [ ] Verify reviewer variants preserve technical truth while materially changing emphasis/evidence/ordering as intended.
+- [ ] Verify reviewer design-document variants preserve technical truth while materially changing emphasis/evidence/ordering as intended.
+- [ ] Verify reviewer runs reuse one canonical BBP slide tree rather than generating audience-specific decks.
 - [ ] Verify Markdown-to-HTML rendering preserves semantic content and produces navigable design-doc and speaker-notes output.
 - [ ] Verify generated artifacts remain explicitly subject to human review without blocking AI authorship.
 
@@ -43,7 +44,7 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Known C4 collision is rejected by render QA.
 - [ ] Fake-Java regression is rejected.
 - [ ] Intent-leak regressions are rejected.
-- [ ] BBP output includes a proper title slide, passes the headline-only story test, establishes Act I orientation before solution mechanics, and preserves progressive disclosure.
+- [ ] BBP output includes an inert holding/title slide before the story, passes the headline-only story test, establishes Act I orientation before solution mechanics, and preserves progressive disclosure.
 - [ ] BBP visual and verbal channels are complementary, with speaker notes forming a usable rehearsal script.
 - [ ] Design-doc acceptance catches prose transcription when a supported structured representation would materially improve scanability.
 - [ ] Evals default design doc excludes Wayfinder/session bookkeeping and passes decision-load review.
@@ -79,3 +80,6 @@ When all mandatory gates pass, the production-ready claim is supported by instal
 - [x] BBP visual hierarchy and map-to-Anchor continuity are explicit planning responsibilities.
 - [ ] Regenerated Evals design document omits downstream-only implementation planning while preserving architecture-significant implementation consequences.
 - [ ] Regenerated Evals deck demonstrates distinguishable Anchor / Explanation / Detail visual hierarchy and coherent Core / Standard / Deep inheritance.
+- [ ] Evals reviewer runs reuse the same canonical slides; duration/depth variants are sibling selections from one slide tree.
+- [ ] Regenerated Evals design document is materially terser, does not reteach established Conductor behavior beyond decision need, and preserves useful supported technical diagrams/contracts.
+- [ ] Comprehension audit rejects unnecessary authored vocabulary when ordinary engineering language is clearer.
