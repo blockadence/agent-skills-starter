@@ -21,6 +21,8 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Exercise every skill against at least one positive fixture.
 - [ ] Exercise every audit against at least one failing fixture.
 - [ ] Verify wrapper retry and routing behavior in Claude Code.
+- [ ] Verify `to-design-package` checkpoint/resume skips unaffected upstream stages.
+- [ ] Verify Markdown-to-HTML rendering preserves semantic content and produces navigable design-doc and speaker-notes output.
 
 ## Acceptance fixtures
 
