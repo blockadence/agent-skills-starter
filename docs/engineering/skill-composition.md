@@ -27,7 +27,7 @@ source
   -> human review
 ```
 
-`to-design-package` is the canonical design workflow. It orchestrates an engineering design document and a sibling BBB-style presentation. The presentation does not derive from the design document; both derive from the same explanatory model.
+`to-design-package` is the canonical design workflow. It orchestrates an engineering design document and a sibling BBP-style presentation. The presentation does not derive from the design document; both derive from the same explanatory model.
 
 Markdown design documents and speaker notes are authoritative editable artifacts. `render-html-document` may derive polished navigable HTML representations from them without changing their semantic content.
 
