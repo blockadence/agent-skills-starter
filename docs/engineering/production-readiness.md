@@ -43,8 +43,8 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Known C4 collision is rejected by render QA.
 - [ ] Fake-Java regression is rejected.
 - [ ] Intent-leak regressions are rejected.
-- [ ] BBB output includes a proper title slide, passes the headline-only story test, establishes Act I orientation before solution mechanics, and preserves progressive disclosure.
-- [ ] BBB visual and verbal channels are complementary, with speaker notes forming a usable rehearsal script.
+- [ ] BBP output includes a proper title slide, passes the headline-only story test, establishes Act I orientation before solution mechanics, and preserves progressive disclosure.
+- [ ] BBP visual and verbal channels are complementary, with speaker notes forming a usable rehearsal script.
 - [ ] Design-doc acceptance catches prose transcription when a supported structured representation would materially improve scanability.
 - [ ] Evals default design doc excludes Wayfinder/session bookkeeping and passes decision-load review.
 - [ ] Evals default design doc is materially compressed relative to the explanatory model while retaining decision-critical tradeoffs, risks, compatibility concerns, and uncertainty.
