@@ -11,11 +11,11 @@ Small, composable skills for engineering analysis, design communication, review 
 - `reviewer-adapt`: adapt emphasis and evidence without changing technical truth.
 - `design-doc-plan`: plan engineering design-document information architecture.
 - `design-evidence-plan`: select source-supported explanatory and technical evidence.
-- `bbb-story-plan`: plan a Beyond Bullet Points technical presentation.
+- `bbp-story-plan`: plan a Beyond Bullet Points technical presentation.
 - `render-html-document`: render existing Markdown artifacts as polished, navigable HTML without semantic rewriting.
 - `to-design-package`: canonical orchestrator for the design document and presentation package, including checkpoint/resume behavior.
 
-A complete design package normally includes Markdown and HTML versions of the design document and speaker notes, plus the BBB HTML slide deck.
+A complete design package normally includes Markdown and HTML versions of the design document and speaker notes, plus the BBP HTML slide deck.
 
 The former `to-design-doc` implementation is superseded and removed. Template handling, source fidelity, constructed-vs-sourced discipline, and presentation constraints belong in the composable stages that own those concerns.
 
