@@ -12,11 +12,15 @@ Small, composable skills for engineering analysis, design communication, review 
 - `design-doc-plan`: plan engineering design-document information architecture.
 - `design-evidence-plan`: select source-supported explanatory and technical evidence.
 - `bbb-story-plan`: plan a Beyond Bullet Points technical presentation.
-- `to-design-package`: orchestrate the complete design-document and presentation package.
+- `to-design-package`: canonical orchestrator for the design document and presentation package.
+
+The former `to-design-doc` implementation is superseded and removed. Template handling, source fidelity, constructed-vs-sourced discipline, and presentation constraints belong in the composable stages that own those concerns.
 
 ## PR communication pipeline
 
 `code-review` output -> `source-model` -> `explanatory-model` -> optional `reviewer-adapt` -> `pr-communication-plan` -> `to-pr-comments`.
+
+The current `to-pr-comments` supersedes the earlier implementation. Its preserved batch-posting reference owns delivery mechanics only.
 
 ## Audit and support skills
 
@@ -25,5 +29,3 @@ Small, composable skills for engineering analysis, design communication, review 
 - `intent-leak-audit`: keep authoring mechanics and reviewer classification out of reader-facing artifacts.
 - `visual-render-audit`: inspect rendered diagrams for collisions, ambiguity, and readability defects.
 - `reviewer-profile-author`: create reusable internal reviewer profiles based on information needs.
-
-Existing skills such as `to-design-doc` and `to-digest` remain valid narrower workflows. Use `to-design-package` when the shared semantic model, sibling presentation output, and audit pipeline are required.
