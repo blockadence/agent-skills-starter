@@ -38,6 +38,43 @@ The purpose is to prevent future maintenance from depending on conversational me
 | Plugin manifest | Packaging defect | Expose promoted engineering skills in plugin manifest before production-ready claim. |
 | PR compatibility text | Stale documentation | Correct before merge. |
 
+## Acceptance observation: decision-relevant compression
+
+Fresh default and CTO Evals design documents exposed a second systemic failure after the first reconciliation pass.
+
+Observed symptoms:
+
+- the default document included a heading such as `What is decided and what is not` and reader-facing Wayfinder bookkeeping such as `24 in the decision map: 20 resolved, 4 closed out of scope, none open`;
+- the CTO variant still carried hints of the source's decision-map framing in a `Decisions and scope` section;
+- both documents remained too information-dense even where the individual prose and representations were understandable.
+
+This is not a local wording defect. The pipeline was still biased toward preserving source volume rather than selecting the minimum decision-relevant information needed by a human reviewer.
+
+### New invariants
+
+- **Fidelity preserves truth, not volume.**
+- **Present the resulting design, not the history of discovering it.**
+- **A design document is decision-sufficient, not source-exhaustive.**
+- **Omission is safe when omitted material cannot materially change understanding, evaluation, challenge, implementation safety, or the requested decision.**
+- **Compression removes non-material branches before polishing the material that remains.**
+- **A locally comprehensible artifact can still fail globally because of excessive decision-irrelevant cognitive load.**
+
+### Ownership audit
+
+No new compression skill is required.
+
+| Stage | Compression responsibility |
+| --- | --- |
+| `source-model` | Preserve exhaustive truth while separating engineering substance from source/process provenance. |
+| `explanatory-model` | Remain the comparatively complete shared causal/semantic checkpoint. Do not optimize it for final artifact brevity. |
+| `reviewer-adapt` | Select required, supporting, and upstream-only information for the reviewer's decision task. |
+| `design-doc-plan` | Apply artifact-specific decision sufficiency and remove entire non-material information branches before composition. |
+| `source-fidelity-audit` | Reject dangerous omissions without treating every omission as a fidelity defect. |
+| `comprehension-audit` | Reject excessive decision-irrelevant cognitive load even when local prose is clear. |
+| `intent-leak-audit` | Reject source-process provenance that escapes into reader-facing content. |
+
+Reviewer variants may be more compressed than the default when reviewer context permits. Reviewer adaptation is not synonymous with adding more detail.
+
 ## Architecture decision
 
 Do not roll back the composable architecture. Recovered behaviors belong in the earliest leaf skill that owns them. Wrappers orchestrate; transformations author; audits verify and route.
