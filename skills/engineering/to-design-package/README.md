@@ -10,6 +10,25 @@ A complete package includes editable Markdown design and speaker-note sources, p
 /to-design-package spec.md
 ```
 
+## Package topology
+
+A full run writes shared pre-adaptation artifacts once under `design-package/source/`. The default package and explicit reviewer variants are sibling branches:
+
+```text
+design-package/
+  source/
+    source-model.md
+    explanatory-model.md
+  default/
+    ...
+  cto/
+    ...
+  adversarial/
+    ...
+```
+
+`source/explanatory-model.md` is the normal branch point. Reviewer variants reuse it rather than rereading or independently reinterpreting the original spec.
+
 ## Resume from a checkpoint
 
 Preserved artifacts are workflow checkpoints. `--from=<stage>` means start at that stage and continue through all downstream stages needed for the requested final outputs. It does not mean run only that stage.
