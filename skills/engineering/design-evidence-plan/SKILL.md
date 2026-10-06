@@ -1,6 +1,6 @@
 ---
 name: design-evidence-plan
-description: "Select engineering evidence and visuals for a design document. Use when deciding whether a question needs before/after, C4, UML, ER, sequence/state/activity/deployment diagrams, tables, API/schema/code/SQL excerpts, or no visual."
+description: "Select engineering evidence and representations for a design document. Use when deciding whether a question needs prose, tables, before/after views, C4, UML, ER, sequence/state/activity/deployment diagrams, API/schema/code/SQL excerpts, or no additional artifact."
 ---
 
 # design-evidence-plan
@@ -19,28 +19,40 @@ This skill follows the repository composition rules.
 
 ## Owns
 
-Evidence selection, canonical notation, source-support classification, renderer choice, layout intent, and captions.
+Evidence selection, representation selection, canonical notation, source-support classification, renderer choice, layout intent, and captions.
 
 ## Process
 
 1. Read source model, explanatory model, document plan, and optional reviewer adaptation.
-2. For each candidate artifact, state the engineering question it answers.
-3. Classify it as explanatory or technical.
-4. For technical artifacts, choose canonical notation when available.
-5. Classify support as concrete, conceptual, or unsupported.
-6. Choose renderer separately from notation and state layout intent.
-7. Specify meaningful labels and the conclusion the caption should communicate.
-8. Omit unsupported artifacts.
-9. Write `design-evidence-plan.md`.
+2. For each candidate artifact or structured representation, state the engineering question it answers.
+3. State the conclusion the reader should be able to reach after seeing it.
+4. Classify it as explanatory or technical.
+5. Choose the representation that minimizes reconstruction work without losing causal reasoning: prose, table, matrix, before/after view, canonical diagram, contract block, source-supported code/schema/API/SQL excerpt, or no additional artifact.
+6. For technical diagrams, choose canonical notation when available.
+7. Classify support as concrete, conceptual, or unsupported.
+8. Choose renderer separately from notation and state layout intent.
+9. Specify meaningful labels and the conclusion the caption should communicate.
+10. Omit unsupported artifacts.
+11. Write `design-evidence-plan.md`.
 
-## Must preserve
+## Source-support rule
 
-Source-support boundaries. Conceptual evidence must remain visibly conceptual.
+- **Concrete:** the source supports the actual names, signatures, schema, code, paths, values, or other specificity being shown.
+- **Conceptual:** the source supports the relationship, responsibility, behavior, or contract but not a concrete implementation representation. Keep the artifact visibly conceptual.
+- **Unsupported:** the source does not support the proposed specificity. Omit it or represent the unknown honestly.
+
+Do not turn a conceptual behavioral contract into plausible-looking Java, SQL, schema, API, package, or class detail.
+
+## Representation test
+
+For each prose-heavy section in the document plan, ask whether its primary job is reasoning or structured comparison/relationship.
+
+If structured representation would materially reduce interpretation, plan it here. If prose is retained, record why prose carries information that the structured form would lose.
 
 ## Do not
 
-Do not invent proprietary notation when an established notation fits. Do not fabricate Java, SQL, schemas, APIs, package names, or class names. Mermaid is a renderer/syntax, not a notation.
+Do not invent proprietary notation when an established notation fits. Do not fabricate Java, SQL, schemas, APIs, package names, or class names. Mermaid is a renderer/syntax, not a notation. Do not add decorative diagrams that answer no engineering question.
 
 ## Completion gate
 
-Before returning, verify this skill's output contract. Report unresolved defects with the earliest owning stage.
+Before returning, verify source support, representation choice, canonical notation where applicable, and the intended reader conclusion for every planned artifact.
