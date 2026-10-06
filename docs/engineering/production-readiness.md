@@ -66,3 +66,16 @@ The engineering documentation suite may be described as production-ready only wh
 Until every mandatory unchecked item is complete, call this an implemented skill suite under acceptance testing.
 
 When all mandatory gates pass, the production-ready claim is supported by installation, isolation, regression, and end-to-end evidence rather than prompt quality alone.
+
+
+### Artifact-depth acceptance gates
+
+- [x] Design-doc contract distinguishes approval-relevant implementation consequences from downstream implementation planning.
+- [x] Generic implementation-path leakage is covered by a failing regression fixture.
+- [x] Verification-plan overexpansion is covered by a failing regression fixture.
+- [x] BBP planner models Anchor → Explanation → Detail hierarchy.
+- [x] BBP planner derives Core / Standard / Deep views without enforcing literal 5/15/45 durations.
+- [x] BBP Rule of Three is a prioritization heuristic rather than a quota.
+- [x] BBP visual hierarchy and map-to-Anchor continuity are explicit planning responsibilities.
+- [ ] Regenerated Evals design document omits downstream-only implementation planning while preserving architecture-significant implementation consequences.
+- [ ] Regenerated Evals deck demonstrates distinguishable Anchor / Explanation / Detail visual hierarchy and coherent Core / Standard / Deep inheritance.
