@@ -1,6 +1,6 @@
 ---
 name: design-doc-plan
-description: "Plan a decision-sufficient engineering design document from an explanatory model or reviewer adaptation. Use before composing a design doc so it selects only decision-relevant content, establishes a mental model, progressively discloses concepts, chooses scan-friendly representations, and covers material change surface, compatibility, risks, evidence, and implementation path."
+description: "Plan a decision-sufficient engineering design document from an explanatory model or reviewer adaptation. Use before composing a design doc so it selects only decision-relevant content, establishes a mental model, progressively discloses concepts, chooses scan-friendly representations, and covers material change surface, compatibility, risks, evidence, and approval-relevant implementation consequences."
 ---
 
 # design-doc-plan
@@ -44,13 +44,19 @@ A true detail that does not materially serve one of those jobs normally remains 
 3. Plan the opening mental model and central design proposition.
 4. Identify the smallest set of sections needed for decision sufficiency.
 5. Sequence concepts according to dependencies and preserve mechanism before consequence.
-6. Include before/after, unchanged/modified/new, compatibility, blast radius, migration, risks, unknowns/evidence, alternatives, and implementation path only to the depth material to this decision.
-7. For every planned section, state:
+6. Include before/after, unchanged/modified/new, compatibility, blast radius, migration, risks, unknowns/evidence, alternatives, verification strategy, and implementation consequences only to the depth material to this decision.
+7. Separate **design consequence** from **implementation planning**:
+   - keep implementation facts only when they constrain feasibility, compatibility, migration, blast radius, risk, validation, or the architecture being approved;
+   - keep PR topology, branch strategy, ticket decomposition, repository work queues, milestones, coding conventions, and ordinary execution ordering upstream for downstream planning;
+   - include an ordering dependency only when violating it would make the approved design incorrect, unsafe, incompatible, or infeasible.
+8. Treat verification as evidence that the design is testable, not as a full test plan. Preserve validation seams and load-bearing acceptance evidence; omit exhaustive test matrices unless the decision depends on them.
+9. Do not create a section merely because a conventional design-doc template has one. Sections exist only when they answer a decision-relevant reviewer question.
+10. For every planned section, state:
    - the reviewer question it answers;
    - why that question is material to approval;
    - what upstream detail is deliberately omitted.
-8. Decide which information should remain prose and which should become a structured representation.
-9. Write `design-doc-plan.md`.
+11. Decide which information should remain prose and which should become a structured representation.
+12. Write `design-doc-plan.md`.
 
 ## Compression rule
 
@@ -58,7 +64,9 @@ Present the resulting design, not the history of discovering it.
 
 Do not preserve exploration chronology, decision-map structure, counts of resolved/closed items, ticket status, or every rejected branch merely because they appear in the source.
 
-Include a rejected alternative when understanding why it lost materially helps evaluate the proposed design. Include an unresolved question when its answer could change the decision, risk, rollout, or implementation path. Otherwise keep it upstream.
+Include a rejected alternative when understanding why it lost materially helps evaluate the proposed design. Include an unresolved question when its answer could change the decision, material risk, compatibility, migration, feasibility, or validation strategy. Otherwise keep it upstream.
+
+**Decision-relevant does not mean downstream-useful.** Information may be useful to implementers or ticket authors while still being unnecessary for design approval. Keep that material upstream.
 
 Compression is not summarization by word deletion. Remove entire non-material branches of information before polishing the material that remains.
 
@@ -78,7 +86,7 @@ All material facts, tradeoffs, risks, limitations, and uncertainty necessary for
 
 ## Do not
 
-Do not expose rhetorical strategy in headings, mirror the source mechanically, narrate source-process bookkeeping, create generic "decisions" inventories, pad unsupported sections with generic prose, turn the document into a slide deck, or force structured representations where prose communicates the reasoning more accurately.
+Do not include a generic `Implementation path` section unless implementation ordering is itself architecture-significant. Do not expose rhetorical strategy in headings, mirror the source mechanically, narrate source-process bookkeeping, create generic "decisions" inventories, pad unsupported sections with generic prose, turn the document into a slide deck, or force structured representations where prose communicates the reasoning more accurately.
 
 ## Completion gate
 
