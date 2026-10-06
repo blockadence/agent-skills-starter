@@ -93,3 +93,13 @@ The current implementation supersedes the earlier `to-pr-comments`. Optional bat
 ## Fix the earliest owning stage
 
 When review or an audit finds a defect, classify it and repair the earliest stage that owns it. Regenerate affected downstream artifacts. Do not patch only the final prose or rendered output when the defect originated in source normalization, explanation, planning, or evidence selection.
+
+
+### Artifact depth ownership
+
+Information may remain true and useful while being absent from a particular reader artifact.
+
+- `design-doc-plan` selects the minimum approval surface. Downstream implementation usefulness alone is not a reason to include content.
+- `bbp-story-plan` selects presentation depth hierarchically: Core Anchors, Standard Explanations, Deep Details. Longer views expand shorter views while preserving the same thesis.
+- BBP's approximate 5/15/45-minute versions and Rule of Three guide prioritization; they are not rigid timing or cardinality constraints.
+- Presentation layout and recurring motifs carry story-level orientation in addition to the headline sequence.
