@@ -1,6 +1,6 @@
 ---
 name: to-pr-comments
-description: "Orchestrate human-readable PR review communication from verified deep code-review findings. Use after a code-review skill when the user wants a concise reviewer preamble and comprehensible inline comments that preserve upstream technical rigor."
+description: "Orchestrate human-readable PR review communication from verified deep code-review findings, or optionally run a specified review skill first. Use when the user wants a concise reviewer preamble and comprehensible inline comments that preserve upstream technical rigor."
 ---
 
 # to-pr-comments
@@ -19,12 +19,52 @@ This skill follows the repository composition rules.
 
 ## Owns
 
-The downstream communication workflow. Deep technical discovery and verification remain owned by the upstream code-review skill.
+The downstream communication workflow. Deep technical discovery and verification remain owned by an upstream review skill or by the verified findings supplied as input.
+
+## Input modes
+
+### Default: verified findings
+
+When no review skill is specified, treat the supplied review findings as the technical source. Do not rerun deep code review.
+
+Examples:
+
+```text
+/to-pr-comments review.md
+```
+
+```text
+Use the to-pr-comments skill on the code-review findings for this PR.
+```
+
+### Composed: specified review skill
+
+When the user supplies `--review-skill=<skill-name>`, invoke that skill against the supplied review target first. Treat its output as the verified findings consumed by the normal pipeline.
+
+Examples:
+
+```text
+/to-pr-comments --review-skill=code-review PR #175
+```
+
+```text
+/to-pr-comments --review-skill=security-code-review PR #175
+```
+
+The named skill owns investigation, verification, and its own evidence contract. This skill owns the downstream transformation into review communication.
+
+Do not assume `code-review` is Matt Pocock's implementation merely from the name. Resolve the explicitly named installed skill.
+
+If the named skill cannot be found or its output does not contain enough evidence to support review findings, stop and report the missing dependency or evidence. Do not silently substitute another review skill or perform an improvised deep review.
+
+`--review-skill` is an optional composition hint, not the start of a general CLI. Do not invent additional flags when ordinary skill input or natural-language instructions are sufficient.
 
 ## Pipeline
 
-1. Accept verified `code-review` output as technical source.
-2. Normalize it with `source-model`.
+1. Resolve the technical source:
+   - default mode: supplied verified review findings;
+   - composed mode: output from the explicitly named review skill.
+2. Normalize the technical source with `source-model`.
 3. Build a PR `explanatory-model`.
 4. Apply optional `reviewer-adapt`.
 5. Run `pr-communication-plan`.
@@ -47,7 +87,11 @@ Stop after producing a human-reviewable review artifact. Post comments only when
 
 ## Do not
 
-Do not rerun or replace deep code review, discard technical evidence during humanization, dump investigation prose verbatim, or produce compressed comments that require reconstructing the investigation.
+Do not discard technical evidence during humanization, dump investigation prose verbatim, or produce compressed comments that require reconstructing the investigation.
+
+In default mode, do not rerun or replace deep code review.
+
+In composed mode, do not weaken, silently reinterpret, or duplicate the named upstream review skill's investigation.
 
 ## Completion gate
 
