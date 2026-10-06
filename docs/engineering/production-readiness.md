@@ -30,6 +30,7 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Verify pre-adaptation artifacts are shared once under the package source root and reviewer branches reuse the same explanatory-model checkpoint.
 - [ ] Verify reviewer design-document variants preserve technical truth while materially changing emphasis/evidence/ordering as intended.
 - [ ] Verify reviewer runs reuse one canonical BBP slide tree rather than generating audience-specific decks.
+- [ ] Verify Deep is the canonical presentation fixed point and Core / Standard are deterministic membership projections with stable slide identity, order, content, visual treatment, and notes.
 - [ ] Verify Markdown-to-HTML rendering preserves semantic content, produces navigable design-doc and speaker-notes output, validates every diagram against the target renderer, and isolates/recover from individual diagram failures.
 - [ ] Verify generated artifacts remain explicitly subject to human review without blocking AI authorship.
 
@@ -52,6 +53,7 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Evals default design doc is materially compressed relative to the explanatory model while retaining decision-critical tradeoffs, risks, compatibility concerns, and uncertainty.
 - [ ] Evals CTO variant is materially adapted and no more detailed than its decision task requires.
 - [ ] Evals CTO variant subtracts established Conductor primers and retains only changed behavior, non-obvious dependencies, material consequences, and risks needed for the decision.
+- [ ] Evals CTO evidence planning may reduce explanatory diagrams but preserves representations that expose changed boundaries/interactions, failure modes, compatibility constraints, irreversible choices, or other decision-relevant relationships.
 - [ ] PR-review acceptance reconciles every upstream finding and validates diff anchoring, severity ordering, and comment communication form.
 
 ## Operational quality
@@ -82,7 +84,7 @@ When all mandatory gates pass, the production-ready claim is supported by instal
 - [x] BBP visual hierarchy and map-to-Anchor continuity are explicit planning responsibilities.
 - [ ] Regenerated Evals design document omits downstream-only implementation planning while preserving architecture-significant implementation consequences.
 - [ ] Regenerated Evals deck demonstrates distinguishable Anchor / Explanation / Detail visual hierarchy and coherent Core / Standard / Deep inheritance.
-- [ ] Evals reviewer runs reuse the same canonical slides; duration/depth variants are sibling selections from one slide tree.
+- [ ] Evals reviewer runs reuse the same canonical slides; Deep is the fixed canonical tree and Core / Standard are deterministic projections satisfying Core ⊆ Standard ⊆ Deep without shared-slide drift.
 - [ ] Regenerated Evals design document is materially terser, does not reteach established Conductor behavior beyond decision need, and preserves useful supported technical diagrams/contracts.
 - [ ] Regenerated Evals evidence plan uses supported diagrams/contracts as compression where they reduce prose and records an explicit representation decision for every applicable relationship class.
 - [ ] Comprehension audit rejects unnecessary authored vocabulary when ordinary engineering language is clearer.
