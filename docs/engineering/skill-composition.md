@@ -1,6 +1,6 @@
 # Skill composition
 
-Producing skills own substance, structure, evidence, and output contracts. Modifier skills own compatible cross-cutting expression constraints. Audit skills verify contracts and report defects; they do not silently become authors.
+Producing skills own substance, structure, evidence, and output contracts. Modifier skills own compatible cross-cutting expression constraints. Rendering skills own representations of existing semantic artifacts. Audit skills verify contracts and report defects; they do not silently become authors.
 
 Apply modifiers during generation, not as blind post-processing rewrites.
 
@@ -22,13 +22,26 @@ source
   -> reviewer-adapt (optional)
   -> artifact-specific planning
   -> composition
+  -> rendering
   -> audits
   -> human review
 ```
 
 `to-design-package` is the canonical design workflow. It orchestrates an engineering design document and a sibling BBB-style presentation. The presentation does not derive from the design document; both derive from the same explanatory model.
 
+Markdown design documents and speaker notes are authoritative editable artifacts. `render-html-document` may derive polished navigable HTML representations from them without changing their semantic content.
+
 The former `to-design-doc` skill is intentionally removed rather than retained as a compatibility path. Useful ideas from it must live at their natural ownership boundary. Examples include source support in `source-model` and `source-fidelity-audit`, reader sequencing in `design-doc-plan`, evidence selection in `design-evidence-plan`, and expression constraints in compatible modifiers.
+
+## Checkpoints and resume
+
+Pipeline artifacts are explicit interfaces between stages and may be reused as checkpoints.
+
+A wrapper resuming downstream work should identify the earliest stage required by the requested change, validate that stage's prerequisite artifacts, and skip unaffected upstream work. It must not rerun the entire pipeline merely to reconstruct context that is already preserved in valid artifacts.
+
+`to-design-package --from=<stage>` makes the intended restart point explicit. For example, `--from=render-html` can consume existing Markdown design and speaker-note artifacts and produce their HTML representations without repeating source modeling, explanation, planning, or composition.
+
+If a requested checkpoint is incomplete or inconsistent, report the missing prerequisite. Do not silently fall back to a full run.
 
 ## PR review pipeline
 
