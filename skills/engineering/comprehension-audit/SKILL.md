@@ -62,7 +62,7 @@ A locally clear document can still fail globally if the reader must absorb too m
 - The document presents the resulting design rather than replaying the source's exploration history.
 - The central proposition, material mechanism, tradeoffs, risks, and decision request remain prominent relative to supporting detail.
 
-### BBB presentations
+### BBP presentations
 
 - A proper title slide exists.
 - Read only the slide headlines in order; they must form a coherent progressive story.
