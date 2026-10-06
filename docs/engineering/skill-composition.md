@@ -48,6 +48,26 @@ spec
 
 Reviewer branches are siblings. They may reference the shared source artifacts but must not derive from one another. This makes `source/explanatory-model.md` both the normal branch point and the truth-equivalence anchor for reviewer variants.
 
+## Decision-relevant compression
+
+The design pipeline separates exhaustive technical understanding from reader-facing decision sufficiency.
+
+```text
+source-model            exhaustive truth + provenance classification
+  -> explanatory-model  comparatively complete causal understanding
+  -> reviewer-adapt      reviewer relevance selection
+  -> artifact planning   artifact-specific compression
+  -> reader artifact     minimum decision-sufficient surface
+```
+
+Each downstream transformation may omit information from the presentation surface while retaining traceability through upstream checkpoints.
+
+A detail belongs in a design-review artifact when it is needed to understand the problem or mechanism, evaluate a material tradeoff, identify a material risk/failure mode, assess compatibility/migration/blast radius, or make the requested decision.
+
+Exploration chronology, decision-map counts/status, ticket bookkeeping, and non-material rejected branches normally remain upstream.
+
+Audits protect both directions: reject dangerous omission of decision-critical truth and reject exhaustive source replay that creates unnecessary cognitive load.
+
 ## Checkpoints and resume
 
 Pipeline artifacts are explicit interfaces between stages and may be reused as checkpoints.
