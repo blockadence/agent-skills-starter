@@ -36,12 +36,13 @@ Presentation narrative, title-to-resolution sequence, hierarchical progressive d
    - **Explanation level:** the reasoning needed to understand and evaluate each Anchor;
    - **Detail level:** supporting mechanism, evidence, examples, edge cases, and qualification needed for deeper review.
    Prefer roughly three siblings at a major narrative level as the BBP Rule of Three heuristic. Do not invent, merge, or omit substantive concepts merely to hit three.
-5. Plan sibling duration/depth variants from one canonical slide tree. Treat BBP's approximately 5-, 15-, and 45-minute versions as useful planning lenses, not clock contracts:
-   - **Core view:** title/opening plus Anchors and resolution;
-   - **Standard view:** Core plus the material Explanations;
-   - **Deep view:** Standard plus decision-relevant Details.
-   A real presentation may be 15, 30, 45, 60, or another duration. Preserve the information-priority hierarchy rather than forcing exact timings. A slide included in more than one variant is the **same canonical slide**: same headline, content, visual treatment, and narrative position. Variants select slides; they do not regenerate or rewrite them.
-6. Require story inheritance: every longer view expands the shorter view. It must not replace its thesis, reorder the causal spine into a different story, or depend on Details to make an Anchor intelligible.
+5. Author and validate the **Deep view as the canonical fixed point**: the complete decision-relevant slide tree, including Anchors, Explanations, and Details. Assign every canonical slide a stable identity, narrative role, and depth membership once.
+6. Derive sibling duration/depth variants as deterministic projections of that canonical tree. Treat BBP's approximately 5-, 15-, and 45-minute versions as useful planning lenses, not clock contracts:
+   - **Core view (approximately 5 minutes):** holding/opening plus the minimum Anchors and resolution needed for a coherent story;
+   - **Standard view (approximately 15 minutes):** Core plus the material Explanations;
+   - **Deep view (approximately 45 minutes):** the canonical fixed point, including decision-relevant Details.
+   A real presentation may run longer or shorter. Preserve the information-priority hierarchy rather than forcing exact timings. Once slide identity and membership are recorded, variant construction is mechanical: select canonical slides by membership while preserving canonical order. A shared slide has the same identity, headline, content, visual treatment, notes, and narrative position in every view. Variants do not regenerate, rewrite, or independently reorder slides.
+7. Require story inheritance: Standard is a strict superset/projection of Core and Deep is a strict superset/projection of Standard unless the canonical story genuinely needs no additional slide at that depth. A longer view must not replace the thesis, reorder the causal spine into a different story, or depend on Details to make an Anchor intelligible.
 7. Sequence each depth by explanatory dependency. Introduce mechanism before consequences that depend on it.
 8. Reveal solution details only after the problem and desired state are understandable.
 9. Give every substantive slide one primary audience question and one primary conclusion.
@@ -91,8 +92,9 @@ Also include:
 
 - holding/title-slide plan;
 - explicit canonical Anchor → Explanation → Detail story tree;
-- Core / Standard / Deep sibling slide selections with approximate presentation depth, not mandatory durations;
-- stable slide identities so shared slides are identical across depth variants;
+- the Deep canonical slide inventory with stable slide identities, narrative roles, canonical order, and explicit Core / Standard / Deep membership;
+- deterministic Core / Standard projections from that inventory, corresponding approximately to 5- and 15-minute views while Deep corresponds approximately to 45 minutes;
+- stable slide identities so shared slides, including their notes, are identical across depth variants;
 - Rule-of-Three deviations and why the subject's natural structure warrants them;
 - visual hierarchy/layout system for Anchor, Explanation, and Detail levels;
 - map-to-Anchor visual continuity plan;
@@ -104,7 +106,7 @@ Also include:
 
 ## Do not
 
-Do not generate independent audience-specific decks from reviewer adaptations. Do not rewrite shared slides between duration variants. Do not flatten the technical body into a sequence of peer slides. Do not force exact 5/15/45-minute durations or exact groups of three when the subject does not fit. Do not use identical visual hierarchy for every story level and rely on a small kicker alone for orientation. Do not compress design-doc headings into slides. Do not omit a proper title slide. Do not start in the middle of the argument. Do not reveal solution mechanics before the problem is legible. Do not overload slides with prose. Do not treat speaker notes as optional leftovers. Do not force a theatrical or sales framing when the engineering audience needs a direct technical story.
+Do not generate independent audience-specific decks from reviewer adaptations. Do not generate Core or Standard independently from Deep. Do not rewrite shared slides between duration variants. Do not flatten the technical body into a sequence of peer slides. Do not force exact 5/15/45-minute durations or exact groups of three when the subject does not fit. Do not use identical visual hierarchy for every story level and rely on a small kicker alone for orientation. Do not compress design-doc headings into slides. Do not omit a proper title slide. Do not start in the middle of the argument. Do not reveal solution mechanics before the problem is legible. Do not overload slides with prose. Do not treat speaker notes as optional leftovers. Do not force a theatrical or sales framing when the engineering audience needs a direct technical story.
 
 ## Completion gate
 
@@ -115,10 +117,11 @@ Before returning:
 3. verify every dependent concept appears after its prerequisite;
 4. verify each substantive slide has a visual purpose or an explicit reason prose/code is the better representation;
 5. verify the Core view stands alone as a coherent story;
-6. verify Standard expands Core and Deep expands Standard by selecting additional canonical slides rather than rewriting shared slides;
-7. verify the Rule of Three was used as a prioritization heuristic rather than a quota;
-8. verify story levels are visually distinguishable and recurring motifs preserve orientation;
-9. at every major Anchor transition, verify the visible deck itself tells audience and presenter where they are and why the next Anchor follows; do not count a notes-only transition as sufficient;
-10. verify speaker notes collectively form a usable rehearsal script.
+6. verify Deep is the canonical fixed point and Core / Standard are deterministic membership projections from it;
+7. verify Core ⊆ Standard ⊆ Deep by stable slide identity and canonical order, and verify every shared slide and its notes are byte-for-byte semantically identical across views;
+8. verify the Rule of Three was used as a prioritization heuristic rather than a quota;
+9. verify story levels are visually distinguishable and recurring motifs preserve orientation;
+10. at every major Anchor transition, verify the visible deck itself tells audience and presenter where they are and why the next Anchor follows; do not count a notes-only transition as sufficient;
+11. verify speaker notes collectively form a usable rehearsal script.
 
 Report unresolved defects with the earliest owning stage.
