@@ -1,6 +1,6 @@
 ---
 name: to-design-package
-description: "Orchestrate or resume a production engineering design package from a Wayfinder spec, rigorous engineering specification, or preserved pipeline checkpoint. Use for design documents, BBB-style technical presentations, speaker notes, polished HTML renderings, reviewer-specific variants, or downstream regeneration after a specific completed stage."
+description: "Orchestrate or resume a production engineering design package from a Wayfinder spec, rigorous engineering specification, or preserved pipeline checkpoint. Use for design documents, BBP-style technical presentations, speaker notes, polished HTML renderings, reviewer-specific variants, or downstream regeneration after a specific completed stage."
 ---
 
 # to-design-package
@@ -32,7 +32,7 @@ Workflow orchestration, checkpoint/resume behavior, reviewer-variant branching, 
 4. Apply optional `reviewer-adapt`.
 5. Fork from the resulting explanatory/adaptation model:
    - design doc: `design-doc-plan` -> `design-evidence-plan` -> compose Markdown;
-   - presentation: `bbb-story-plan` -> evidence/visual planning as needed -> compose HTML slides plus Markdown speaker notes.
+   - presentation: `bbp-story-plan` -> evidence/visual planning as needed -> compose HTML slides plus Markdown speaker notes.
 6. Run `source-fidelity-audit`, `comprehension-audit`, and `intent-leak-audit` on semantic artifacts.
 7. Run `render-html-document` for Markdown reader artifacts that require polished HTML representations, including the design document and speaker notes by default for a complete package.
 8. Run `visual-render-audit` for rendered artifacts when visual inspection is available.
@@ -116,7 +116,7 @@ Supported conceptual `--from` stages are:
 - `reviewer-adapt`
 - `design-doc-plan`
 - `design-evidence-plan`
-- `bbb-story-plan`
+- `bbp-story-plan`
 - `compose`
 - `audit`
 - `render-html`
@@ -208,7 +208,7 @@ A complete package normally includes:
 
 - editable Markdown design document;
 - polished navigable HTML design document;
-- BBB HTML slide deck;
+- BBP HTML slide deck;
 - editable Markdown per-slide speaker notes/rehearsal script;
 - polished navigable HTML speaker notes;
 - requested intermediate semantic/planning artifacts;
