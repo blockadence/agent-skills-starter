@@ -53,9 +53,12 @@ For speaker notes:
 3. Render semantic HTML.
 4. Add navigation appropriate to the artifact type.
 5. Preserve or render diagrams using the source-supported representation already present.
-6. Open or render the resulting HTML when tooling permits and inspect the actual result.
-7. Run `visual-render-audit` on the rendered artifact when visual inspection is available.
-8. Repair rendering/layout defects without changing semantic content.
+6. Render/validate each diagram **independently**. One malformed Mermaid block must not prevent sibling diagrams from rendering or from being diagnosed.
+7. For Mermaid, validate against the Mermaid runtime/version the output will actually use. Do not assume syntactically plausible Mermaid is renderable.
+8. On a Mermaid failure, recover in this order: identify the failing block and parser error; make the smallest syntax-safe correction that preserves semantics; rerender that block; if the intended canonical notation remains unreliable in Mermaid, choose another supported renderer/representation rather than dropping the diagram.
+9. Open or render the resulting HTML when tooling permits and inspect the actual result.
+10. Run `visual-render-audit` on the rendered artifact when visual inspection is available.
+11. Repair rendering/layout defects without changing semantic content.
 
 ## Do not
 
@@ -63,4 +66,4 @@ Do not use HTML rendering as an excuse to rewrite the source artifact, invent mi
 
 ## Completion gate
 
-Confirm every source section is represented, navigation works, content remains faithful, and no blocking rendered-visual defects remain.
+Confirm every source section is represented, navigation works, content remains faithful, **every diagram has rendered successfully**, and no blocking rendered-visual defects remain. A parser error, Mermaid error panel, raw diagram source, or silently missing diagram is a blocking failure, not a warning.

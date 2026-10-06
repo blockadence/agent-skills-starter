@@ -136,3 +136,32 @@ New invariants:
 - prefer ordinary engineering language over conspicuously authored synonyms or taxonomy when meaning is unchanged.
 
 The successful visual lesson from the CTO deck remains: a small number of strongly differentiated story stations, recurring map motifs, and unmistakable Anchor / Explanation / Detail treatments are preferable to a visually flat deck. The exact labels are content decisions, not a requirement to preserve `Cheap / Honest / Committed` as vocabulary.
+
+
+## Acceptance observation: diagram recovery and presentation orientation
+
+The next canonical Evals run improved both artifacts but exposed two production blockers.
+
+### Diagram rendering
+
+The design document contained only two Mermaid blocks despite several decision-relevant relationship classes, and at least one Mermaid block produced a Mermaid 10.9.8 syntax error in the rendered document. The HTML renderer invoked Mermaid over all diagram nodes in one batch and did not provide per-diagram validation/recovery.
+
+New invariants:
+
+- no numeric diagram quota;
+- evidence planning explicitly considers each applicable engineering relationship class: context/boundaries, runtime interactions, domain/entity relationships, lifecycle/state, persistence/data flow, and interfaces/contracts;
+- prose must not win by default when a supported visual/contract representation lowers reconstruction work;
+- every generated diagram is validated against the target renderer/runtime;
+- diagrams render independently so one malformed block cannot poison valid siblings;
+- a parser error, raw source, error panel, or missing visual is a blocking package defect;
+- recovery preserves semantics: smallest syntax correction first, compatible syntax second, renderer substitution third, semantic simplification last.
+
+### Presentation orientation
+
+The canonical deck now has a good holding slide, visible route strip, and strong Anchor / Explanation / Detail treatments. The remaining defect is story navigation across long technical runs. Speaker notes contain local transitions, but notes alone cannot orient the room.
+
+New invariant:
+
+> At every major story transition, the visible deck should tell both audience and presenter where they are, what was just established, and why the next Anchor follows.
+
+A dedicated transition slide is optional. A return-to-map treatment, section/Anchor landmark, or equivalent recurring visual device is sufficient when it restores story position. Speaker notes carry narration; slides provide landmarks.

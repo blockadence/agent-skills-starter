@@ -51,10 +51,12 @@ Presentation narrative, title-to-resolution sequence, hierarchical progressive d
    - speaker notes carry the spoken explanation, nuance, transitions, evidence, and optional audience-aware delivery guidance that should not crowd or fork the slide.
    - layout and visual treatment communicate story level and orientation, not decoration alone.
    - Anchor, Explanation, and Detail slides must be visually distinguishable without reader-facing labels such as "Anchor slide" or "Detail slide".
-   - reuse visual motifs from the map and prior Anchors so the audience can recognize where the current slide belongs in the larger story.
+   - reuse visual motifs from the map and prior Anchors so the audience can recognize where the current slide belongs in the larger story;
+   - treat orientation as a navigation contract for both audience and presenter: at every major story transition, the visible slide should make clear **where we are, what was just established, and why the next part follows**.
 11. Prefer a meaningful visual over prose when a relationship, sequence, comparison, state change, boundary, population, or mechanism can be understood faster visually. Do not add decorative visuals merely to satisfy this rule.
 12. Define terminology introduction order and ensure no slide depends on a term or concept introduced later.
-13. End with the engineering resolution: implications, decision, validation needed, or next step.
+13. Plan major transitions explicitly. Do not rely only on speaker-note prose to bridge long runs of Explanation/Detail slides into the next Anchor. Use the next Anchor itself, a brief return-to-map/section transition, or another recurring visual landmark to re-establish the route. Dedicated transition slides are optional; orientation is mandatory.
+14. End with the engineering resolution: implications, decision, validation needed, or next step.
 14. Write `bbp-story-plan.md`.
 
 ## Headline-story test
@@ -94,6 +96,7 @@ Also include:
 - Rule-of-Three deviations and why the subject's natural structure warrants them;
 - visual hierarchy/layout system for Anchor, Explanation, and Detail levels;
 - map-to-Anchor visual continuity plan;
+- major-transition/orientation plan stating the prior conclusion, current story position, and reason for the next Anchor;
 - deck-level story thread;
 - headline-only sequence;
 - terminology/progressive-disclosure map;
@@ -115,6 +118,7 @@ Before returning:
 6. verify Standard expands Core and Deep expands Standard by selecting additional canonical slides rather than rewriting shared slides;
 7. verify the Rule of Three was used as a prioritization heuristic rather than a quota;
 8. verify story levels are visually distinguishable and recurring motifs preserve orientation;
-9. verify speaker notes collectively form a usable rehearsal script.
+9. at every major Anchor transition, verify the visible deck itself tells audience and presenter where they are and why the next Anchor follows; do not count a notes-only transition as sufficient;
+10. verify speaker notes collectively form a usable rehearsal script.
 
 Report unresolved defects with the earliest owning stage.

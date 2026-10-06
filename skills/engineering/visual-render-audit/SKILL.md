@@ -23,12 +23,12 @@ Rendered-geometry and readability verification.
 
 ## Process
 
-1. Inspect the rendered SVG or image, not only its source.
+1. Inspect the rendered SVG or image, not only its source. If the renderer produced a parser/syntax error, raw source, error panel, or no visual, return FAIL immediately and route the defect to rendering/diagram generation.
 2. Check reserved geometry: frame/container headers, node titles, body labels, edge labels, legends, annotations, and diagram titles.
 3. Reject edge/text and label/header collisions.
 4. Check crossings, containment, wrapping, whitespace, hierarchy, and reading direction.
 5. Check canonical notation remains recognizable.
-6. Recommend repair in this order: padding/clearance; direction/ordering; routing/layout algorithm; invisible constraints; renderer substitution; semantic simplification last.
+6. For syntax/render failures, repair in this order: smallest syntax-safe correction; target-runtime-compatible equivalent syntax; renderer substitution; semantic simplification last. For geometry/readability failures, repair in this order: padding/clearance; direction/ordering; routing/layout algorithm; invisible constraints; renderer substitution; semantic simplification last.
 7. Return PASS or FAIL.
 
 ## Do not

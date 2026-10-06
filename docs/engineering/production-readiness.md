@@ -30,7 +30,7 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Verify pre-adaptation artifacts are shared once under the package source root and reviewer branches reuse the same explanatory-model checkpoint.
 - [ ] Verify reviewer design-document variants preserve technical truth while materially changing emphasis/evidence/ordering as intended.
 - [ ] Verify reviewer runs reuse one canonical BBP slide tree rather than generating audience-specific decks.
-- [ ] Verify Markdown-to-HTML rendering preserves semantic content and produces navigable design-doc and speaker-notes output.
+- [ ] Verify Markdown-to-HTML rendering preserves semantic content, produces navigable design-doc and speaker-notes output, validates every diagram against the target renderer, and isolates/recover from individual diagram failures.
 - [ ] Verify generated artifacts remain explicitly subject to human review without blocking AI authorship.
 
 ## Acceptance fixtures
@@ -45,8 +45,9 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Fake-Java regression is rejected.
 - [ ] Intent-leak regressions are rejected.
 - [ ] BBP output includes an inert holding/title slide before the story, passes the headline-only story test, establishes Act I orientation before solution mechanics, and preserves progressive disclosure.
-- [ ] BBP visual and verbal channels are complementary, with speaker notes forming a usable rehearsal script.
+- [ ] BBP visual and verbal channels are complementary, with speaker notes forming a usable rehearsal script and visible major transitions re-orienting both audience and presenter.
 - [ ] Design-doc acceptance catches prose transcription when a supported structured representation would materially improve scanability.
+- [ ] Evals evidence plan explicitly considers each applicable context/boundary, runtime interaction, entity/data-model, lifecycle, persistence/data-flow, and interface/contract relationship without enforcing a diagram count.
 - [ ] Evals default design doc excludes Wayfinder/session bookkeeping and passes decision-load review.
 - [ ] Evals default design doc is materially compressed relative to the explanatory model while retaining decision-critical tradeoffs, risks, compatibility concerns, and uncertainty.
 - [ ] Evals CTO variant is materially adapted and no more detailed than its decision task requires.

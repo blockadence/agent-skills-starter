@@ -29,7 +29,7 @@ Evidence selection, representation selection, canonical notation, source-support
 4. Classify it as explanatory or technical.
 5. Choose the representation that minimizes reconstruction work without losing causal reasoning: prose, table, matrix, before/after view, canonical diagram, contract block, source-supported code/schema/API/SQL excerpt, or no additional artifact.
    For architecture, interaction, data-shape, lifecycle, boundary, or contract questions, actively consider C4/context, UML sequence, ER/entity-model, state/activity/deployment, and interface/contract representations before accepting prose.
-6. For technical diagrams, choose canonical notation when available.
+6. For technical diagrams, choose canonical notation when available. Treat the document as a set of engineering questions rather than asking for a diagram quota. Before finalizing, explicitly inspect at least these relationship classes when the design contains them: system/context boundaries, runtime interactions, domain/entity relationships, lifecycle/state transitions, data flow/persistence, and interfaces/contracts. For each applicable class, either plan a visual/contract representation or record why prose/table/code is clearer. The goal is coverage of decision-relevant relationships, not a target count.
 7. Classify support as concrete, conceptual, or unsupported.
 8. Choose renderer separately from notation and state layout intent.
 9. Specify meaningful labels and the conclusion the caption should communicate.
@@ -54,8 +54,8 @@ Compression must not remove a source-supported technical diagram merely because 
 
 ## Do not
 
-Do not invent proprietary notation when an established notation fits. Do not fabricate Java, SQL, schemas, APIs, package names, or class names. Mermaid is a renderer/syntax, not a notation. Do not add decorative diagrams that answer no engineering question.
+Do not invent proprietary notation when an established notation fits. Do not fabricate Java, SQL, schemas, APIs, package names, or class names. Mermaid is a renderer/syntax, not a notation. When Mermaid is selected, prefer conservative syntax compatible with the target runtime and avoid exotic characters or constructs when an ordinary equivalent communicates the same meaning. Do not add decorative diagrams that answer no engineering question.
 
 ## Completion gate
 
-Before returning, verify source support, representation choice, canonical notation where applicable, and the intended reader conclusion for every planned artifact.
+Before returning, verify source support, representation choice, canonical notation where applicable, the intended reader conclusion for every planned artifact, and that every applicable engineering relationship class was considered rather than allowing prose to win by default.
