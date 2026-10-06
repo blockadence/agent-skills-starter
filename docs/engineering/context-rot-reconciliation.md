@@ -165,3 +165,18 @@ New invariant:
 > At every major story transition, the visible deck should tell both audience and presenter where they are, what was just established, and why the next Anchor follows.
 
 A dedicated transition slide is optional. A return-to-map treatment, section/Anchor landmark, or equivalent recurring visual device is sufficient when it restores story position. Speaker notes carry narration; slides provide landmarks.
+
+
+## Acceptance observation: reviewer knowledge subtraction
+
+The CTO Evals rerun confirmed that reviewer adaptation cannot be modeled only as different emphasis or permission to compress. The variant remained a tutorial on established Conductor behavior before presenting the design delta.
+
+New invariant:
+
+> Reviewer adaptation subtracts established context before adding emphasis.
+
+For reviewer knowledge supported by the reviewer profile or explicit context, established platform behavior stays upstream unless the proposed design changes it, depends on a non-obvious property of it, or exposes a material consequence or risk. Reader-facing treatment should prefer the delta, dependency, consequence, or challenge over a primer on the surrounding system.
+
+This does not authorize guessing what a reviewer knows. The subtraction must be supported by the profile or explicit context, and material tradeoffs, risks, compatibility concerns, uncertainty, and evidence gaps still survive.
+
+The same acceptance run also confirmed that useful technical representations are part of compression rather than optional decoration. When a supported C4/context, sequence, entity/data-model, state, persistence/data-flow, or interface/contract representation replaces explanatory prose while preserving engineering meaning, evidence planning should prefer the representation and shorten the prose around it.
