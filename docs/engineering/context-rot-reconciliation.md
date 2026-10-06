@@ -82,3 +82,36 @@ Do not roll back the composable architecture. Recovered behaviors belong in the 
 ## Acceptance consequence
 
 After reconciliation changes, rerun the canonical Evals fixture from the beginning. Do not mark the suite production-ready merely because the default design document looks good. The full default package, reviewer variants, BBP narrative, rendering, PR communication, plugin discovery, and independent fixtures remain acceptance gates.
+
+
+## Acceptance observation: artifact depth and BBP hierarchy
+
+The regenerated Evals package exposed two remaining systemic defects.
+
+### Design-document defect
+
+The design document was materially improved but still behaved like a compressed specification. In particular, its `Implementation path` carried PR topology, feature-branch strategy, repository work queues, ticket/version-bump sequencing, coding conventions, and ordinary landing order. Those facts may be useful downstream without being necessary for design approval.
+
+New invariant:
+
+> Decision-relevant does not mean downstream-useful.
+
+A design document preserves implementation consequences only when they materially constrain feasibility, compatibility, migration, blast radius, risk, validation, or the architecture being approved. Ordinary implementation planning belongs downstream.
+
+Verification follows the same rule: prove that the design is testable at the relevant seams; do not turn the approval artifact into an exhaustive test plan unless the decision depends on that detail.
+
+### BBP defect
+
+The regenerated slides had a strong title, opening story, map, sentence headlines, and slide-level visuals. The remaining gap was deck-level BBP hierarchy: most body slides were visual peers distinguished mainly by kickers.
+
+The BBP planning model now treats the body as Anchor → Explanation → Detail and derives three progressive-depth views from that hierarchy. The familiar approximately 5-, 15-, and 45-minute BBP versions are planning lenses, not timing contracts. The Rule of Three is a strong prioritization heuristic, not a quota.
+
+New invariants:
+
+- the Core story survives severe time pressure;
+- Standard expands Core;
+- Deep expands Standard;
+- longer versions preserve the same thesis and causal spine;
+- story levels have distinguishable visual treatment;
+- map/Anchor motifs provide orientation across the deck;
+- deviations from three siblings are allowed when the subject's natural structure warrants them.
