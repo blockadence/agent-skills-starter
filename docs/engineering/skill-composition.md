@@ -33,6 +33,21 @@ Markdown design documents and speaker notes are authoritative editable artifacts
 
 The former `to-design-doc` skill is intentionally removed rather than retained as a compatibility path. Useful ideas from it must live at their natural ownership boundary. Examples include source support in `source-model` and `source-fidelity-audit`, reader sequencing in `design-doc-plan`, evidence selection in `design-evidence-plan`, and expression constraints in compatible modifiers.
 
+## Shared source and reviewer branches
+
+Artifacts before reviewer adaptation represent common technical truth and belong in a shared source namespace. Artifacts at or after reviewer adaptation belong to the selected reviewer branch.
+
+```text
+spec
+  -> source/source-model
+  -> source/explanatory-model
+       -> default/...
+       -> cto/...
+       -> adversarial/...
+```
+
+Reviewer branches are siblings. They may reference the shared source artifacts but must not derive from one another. This makes `source/explanatory-model.md` both the normal branch point and the truth-equivalence anchor for reviewer variants.
+
 ## Checkpoints and resume
 
 Pipeline artifacts are explicit interfaces between stages and may be reused as checkpoints.
