@@ -1,6 +1,6 @@
 ---
 name: reviewer-adapt
-description: "Adapt an engineering explanatory model for a reviewer perspective or reusable reviewer profile. Use when the same technical truth needs different emphasis, ordering, evidence density, or code-nearness for different reviewers."
+description: "Adapt an engineering explanatory model for a reviewer perspective or reusable reviewer profile. Use when the same technical truth needs different relevance selection, emphasis, ordering, evidence density, or code-nearness for different reviewers."
 ---
 
 # reviewer-adapt
@@ -12,32 +12,60 @@ This skill follows the repository composition rules.
 - Explicit user instructions have highest precedence.
 - Preserve source truth, uncertainty, terminology, and decision status.
 - Do not invent implementation detail to make an artifact look complete.
-- Reviewer adaptation may change emphasis, order, evidence density, and code-nearness, never facts.
-- Keep reviewer classification, persuasion strategy, generation mechanics, notation choice, and renderer choice out of reader-facing content.
+- Reviewer adaptation may change emphasis, order, evidence density, code-nearness, and reader-facing inclusion, never facts.
+- Keep reviewer classification, persuasion strategy, generation mechanics, source-process bookkeeping, notation choice, and renderer choice out of reader-facing content.
 - Treat source vocabulary and reader-facing vocabulary differently. Preserve source terms internally; introduce or translate them for readers when needed.
+- Fidelity preserves truth, not volume. Downstream reader artifacts may omit source-supported information that is not needed for their review or decision task.
 - Route defects to the earliest stage that owns them instead of patching only the final artifact.
 
 ## Owns
 
-Private adaptation instructions: priorities, likely questions, evidence density, code-nearness, ordering adjustments, and concepts needing extra explanation.
+Private adaptation instructions: reviewer-relevance selection, priorities, likely questions, evidence density, code-nearness, ordering adjustments, concepts needing extra explanation, and material that can remain upstream.
+
+## Decision-relevance test
+
+For each candidate piece of information, ask whether this reviewer needs it to:
+
+1. understand the problem;
+2. understand the proposed design and how it works;
+3. evaluate a material tradeoff;
+4. identify a material risk or failure mode;
+5. assess compatibility, migration, or blast radius;
+6. make or defend the requested review decision.
+
+If none apply, default to keeping the information in the shared explanatory/source artifacts rather than carrying it into the reviewer branch.
+
+Omission from the reviewer surface does not delete or contradict the underlying truth.
 
 ## Process
 
 1. Read the explanatory model and optional reviewer profile.
-2. Identify the reviewer's likely information needs and questions.
-3. Adjust priority, ordering, evidence density, and code-nearness.
-4. Convert anticipated pushback into candidate objectives, invariants, evidence, limitations, or implementation details.
-5. Keep profile labels private.
-6. Write `review-adaptation.md`.
+2. Identify the reviewer's likely information needs, questions, and decision task.
+3. Classify explanatory-model material as:
+   - **required:** needed for this reviewer's decision;
+   - **supporting:** useful evidence/context that may be included when it earns its space;
+   - **upstream-only:** true but unnecessary for this reviewer's decision surface.
+4. Adjust priority, ordering, evidence density, code-nearness, and inclusion.
+5. Convert anticipated pushback into candidate objectives, invariants, evidence, limitations, or implementation details only when decision-relevant.
+6. Keep profile labels and source-process provenance private.
+7. Write `review-adaptation.md`.
+
+## Compression principle
+
+Reviewer adaptation is allowed and expected to remove information from the reader-facing path.
+
+Preserve decision sufficiency, not exhaustive source coverage. A reviewer should receive enough information to understand, challenge, and decide without replaying the source's exploration history.
+
+More senior or code-near reviewers are not automatically entitled to more text. Their variant may be more compressed when their existing context allows it.
 
 ## Must preserve
 
-Technical truth and decision status.
+Technical truth and decision status. Do not omit a material tradeoff, risk, compatibility concern, unresolved question, or evidence gap merely to shorten the artifact.
 
 ## Do not
 
-Do not invent reassurance, flatter or manipulate the reviewer, or emit headings such as `Adversarial engineering review`, `CTO review`, or skeptical `Claim 1/2/3` rhetoric merely because of the private profile.
+Do not invent reassurance, flatter or manipulate the reviewer, narrate the source's twists and turns, expose source-process bookkeeping, or emit headings such as `Adversarial engineering review`, `CTO review`, or skeptical `Claim 1/2/3` rhetoric merely because of the private profile.
 
 ## Completion gate
 
-Before returning, verify this skill's output contract. Report unresolved defects with the earliest owning stage.
+Before returning, verify every required item survives, upstream-only material is not carried forward by default, and the adaptation is materially selective rather than a reordered copy of the explanatory model.
