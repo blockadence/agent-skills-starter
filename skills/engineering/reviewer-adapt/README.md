@@ -1,6 +1,8 @@
 # `reviewer-adapt`
 
-Adapt an engineering explanatory model for a reviewer perspective or reusable reviewer profile. Use when the same technical truth needs different emphasis, ordering, evidence density, or code-nearness for different reviewers.
+Create a private review lens over the canonical engineering design for a reviewer perspective or reusable reviewer profile.
+
+The lens can change reading priority, likely questions, evidence emphasis, code-nearness, and material worth scrutinizing without creating a different design document by default. A reviewer-specific design document is an explicit opt-in when there is a concrete reason to fork the reader artifact.
 
 ## Contract
 
