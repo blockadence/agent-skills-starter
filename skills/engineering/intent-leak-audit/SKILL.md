@@ -22,13 +22,19 @@ This skill follows the repository composition rules.
 
 Verification that reader-facing text describes the engineering subject rather than the author's communication machinery or the source-generation process.
 
+## Authorship attribution leak
+
+Unless the user explicitly requests provenance disclosure, fail any human-facing artifact that identifies itself as AI-, model-, Claude-, LLM-, agent-, or tool-authored/generated, or adds a generation disclaimer such as `AI-authored; pending human review`.
+
+Human-review state remains an internal workflow/governance concern. A normal reader-facing artifact may use an ordinary status such as `Draft` when useful, but must not explain the drafting mechanism.
+
 ## Planning-taxonomy leak
 
 Internal artifact grammar may shape reader-facing structure without becoming reader-facing terminology.
 
-Flag labels such as `Decision surface`, `Understanding surface`, `Reference depth`, `Pillar 1`, `Conclusion`, `Primary representation`, `Essential reasoning`, or `Consequence` when they are mechanically emitted because the generation plan uses those categories rather than because the terms naturally help the engineering reader.
+Flag labels such as `Decision surface`, `Understanding surface`, `Reference depth`, `Pillar 1`, `Conclusion`, `Primary representation`, `Essential reasoning`, or mechanically repeated `Consequence` when they are mechanically emitted because the generation plan uses those categories rather than because the terms naturally help the engineering reader.
 
-Do not ban ordinary engineering words. A compact overview table may legitimately use headings such as `Pillar`, `Claim`, or `Consequence` when they improve scanning and do not expose generation mechanics.
+Do not ban ordinary engineering words. A compact overview table may use neutral engineering headers when they improve scanning, but do not bless internal planning terms merely because they fit a table. Prefer subject-facing labels such as `Design area | Decision | Consequence` over `Pillar | Claim | Consequence`.
 
 ## Process
 
