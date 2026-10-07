@@ -49,7 +49,8 @@ Omission from the reviewer surface does not delete or contradict the underlying 
 5. Produce a review lens over the canonical design document. Adjust review priority, recommended reading order, evidence to foreground, code-nearness, likely questions, and material that can be skimmed. Prefer the delta, dependency, consequence, or challenge over a tutorial on the surrounding system. Keep the tone neutral and review-oriented: identify what deserves scrutiny without sales rhetoric, reassurance, defensiveness, or language that pressures the reviewer toward approval.
 6. Convert anticipated pushback into candidate objectives, invariants, evidence, limitations, or implementation details only when decision-relevant.
 7. Keep profile labels and source-process provenance private.
-8. Write `review-adaptation.md` as the private review lens. Do not compose a separate reviewer design document unless the user explicitly requests one.
+8. Write `review-adaptation.md` as a polished human-readable review lens. Use normal document-quality Markdown: descriptive headings, short paragraphs, compact lists and tables where they improve scanning, readable spacing, and links or section references into the canonical design document where useful. Do not emit raw planning notes, dense key/value dumps, pseudo-structured scratch format, or internal taxonomy merely because the artifact is private.
+9. Render the completed review lens to sibling `review-adaptation.html` with `render-html-document`. The Markdown remains authoritative; the HTML is the default review surface. Do not compose a separate reviewer design document unless the user explicitly requests one.
 
 ## Compression principle
 
@@ -77,4 +78,4 @@ Do not invent reassurance, flatter or manipulate the reviewer, argue like an adv
 
 ## Completion gate
 
-Before returning, verify the review lens points to the canonical design rather than silently creating a parallel design document, every required decision surface is foregrounded, the knowledge-subtraction pass removes unnecessary primers from the recommended reading path, decision-relevant technical evidence is not deprioritized merely because the reviewer is expert, and the adaptation is materially selective rather than a reordered copy of the explanatory model.
+Before returning, verify both `review-adaptation.md` and `review-adaptation.html` exist, the Markdown is intentionally formatted for human reading rather than emitted as raw intermediate state, the HTML faithfully renders that Markdown, the review lens points to the canonical design rather than silently creating a parallel design document, every required decision surface is foregrounded, the knowledge-subtraction pass removes unnecessary primers from the recommended reading path, decision-relevant technical evidence is not deprioritized merely because the reviewer is expert, and the adaptation is materially selective rather than a reordered copy of the explanatory model.
