@@ -47,6 +47,13 @@ For interactive presentation HTML when this renderer is used for a deck or deck-
 - keep keyboard controls and visible controls consistent with the same active depth;
 - do not treat the presence of buttons, JavaScript handlers, or depth metadata in source as evidence that interaction works.
 
+For reviewer review lenses:
+
+- preserve the lens's recommended reading path, priorities, likely questions, evidence emphasis, risks, and canonical-design references;
+- provide a compact navigable table of contents when the lens has multiple sections;
+- optimize for fast review scanning without turning the lens into a second design document;
+- preserve links and section references to the canonical design document when present.
+
 For speaker notes:
 
 - preserve slide boundaries and slide titles when present;
