@@ -71,6 +71,8 @@ Reviewer adaptation may remove explanatory context, but reviewer expertise alone
 
 Compression must not remove a source-supported technical diagram merely because the same facts can be stated in prose. When a diagram replaces paragraphs, preserves an important relationship, or gives reviewers a faster inspection surface, prefer the diagram and shorten the prose around it.
 
+Every substantial representation must have a **prose-reduction effect**. After selecting a table, diagram, matrix, or contract, identify which planned prose facts it now communicates directly and mark that prose for deletion or reduction. Adding a representation on top of a full prose explanation is not compression.
+
 ## Visual grammar
 
 Representation semantics come before decoration.
@@ -93,4 +95,4 @@ Do not invent proprietary notation when an established notation fits. Do not fab
 
 ## Completion gate
 
-Before returning, verify source support, representation choice, canonical notation where applicable, the intended reader conclusion for every planned artifact, and that every applicable engineering relationship class was considered rather than allowing prose to win by default.
+Before returning, verify source support, representation choice, canonical notation where applicable, the intended reader conclusion for every planned artifact, that every applicable engineering relationship class was considered rather than allowing prose to win by default, and that every substantial representation identifies the prose it replaces or shortens.
