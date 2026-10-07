@@ -16,6 +16,8 @@ The workflow may still track internally that generated artifacts require human r
 
 Human-facing engineering artifacts may advocate for a technical decision through evidence and reasoning, but they must maintain a neutral professional posture.
 
+Human-facing Markdown is a finished reader artifact, not an intermediate serialization format. Format it for human scanning and comprehension using ordinary Markdown structure, spacing, lists, tables, and links where useful. A sibling HTML rendering may improve navigation and presentation, but it must not be required to make poorly formatted Markdown readable.
+
 **Anticipated challenge changes the evidence, not the posture.**
 
 Skepticism may justify stronger evidence, clearer tradeoffs, more explicit limitations, or different explanatory depth. It must not introduce sales rhetoric, defensiveness, reassurance, manufactured urgency, exaggerated contrast, or rhetorical pressure toward approval.
