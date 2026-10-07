@@ -205,7 +205,7 @@ A complete package normally includes:
 - requested intermediate semantic/planning artifacts;
 - audit reports.
 
-Design-document composition must follow the approved plan's Decision / Understanding / Reference-depth classification. Reference-depth material does not return to the main narrative merely because it is available upstream. For each planned major proposition, preserve the planned conclusion -> representation -> essential reasoning -> material consequence/tradeoff structure, omitting elements only when the plan marks them inapplicable.
+Design-document composition must follow the approved plan's Decision / Understanding / Reference-depth classification. Reference-depth material does not return to the main narrative merely because it is available upstream. For each planned major proposition, preserve the planned conclusion -> representation -> essential reasoning -> material consequence/tradeoff structure, omitting elements only when the plan marks them inapplicable. Treat those labels as internal composition grammar, not mandatory reader-facing headings. When composition realizes a planned representation, remove or shorten prose that merely restates what the representation now communicates.
 
 Sibling outputs and reviewer design-document variants must agree on technical truth. They need not contain the same volume of information; omission is expected when a detail is not material to that artifact or reviewer's decision task. HTML representations derive from their Markdown source and do not become independent semantic sources.
 
