@@ -46,7 +46,7 @@ Omission from the reviewer surface does not delete or contradict the underlying 
    - **required:** needed for this reviewer's decision;
    - **supporting:** useful evidence/context that may be included when it earns its space;
    - **upstream-only:** true but unnecessary for this reviewer's decision surface, including established behavior removed by the knowledge-subtraction pass.
-5. Adjust priority, ordering, evidence density, code-nearness, and inclusion. Prefer the delta, dependency, consequence, or challenge over a tutorial on the surrounding system.
+5. Adjust priority, ordering, evidence density, code-nearness, and inclusion. Prefer the delta, dependency, consequence, or challenge over a tutorial on the surrounding system. Keep the tone neutral and review-oriented: describe what the design does, why, its evidence, tradeoffs, risks, and commitments without sales rhetoric, reassurance, defensiveness, or language that pressures the reviewer toward approval.
 6. Convert anticipated pushback into candidate objectives, invariants, evidence, limitations, or implementation details only when decision-relevant.
 7. Keep profile labels and source-process provenance private.
 8. Write `review-adaptation.md`.
@@ -73,7 +73,7 @@ Technical truth and decision status. Do not omit a material tradeoff, risk, comp
 
 ## Do not
 
-Do not invent reassurance, flatter or manipulate the reviewer, narrate the source's twists and turns, expose source-process bookkeeping, or emit headings such as `Adversarial engineering review`, `CTO review`, or skeptical `Claim 1/2/3` rhetoric merely because of the private profile.
+Do not invent reassurance, flatter or manipulate the reviewer, argue like an advocate trying to close a sale, narrate the source's twists and turns, expose source-process bookkeeping, or emit headings such as `Adversarial engineering review`, `CTO review`, or skeptical `Claim 1/2/3` rhetoric merely because of the private profile. Avoid `promise`, `claim`, `proof`, and similar advocacy labels when neutral engineering terms such as design, behavior, decision, constraint, consequence, evidence, or commitment are more precise.
 
 ## Completion gate
 
