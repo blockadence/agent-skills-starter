@@ -85,6 +85,12 @@ A locally clear document can still fail globally if the reader must absorb too m
 
 Source terms are not banned words. Terms such as `denominator`, `seam`, or `substrate` may be legitimate source vocabulary. Flag them only when reader-facing use assumes a mental model the audience has not been given.
 
+## Technical-review tone
+
+For design documents and reviewer variants, flag prose that sounds promotional, defensive, pleading, prosecutorial, or over-assuring rather than analytical. The artifact should state the design, evidence, constraints, tradeoffs, risks, commitments, and open questions without trying to make the reviewer feel persuaded.
+
+In particular, question reader-facing uses of `claim`, `promise`, `proof`, `convince`, and similar advocacy vocabulary when a more concrete engineering term expresses the same meaning. This is contextual, not a banned-word list: source/domain usage may still be legitimate.
+
 ## Representation redundancy
 
 For design documents, a useful representation should reduce surrounding prose. Flag sections where a table, diagram, matrix, or contract is immediately preceded or followed by prose that restates substantially the same facts without adding rationale, uncertainty, consequence, or interpretation.
