@@ -85,6 +85,12 @@ A locally clear document can still fail globally if the reader must absorb too m
 
 Source terms are not banned words. Terms such as `denominator`, `seam`, or `substrate` may be legitimate source vocabulary. Flag them only when reader-facing use assumes a mental model the audience has not been given.
 
+## Representation redundancy
+
+For design documents, a useful representation should reduce surrounding prose. Flag sections where a table, diagram, matrix, or contract is immediately preceded or followed by prose that restates substantially the same facts without adding rationale, uncertainty, consequence, or interpretation.
+
+Also flag Alternatives sections that read like exhaustive decision logs rather than a small set of credible competing designs, and verification sections that expand into acceptance-test inventories rather than explaining how the architecture can be validated.
+
 ## Do not
 
 Do not maintain a simplistic banned-word list or silently rewrite final prose.
