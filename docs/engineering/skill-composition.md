@@ -24,6 +24,7 @@ Examples:
 
 - source interpretation, reviewer relevance, evidence choice, and slide depth membership require judgment;
 - once reviewer relevance is classified, composition must not casually resurrect upstream-only material;
+- once design-doc planning classifies content as Decision, Understanding, or Reference depth, composition must preserve that disclosure boundary rather than re-expanding available upstream detail;
 - once an evidence plan selects a representation, composition/rendering must not silently replace it with prose;
 - once the canonical Deep slide inventory records stable slide IDs and depth membership, Core and Standard are deterministic projections that change visibility only.
 
@@ -125,9 +126,9 @@ When review or an audit finds a defect, classify it and repair the earliest stag
 
 Information may remain true and useful while being absent from a particular reader artifact.
 
-- `design-doc-plan` selects the minimum approval surface. Downstream implementation usefulness alone is not a reason to include content.
+- `design-doc-plan` treats the design document as a decision instrument. It selects Decision and Understanding surfaces for the main review path while keeping Reference depth upstream or explicitly separated, and plans major propositions as conclusion -> representation -> essential reasoning -> material consequence/tradeoff. Downstream implementation usefulness alone is not a reason to include content.
 - `reviewer-adapt` subtracts established reviewer knowledge before adding emphasis. Known platform behavior remains upstream unless the design changes it, relies on a non-obvious property of it, or exposes a material consequence or risk.
-- `design-evidence-plan` treats supported technical representations as compression surfaces. Prefer a diagram, contract, or structured representation when it preserves the decision-relevant relationship with less reconstruction work than prose.
+- `design-evidence-plan` selects representation by engineering question and treats supported technical representations as compression surfaces. Conceptual domain/entity models express semantic relationships without implying persistence; ER models require concrete persistence support. Prefer a diagram, contract, or structured representation when it preserves the decision-relevant relationship with less reconstruction work than prose.
 - `bbp-story-plan` authors Deep as the canonical presentation fixed point, records stable slide identity and depth membership once, then derives Core and Standard as deterministic projections. Shared slides remain unchanged across views.
 - Reviewer profiles do not fork presentation stories. Audience-aware delivery guidance belongs in speaker notes.
 - BBP's approximate 5/15/45-minute versions and Rule of Three guide prioritization; they are not rigid timing or cardinality constraints.
