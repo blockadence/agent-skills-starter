@@ -3,6 +3,21 @@
   "version": "0.1.0",
   "description": "Personal composable agent skills",
   "skills": [
-    "./skills/productivity/in-my-voice"
+    "./skills/productivity/in-my-voice",
+    "./skills/engineering/source-model",
+    "./skills/engineering/explanatory-model",
+    "./skills/engineering/reviewer-adapt",
+    "./skills/engineering/reviewer-profile-author",
+    "./skills/engineering/design-doc-plan",
+    "./skills/engineering/design-evidence-plan",
+    "./skills/engineering/bbp-story-plan",
+    "./skills/engineering/render-html-document",
+    "./skills/engineering/source-fidelity-audit",
+    "./skills/engineering/comprehension-audit",
+    "./skills/engineering/intent-leak-audit",
+    "./skills/engineering/visual-render-audit",
+    "./skills/engineering/pr-communication-plan",
+    "./skills/engineering/to-design-package",
+    "./skills/engineering/to-pr-comments"
   ]
 }
