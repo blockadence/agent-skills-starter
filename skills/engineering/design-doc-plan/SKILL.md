@@ -58,12 +58,12 @@ A true detail that does not materially serve one of those jobs normally remains 
    8. verification confidence: what evidence will show the design works, not the test inventory.
    This is information architecture, not boilerplate. Do not emit empty or generic sections.
 7. Sequence concepts according to dependencies and preserve mechanism before consequence.
-8. Include before/after, unchanged/modified/new, compatibility, blast radius, migration, risks, unknowns/evidence, alternatives, verification strategy, and implementation consequences only to the depth material to this decision.
+8. Include before/after, unchanged/modified/new, compatibility, blast radius, migration, risks, unknowns/evidence, alternatives, verification strategy, and implementation consequences only to the depth material to this decision. For alternatives, retain only **credible competing designs** whose tradeoffs could reasonably change or challenge approval. A rejected local implementation choice belongs beside the mechanism it explains or remains upstream; do not turn the Alternatives section into a decision log.
 9. Separate **design consequence** from **implementation planning**:
    - keep implementation facts only when they constrain feasibility, compatibility, migration, blast radius, risk, validation, or the architecture being approved;
    - keep PR topology, branch strategy, ticket decomposition, repository work queues, milestones, coding conventions, and ordinary execution ordering upstream for downstream planning;
    - include an ordering dependency only when violating it would make the approved design incorrect, unsafe, incompatible, or infeasible.
-10. Treat verification as evidence that the design is testable, not as a full test plan. Preserve validation seams and load-bearing acceptance evidence; omit exhaustive test matrices unless the decision depends on them.
+10. Treat verification as evidence that the design is testable, not as a full test plan. Preserve validation seams, design-invalidating failure classes, and the evidence needed for reviewer confidence. Keep exhaustive acceptance-case inventories, test matrices, and ordinary test enumeration upstream unless the decision itself depends on them.
 11. Do not create a section merely because a conventional design-doc template has one. Sections exist only when they answer a decision-relevant reviewer question.
 12. For every planned section, state:
    - the reviewer question it answers;
@@ -90,7 +90,7 @@ Include a rejected alternative when understanding why it lost materially helps e
 
 Compression is not summarization by word deletion. Remove entire non-material branches of information before polishing the material that remains.
 
-Prefer terse engineering prose. A human design reviewer does not need the implementation agent's complete explanatory context. Keep enough causal reasoning to defend the design, then stop. If a paragraph mainly teaches established platform behavior to a reviewer who already knows it, retain only the changed behavior, non-obvious dependency, consequence, or risk.
+Prefer terse engineering prose. A human design reviewer does not need the implementation agent's complete explanatory context. After adding a table, diagram, matrix, or contract, reread the surrounding prose and remove statements whose information is now obvious from the representation. **A representation must buy back prose.** Keep enough causal reasoning to defend the design, then stop. If a paragraph mainly teaches established platform behavior to a reviewer who already knows it, retain only the changed behavior, non-obvious dependency, consequence, or risk.
 
 ## Proposition grammar
 
@@ -100,6 +100,8 @@ For each major design proposition, plan the reader-facing treatment in this orde
 2. **Primary technical representation:** the diagram, contract, table, matrix, or compact structured view that makes the relevant relationship inspectable, when supported.
 3. **Essential reasoning:** only the causal explanation needed to understand why the representation supports the conclusion.
 4. **Material consequence / tradeoff:** the cost, limitation, compatibility effect, risk, or implication relevant to approval.
+
+The proposition grammar is planning machinery, not required reader-facing vocabulary. Let it shape the document without emitting labels such as `Pillar 1`, `Conclusion`, `Representation`, `Essential reasoning`, or `Consequence` merely to expose the structure. Use subject-matter headings and natural engineering language. A compact overview table may use ordinary terms such as Pillar, Claim, or Consequence when they genuinely improve scanning.
 
 Do not expand a proposition into a miniature architecture dossier. Reference-depth mechanics remain upstream unless they are necessary to understand or challenge the conclusion.
 
@@ -130,8 +132,11 @@ Before returning:
 3. verify no material tradeoff/risk/compatibility issue was lost;
 4. inspect remaining prose for better structured representations;
 5. verify Decision and Understanding surfaces form the main review path while Reference depth remains upstream or explicitly separated;
-6. verify each major design proposition follows conclusion -> representation -> essential reasoning -> material consequence/tradeoff when those elements are applicable;
-7. verify Scan, Review, and Deep-reference information elaborate one design proposition rather than competing structures;
-8. verify useful supported technical diagrams/contracts were not lost during compression.
+6. verify each major design proposition follows conclusion -> representation -> essential reasoning -> material consequence/tradeoff internally when those elements are applicable, without requiring those planning labels in reader-facing headings;
+7. verify Alternatives contains credible competing designs rather than a replay of local rejected choices;
+8. verify verification communicates confidence and design-invalidating failure classes rather than an acceptance-test inventory;
+9. verify every substantial representation bought back redundant surrounding prose;
+10. verify Scan, Review, and Deep-reference information elaborate one design proposition rather than competing structures;
+11. verify useful supported technical diagrams/contracts were not lost during compression.
 
 Report unresolved defects with the earliest owning stage.
