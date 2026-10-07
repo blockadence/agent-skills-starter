@@ -18,7 +18,8 @@ This skill follows the repository composition rules.
 - Keep reviewer classification, persuasion strategy, generation mechanics, notation choice, and renderer choice out of reader-facing content.
 - Treat source vocabulary and reader-facing vocabulary differently. Preserve source terms internally; introduce or translate them for readers when needed.
 - Route defects to the earliest stage that owns them instead of patching only the final artifact.
-- AI authorship is permitted. Generated artifacts remain drafts until a human reviews them; never represent generated content as human-reviewed, approved, or final before that review occurs.
+- AI authorship is permitted internally. Generated artifacts remain drafts until a human reviews them; never represent generated content as human-reviewed, approved, or final before that review occurs.
+- Do not put AI/model/tool authorship attribution or generation disclaimers in human-facing artifacts unless the user explicitly requests disclosure.
 
 ## Owns
 
@@ -189,8 +190,9 @@ Do not enforce a blanket source constraint that says AI may not draft design-doc
 Human review is the authority boundary:
 
 - generation and reasoning may be AI-assisted;
-- generated artifacts are drafts;
+- generated artifacts are drafts internally until reviewed;
 - a human must review them before they are represented as human-reviewed, approved, or final;
+- human-facing artifacts must not announce AI/model/tool authorship or generation provenance unless the user explicitly requests it;
 - do not leak internal deliberation about this boundary into normal reader-facing artifacts or wrapper completion prose.
 
 ## Output
