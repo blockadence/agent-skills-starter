@@ -27,6 +27,9 @@ The engineering documentation suite may be described as production-ready only wh
 - [x] Internal proposition/disclosure grammar is not required reader-facing vocabulary.
 - [x] Representations have a prose-reduction contract: diagrams/tables must replace or shorten redundant explanation.
 - [x] Verification planning distinguishes reviewer confidence from exhaustive acceptance-test inventory.
+- [x] Human-facing artifacts prohibit AI/model/tool authorship attribution unless explicitly requested by the user.
+- [x] Reviewer adaptation requires neutral technical-review tone rather than sales, reassurance, or defensive rhetoric.
+- [x] Reader-facing overview vocabulary prefers subject-specific engineering terms over internal `pillar/claim` planning language.
 - [x] Fidelity audit distinguishes dangerous omission from successful compression.
 - [ ] Exercise every skill against at least one positive fixture.
 - [ ] Exercise every audit against at least one failing fixture.
@@ -50,7 +53,7 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Reviewer-variant truth-equivalence test passes.
 - [ ] Known C4 collision is rejected by render QA.
 - [ ] Fake-Java regression is rejected.
-- [ ] Intent-leak regressions are rejected.
+- [ ] Intent-leak regressions are rejected, including AI/model/tool authorship attribution in human-facing artifacts.
 - [ ] BBP output includes an inert holding/title slide before the story, passes the headline-only story test, establishes Act I orientation before solution mechanics, and preserves progressive disclosure.
 - [ ] BBP visual and verbal channels are complementary, with speaker notes forming a usable rehearsal script and visible major transitions re-orienting both audience and presenter.
 - [ ] Design-doc acceptance catches prose transcription when a supported structured representation would materially improve scanability.
@@ -63,7 +66,8 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Evals evidence plan explicitly considers each applicable context/boundary, runtime interaction, entity/data-model, lifecycle, persistence/data-flow, and interface/contract relationship without enforcing a diagram count.
 - [ ] Evals default design doc excludes Wayfinder/session bookkeeping and passes decision-load review.
 - [ ] Evals default design doc is materially compressed relative to the explanatory model while retaining decision-critical tradeoffs, risks, compatibility concerns, and uncertainty.
-- [ ] Evals CTO variant is materially adapted and no more detailed than its decision task requires.
+- [ ] Evals CTO variant is materially adapted and no more detailed than its decision task requires, while remaining neutral and analytical rather than defensive, reassuring, or sales-oriented.
+- [ ] Evals default and CTO design docs avoid generic `claim` / `promise` framing when concrete engineering headers such as decision, behavior, commitment, constraint, or consequence are available.
 - [ ] Evals CTO variant subtracts established Conductor primers and retains only changed behavior, non-obvious dependencies, material consequences, and risks needed for the decision.
 - [ ] Evals CTO evidence planning may reduce explanatory diagrams but preserves representations that expose changed boundaries/interactions, failure modes, compatibility constraints, irreversible choices, or other decision-relevant relationships.
 - [ ] PR-review acceptance reconciles every upstream finding and validates diff anchoring, severity ordering, and comment communication form.
