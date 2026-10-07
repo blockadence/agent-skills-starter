@@ -37,8 +37,9 @@ Rendered-geometry and readability verification.
    - color is not the sole carrier of critical meaning;
    - quantitative graphics do not use area/angle/decorative encodings when position or length would communicate magnitude more accurately.
 6. Check canonical notation remains recognizable and that a familiar representation was not replaced by a novel infographic that increases interpretation cost.
-7. For syntax/render failures, repair in this order: smallest syntax-safe correction; target-runtime-compatible equivalent syntax; renderer substitution; semantic simplification last. For geometry/readability failures, repair in this order: padding/clearance; direction/ordering; routing/layout algorithm; invisible constraints; renderer substitution; semantic simplification last.
-8. Return PASS or FAIL.
+7. When the rendered artifact exposes interactive controls, exercise them rather than inferring behavior from source. For Core / Standard / Deep presentation controls, verify each selection changes the visible slide population to the planned projection, preserves canonical order and shared-slide identity, and keeps visible/keyboard state synchronized. A present-but-inoperative control is a blocking render failure.
+8. For syntax/render failures, repair in this order: smallest syntax-safe correction; target-runtime-compatible equivalent syntax; renderer substitution; semantic simplification last. For geometry/readability failures, repair in this order: padding/clearance; direction/ordering; routing/layout algorithm; invisible constraints; renderer substitution; semantic simplification last.
+9. Return PASS or FAIL.
 
 ## Do not
 
@@ -46,4 +47,4 @@ Do not default to document-specific hand-tuned coordinates or change semantic me
 
 ## Completion gate
 
-Before returning, verify this skill's output contract, including semantic consistency of visual grouping, hierarchy, relationship labels, scan direction, contrast, and quantitative encoding where applicable. Report unresolved defects with the earliest owning stage.
+Before returning, verify this skill's output contract, including semantic consistency of visual grouping, hierarchy, relationship labels, scan direction, contrast, and quantitative encoding where applicable. For interactive artifacts, confirm supported controls were exercised and their resulting rendered states were inspected. Report unresolved defects with the earliest owning stage.
