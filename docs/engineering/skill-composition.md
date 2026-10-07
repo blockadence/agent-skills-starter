@@ -64,7 +64,8 @@ A modifier may change expression, emphasis, or presentation. It must not change 
 source
   -> source-model
   -> explanatory-model
-       -> reviewer-adapt (optional) -> design-doc planning
+       -> canonical design-doc planning
+       -> reviewer-adapt (optional review lens; document fork only on explicit request)
        -> canonical BBP story/slide tree
   -> composition
   -> rendering
@@ -80,19 +81,21 @@ The former `to-design-doc` skill is intentionally removed rather than retained a
 
 ## Shared source and reviewer branches
 
-Artifacts before reviewer adaptation represent common technical truth and belong in a shared source namespace. Reviewer adaptation branches design-document work only. The BBP presentation remains a shared sibling derived from the explanatory model so reviewer profiles cannot reinvent its story or visual language.
+Artifacts before reviewer adaptation represent common technical truth. The normal package produces one canonical design document and one canonical presentation from that truth. Reviewer adaptation produces private review lenses over the canonical design; it does not fork the design document by default.
 
 ```text
 spec
   -> source/source-model
   -> source/explanatory-model
-       -> presentation/...  (canonical slide tree + depth selections)
-       -> default/...       (design document)
-       -> cto/...           (adapted design document)
-       -> adversarial/...   (adapted design document)
+       -> design/...         (canonical design document)
+       -> presentation/...   (canonical slide tree + depth selections)
+       -> reviewers/cto/...  (review lens)
+       -> reviewers/...      (other review lenses)
+       -> variants/...       (reviewer-specific document only when explicitly requested)
 ```
 
-Reviewer branches are siblings. They may reference the shared source artifacts but must not derive from one another. This makes `source/explanatory-model.md` both the normal branch point and the truth-equivalence anchor for reviewer variants.
+This keeps one shared technical artifact as the normal object of review while allowing reviewer profiles to change attention, reading path, questions, evidence emphasis, and delivery guidance. When a separate reviewer-specific document is explicitly requested, derive it from the shared explanatory model rather than from another reviewer branch.
+
 
 ## Decision-relevant compression
 
@@ -101,8 +104,8 @@ The design pipeline separates exhaustive technical understanding from reader-fac
 ```text
 source-model            exhaustive truth + provenance classification
   -> explanatory-model  comparatively complete causal understanding
-  -> reviewer-adapt      reviewer relevance selection
-  -> artifact planning   artifact-specific compression
+  -> artifact planning   canonical artifact-specific compression
+  -> reviewer-adapt      optional review lens over the canonical decision surface
   -> reader artifact     minimum decision-sufficient surface
 ```
 
@@ -146,7 +149,7 @@ When review or an audit finds a defect, classify it and repair the earliest stag
 Information may remain true and useful while being absent from a particular reader artifact.
 
 - `design-doc-plan` treats the design document as a decision instrument. It selects Decision and Understanding surfaces for the main review path while keeping Reference depth upstream or explicitly separated, and plans major propositions as conclusion -> representation -> essential reasoning -> material consequence/tradeoff. Downstream implementation usefulness alone is not a reason to include content.
-- `reviewer-adapt` subtracts established reviewer knowledge before adding emphasis. Known platform behavior remains upstream unless the design changes it, relies on a non-obvious property of it, or exposes a material consequence or risk.
+- `reviewer-adapt` subtracts established reviewer knowledge from the recommended reading path before adding emphasis. Known platform behavior can remain in the canonical design while the review lens points the reviewer toward changed behavior, non-obvious dependencies, material consequences, risks, and evidence that deserve attention.
 - `design-evidence-plan` selects representation by engineering question and treats supported technical representations as compression surfaces. Conceptual domain/entity models express semantic relationships without implying persistence; ER models require concrete persistence support. Prefer a diagram, contract, or structured representation when it preserves the decision-relevant relationship with less reconstruction work than prose.
 - `bbp-story-plan` authors Deep as the canonical presentation fixed point, records stable slide identity and depth membership once, then derives Core and Standard as deterministic projections. Shared slides remain unchanged across views.
 - Reviewer profiles do not fork presentation stories. Audience-aware delivery guidance belongs in speaker notes.
