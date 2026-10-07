@@ -195,3 +195,23 @@ Generative reasoning remains appropriate for source interpretation, reviewer rel
 For BBP presentations, Deep is the canonical fixed point. Core and Standard are deterministic membership projections corresponding approximately to 5- and 15-minute views, while Deep corresponds approximately to the 45-minute view. Shared slides retain stable identity, order, content, visual treatment, and notes.
 
 The same run clarified reviewer evidence subtraction. Expert context can remove explanatory primers and diagrams whose only purpose is teaching established mechanics. It cannot automatically remove technical evidence that exposes a changed boundary or interaction, concurrency property, failure mode, compatibility constraint, irreversible choice, or other relationship material to the decision. Reviewer variants need evidence sufficiency, not diagram parity.
+
+
+## Acceptance observation: design document as decision instrument
+
+The next Evals run retained necessary engineering information but produced an approximately 7,900-word default design document and lost the earlier entity/domain representation. The failure was not simply unnecessary facts. Too much useful reference-depth material remained on the main review path, so the document behaved like a comprehensive architecture dossier rather than a design-review instrument.
+
+External design-document and architecture-documentation research reinforced a distinction already implicit in the pipeline: the explanatory model owns comparatively complete engineering understanding; the reader-facing design document owns the decision.
+
+New invariants:
+
+- classify candidate design-document information as **Decision surface**, **Understanding surface**, or **Reference depth**;
+- build the main review path from Decision + Understanding surfaces;
+- keep Reference depth upstream or explicitly separated unless it is genuinely required for the decision;
+- use a default review-document grammar of decision, problem/constraints, design overview, major propositions, material alternatives, risks/questions, architecture-significant compatibility/rollout, and verification confidence, while omitting sections that have no material content;
+- structure each major proposition as conclusion -> primary technical representation -> essential reasoning -> material consequence/tradeoff when those elements apply;
+- treat this grammar as information architecture, not a boilerplate template.
+
+The same run exposed an evidence-classification bug. Lack of concrete persistence schema/cardinality was treated as a reason to omit an entity diagram entirely. A conceptual domain/entity model is now distinct from an ER/persistence model: it may show source-supported concepts and semantic relationships without implying tables, keys, persistence ownership, or unsupported cardinality.
+
+Visual planning also now follows a restrained semantic grammar. Familiar engineering representations are preferred over decorative infographic novelty; consistent treatment, proximity, enclosure, labelled relationships, hierarchy, scan direction, purposeful contrast, and accurate quantitative encodings carry meaning.
