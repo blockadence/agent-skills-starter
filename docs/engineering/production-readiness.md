@@ -30,6 +30,8 @@ The engineering documentation suite may be described as production-ready only wh
 - [x] Human-facing artifacts prohibit AI/model/tool authorship attribution unless explicitly requested by the user.
 - [x] Reviewer adaptation requires neutral technical-review tone rather than sales, reassurance, or defensive rhetoric.
 - [x] Reader-facing overview vocabulary prefers subject-specific engineering terms over internal `pillar/claim` planning language.
+- [x] Human-facing engineering artifacts advocate through technical causality and evidence while maintaining a neutral professional posture.
+- [x] BBP planning prohibits manufactured urgency, exaggerated before/after framing, reassurance, and sales rhetoric without prohibiting a direct technical recommendation.
 - [x] Fidelity audit distinguishes dangerous omission from successful compression.
 - [ ] Exercise every skill against at least one positive fixture.
 - [ ] Exercise every audit against at least one failing fixture.
@@ -69,6 +71,8 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Evals CTO variant is materially adapted and no more detailed than its decision task requires, while remaining neutral and analytical rather than defensive, reassuring, or sales-oriented.
 - [ ] Evals default and CTO design docs avoid generic `claim` / `promise` framing when concrete engineering headers such as decision, behavior, commitment, constraint, or consequence are available.
 - [ ] Evals CTO variant subtracts established Conductor primers and retains only changed behavior, non-obvious dependencies, material consequences, and risks needed for the decision.
+- [ ] Evals presentation advocates for the proposed design through constraints, mechanism, evidence, tradeoffs, risks, and consequences without sales posture, manufactured urgency, or exaggerated before/after framing.
+- [ ] Evals speaker notes remain analytical under anticipated challenge; stronger skepticism changes evidence and explanatory depth rather than posture.
 - [ ] Evals CTO evidence planning may reduce explanatory diagrams but preserves representations that expose changed boundaries/interactions, failure modes, compatibility constraints, irreversible choices, or other decision-relevant relationships.
 - [ ] PR-review acceptance reconciles every upstream finding and validates diff anchoring, severity ordering, and comment communication form.
 

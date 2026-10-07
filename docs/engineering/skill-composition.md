@@ -12,6 +12,17 @@ The workflow may still track internally that generated artifacts require human r
 
 
 
+## Human-facing engineering posture
+
+Human-facing engineering artifacts may advocate for a technical decision through evidence and reasoning, but they must maintain a neutral professional posture.
+
+**Anticipated challenge changes the evidence, not the posture.**
+
+Skepticism may justify stronger evidence, clearer tradeoffs, more explicit limitations, or different explanatory depth. It must not introduce sales rhetoric, defensiveness, reassurance, manufactured urgency, exaggerated contrast, or rhetorical pressure toward approval.
+
+Persuasion should emerge from technical causality: make the problem and constraints legible, show how the proposed design works, expose consequences and tradeoffs, and let the evidence support the decision.
+
+
 ## Reason once, transform deterministically
 
 Use generative reasoning where engineering judgment is still unresolved. Once a stage records a decision in an explicit intermediate artifact, downstream stages should consume that decision as a contract rather than repeatedly re-deciding it.
