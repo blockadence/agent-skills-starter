@@ -23,6 +23,10 @@ The engineering documentation suite may be described as production-ready only wh
 - [x] Design-document planning has a decision-sufficiency/compression contract.
 - [x] Design-document planning separates Decision, Understanding, and Reference depth and uses a deterministic review-document grammar without requiring empty boilerplate.
 - [x] Evidence planning distinguishes conceptual domain models from concrete ER/persistence models and selects representations by engineering question.
+- [x] Design-doc alternatives are limited to credible competing designs rather than exhaustive local decision logs.
+- [x] Internal proposition/disclosure grammar is not required reader-facing vocabulary.
+- [x] Representations have a prose-reduction contract: diagrams/tables must replace or shorten redundant explanation.
+- [x] Verification planning distinguishes reviewer confidence from exhaustive acceptance-test inventory.
 - [x] Fidelity audit distinguishes dangerous omission from successful compression.
 - [ ] Exercise every skill against at least one positive fixture.
 - [ ] Exercise every audit against at least one failing fixture.
@@ -50,7 +54,10 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] BBP output includes an inert holding/title slide before the story, passes the headline-only story test, establishes Act I orientation before solution mechanics, and preserves progressive disclosure.
 - [ ] BBP visual and verbal channels are complementary, with speaker notes forming a usable rehearsal script and visible major transitions re-orienting both audience and presenter.
 - [ ] Design-doc acceptance catches prose transcription when a supported structured representation would materially improve scanability.
-- [ ] Evals design-doc composition keeps Reference-depth material out of the main review path and follows conclusion -> representation -> essential reasoning -> material consequence/tradeoff for major propositions.
+- [ ] Evals design-doc composition keeps Reference-depth material out of the main review path and follows conclusion -> representation -> essential reasoning -> material consequence/tradeoff for major propositions without mechanically exposing those planning labels.
+- [ ] Evals Alternatives contains only credible competing designs; local rejected choices remain beside their mechanism or upstream.
+- [ ] Evals representations buy back redundant prose rather than being added on top of full textual explanations.
+- [ ] Evals verification communicates validation seams and design-invalidating failure classes without expanding into an acceptance-test inventory.
 - [ ] Evals entity/domain relationships produce a conceptual domain model when semantically supported even if persistence schema/cardinality is not.
 - [ ] Rendered Evals visuals pass semantic visual-grammar checks for grouping, containment, relationship labels, hierarchy/scan direction, contrast, and quantitative encoding where applicable.
 - [ ] Evals evidence plan explicitly considers each applicable context/boundary, runtime interaction, entity/data-model, lifecycle, persistence/data-flow, and interface/contract relationship without enforcing a diagram count.
