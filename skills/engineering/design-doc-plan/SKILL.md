@@ -96,12 +96,14 @@ Prefer terse engineering prose. A human design reviewer does not need the implem
 
 For each major design proposition, plan the reader-facing treatment in this order:
 
-1. **Conclusion:** the design choice or claim the reviewer should understand.
+1. **Conclusion:** the design choice, behavior, or proposition the reviewer should understand.
 2. **Primary technical representation:** the diagram, contract, table, matrix, or compact structured view that makes the relevant relationship inspectable, when supported.
 3. **Essential reasoning:** only the causal explanation needed to understand why the representation supports the conclusion.
 4. **Material consequence / tradeoff:** the cost, limitation, compatibility effect, risk, or implication relevant to approval.
 
-The proposition grammar is planning machinery, not required reader-facing vocabulary. Let it shape the document without emitting labels such as `Pillar 1`, `Conclusion`, `Representation`, `Essential reasoning`, or `Consequence` merely to expose the structure. Use subject-matter headings and natural engineering language. A compact overview table may use ordinary terms such as Pillar, Claim, or Consequence when they genuinely improve scanning.
+The proposition grammar is planning machinery, not required reader-facing vocabulary. Let it shape the document without emitting labels such as `Pillar 1`, `Conclusion`, `Representation`, `Essential reasoning`, or `Consequence` merely to expose the structure. Use subject-matter headings and natural engineering language.
+
+For compact overview tables, prefer neutral headers that describe the information directly, such as `Design area | Decision | Consequence`, `Design choice | Why it matters`, or another subject-appropriate equivalent. Do not default to `Pillar | Claim | Consequence`: `pillar` exposes internal structuring and `claim` sounds argumentative rather than technical.
 
 Do not expand a proposition into a miniature architecture dossier. Reference-depth mechanics remain upstream unless they are necessary to understand or challenge the conclusion.
 
@@ -121,7 +123,7 @@ All material facts, tradeoffs, risks, limitations, and uncertainty necessary for
 
 ## Do not
 
-Do not include a generic `Implementation path` section unless implementation ordering is itself architecture-significant. Do not expose rhetorical strategy in headings, mirror the source mechanically, narrate source-process bookkeeping, create generic "decisions" inventories, pad unsupported sections with generic prose, turn the document into a slide deck, or force structured representations where prose communicates the reasoning more accurately.
+Do not use sales, advocacy, or assurance language to make the design sound more compelling. Prefer factual descriptions of behavior, evidence, tradeoffs, constraints, consequences, and commitments. Avoid generic reader-facing labels such as `claim` or `promise` when a concrete engineering noun is available. Do not include a generic `Implementation path` section unless implementation ordering is itself architecture-significant. Do not expose rhetorical strategy in headings, mirror the source mechanically, narrate source-process bookkeeping, create generic "decisions" inventories, pad unsupported sections with generic prose, turn the document into a slide deck, or force structured representations where prose communicates the reasoning more accurately.
 
 ## Completion gate
 
