@@ -2,7 +2,7 @@
 
 Orchestrate or resume a production engineering design package from a Wayfinder spec, similarly rigorous engineering specification, or preserved workflow checkpoint.
 
-A complete package includes editable Markdown design and speaker-note sources, polished navigable HTML representations of both, and the BBB HTML slide deck.
+A complete package includes one canonical engineering design document, a canonical BBP presentation with Core / Standard / Deep views, speaker notes, polished HTML representations, and any requested reviewer lenses.
 
 ## Full run
 
@@ -12,22 +12,28 @@ A complete package includes editable Markdown design and speaker-note sources, p
 
 ## Package topology
 
-A full run writes shared pre-adaptation artifacts once under `design-package/source/`. The default package and explicit reviewer variants are sibling branches:
+A normal full run writes shared semantic artifacts once, one canonical design document, one canonical presentation, and optional reviewer lenses:
 
 ```text
 design-package/
   source/
     source-model.md
     explanatory-model.md
-  default/
-    ...
-  cto/
-    ...
-  adversarial/
-    ...
+  design/
+    design-doc.md
+    design-doc.html
+  presentation/
+    slides.html
+    speaker-notes.md
+    speaker-notes.html
+  reviewers/
+    cto/
+      review-adaptation.md
 ```
 
-`source/explanatory-model.md` is the normal branch point. Reviewer variants reuse it rather than rereading or independently reinterpreting the original spec.
+All reviewers normally reference the same design document. Reviewer profiles change what deserves attention, not the underlying review artifact.
+
+A separate reviewer-specific design document is opt-in and is isolated under `design-package/variants/<profile>/`.
 
 ## Resume from a checkpoint
 
@@ -41,7 +47,7 @@ For example, when `design-doc.md` and `speaker-notes.md` already exist and only 
 
 The wrapper validates the checkpoint and skips upstream semantic and planning stages that are not needed.
 
-## Reviewer variants
+## Reviewer profiles
 
 Use `--reviewer=<profile>` when the run includes reviewer adaptation:
 
@@ -50,14 +56,14 @@ Use `--reviewer=<profile>` when the run includes reviewer adaptation:
 /to-design-package --from=reviewer-adapt --reviewer=adversarial
 ```
 
-Each reviewer adaptation produces a complete downstream package in its own namespace. It does not stop at `review-adaptation.md`, and it does not overwrite the default or another reviewer variant.
+By default this produces a review lens over the canonical design document: recommended reading path, likely questions, evidence to foreground, risks/tradeoffs worth scrutiny, and optional delivery guidance.
 
-Reviewer variants preserve the same technical truth while changing emphasis, ordering, evidence density, code-nearness, risk treatment, and explanatory detail.
+It does not create another design document unless the user explicitly requests a reviewer-specific document.
 
 ## Human review
 
-AI generation is permitted. Generated artifacts remain drafts until reviewed by a human and must not be represented as human-reviewed, approved, or final before that review.
+AI generation is permitted. Generated artifacts remain drafts until reviewed by a human and must not be represented as human-reviewed, approved, or final before that review. Human-facing artifacts do not announce AI/model/tool authorship unless the user explicitly requests that disclosure.
 
 ## Contract
 
-`SKILL.md` is the executable agent contract. This README is human-facing orientation only. Leaf skills own transformations such as semantic modeling, planning, HTML rendering, and audits; `to-design-package` owns orchestration, reviewer branching, and checkpoint/resume behavior.
+`SKILL.md` is the executable agent contract. This README is human-facing orientation only. Leaf skills own transformations such as semantic modeling, planning, HTML rendering, and audits; `to-design-package` owns orchestration, canonical artifact reuse, optional reviewer-document branching, and checkpoint/resume behavior.
