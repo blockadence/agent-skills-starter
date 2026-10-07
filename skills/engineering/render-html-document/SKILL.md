@@ -39,6 +39,14 @@ For long-form documents:
 - keyboard-accessible navigation;
 - no loss of source content.
 
+For interactive presentation HTML when this renderer is used for a deck or deck-derived artifact:
+
+- preserve planned Core / Standard / Deep membership and stable slide identity;
+- provide an operable selector when multiple depth views are planned;
+- changing the selector must change the visible slide population to the corresponding canonical projection while preserving canonical order;
+- keep keyboard controls and visible controls consistent with the same active depth;
+- do not treat the presence of buttons, JavaScript handlers, or depth metadata in source as evidence that interaction works.
+
 For speaker notes:
 
 - preserve slide boundaries and slide titles when present;
@@ -56,7 +64,7 @@ For speaker notes:
 6. Render/validate each diagram **independently**. One malformed Mermaid block must not prevent sibling diagrams from rendering or from being diagnosed.
 7. For Mermaid, validate against the Mermaid runtime/version the output will actually use. Do not assume syntactically plausible Mermaid is renderable.
 8. On a Mermaid failure, recover in this order: identify the failing block and parser error; make the smallest syntax-safe correction that preserves semantics; rerender that block; if the intended canonical notation remains unreliable in Mermaid, choose another supported renderer/representation rather than dropping the diagram.
-9. Open or render the resulting HTML when tooling permits and inspect the actual result.
+9. Open or render the resulting HTML when tooling permits and inspect the actual result. For interactive controls, exercise each supported state and verify the rendered state changes as planned; static source inspection is insufficient.
 10. Run `visual-render-audit` on the rendered artifact when visual inspection is available.
 11. Repair rendering/layout defects without changing semantic content.
 
@@ -66,4 +74,4 @@ Do not use HTML rendering as an excuse to rewrite the source artifact, invent mi
 
 ## Completion gate
 
-Confirm every source section is represented, navigation works, content remains faithful, **every diagram has rendered successfully**, and no blocking rendered-visual defects remain. A parser error, Mermaid error panel, raw diagram source, or silently missing diagram is a blocking failure, not a warning.
+Confirm every source section is represented, navigation works, content remains faithful, **every diagram has rendered successfully**, and no blocking rendered-visual defects remain. If the artifact exposes interactive depth/navigation controls, exercise them and verify each planned state changes the rendered result correctly. A parser error, Mermaid error panel, raw diagram source, or silently missing diagram is a blocking failure, not a warning.
