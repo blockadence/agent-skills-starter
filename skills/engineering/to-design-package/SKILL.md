@@ -30,7 +30,7 @@ Workflow orchestration, checkpoint/resume behavior, reviewer-variant branching, 
 2. Run `source-model`.
 3. Run `explanatory-model`.
 4. Fork by artifact responsibility:
-   - design doc: apply optional `reviewer-adapt`, then `design-doc-plan` -> `design-evidence-plan` -> compose Markdown;
+   - design doc: apply optional `reviewer-adapt`, then `design-doc-plan` -> `design-evidence-plan` -> compose Markdown. Composition consumes those plans as contracts: preserve disclosure classification, section purpose, proposition grammar, and selected representations rather than re-expanding reference-depth material or re-deciding evidence;
    - presentation: branch directly from the shared `explanatory-model`, then `bbp-story-plan` -> evidence/visual planning as needed -> compose one canonical HTML slide tree plus Markdown speaker notes and sibling depth/duration selections. Reviewer profiles may add delivery guidance to notes but do not create independent slide stories.
 6. Run `source-fidelity-audit`, `comprehension-audit`, and `intent-leak-audit` on semantic artifacts.
 7. Run `render-html-document` for Markdown reader artifacts that require polished HTML representations, including the design document and speaker notes by default for a complete package.
@@ -204,6 +204,8 @@ A complete package normally includes:
 - polished navigable HTML speaker notes;
 - requested intermediate semantic/planning artifacts;
 - audit reports.
+
+Design-document composition must follow the approved plan's Decision / Understanding / Reference-depth classification. Reference-depth material does not return to the main narrative merely because it is available upstream. For each planned major proposition, preserve the planned conclusion -> representation -> essential reasoning -> material consequence/tradeoff structure, omitting elements only when the plan marks them inapplicable.
 
 Sibling outputs and reviewer design-document variants must agree on technical truth. They need not contain the same volume of information; omission is expected when a detail is not material to that artifact or reviewer's decision task. HTML representations derive from their Markdown source and do not become independent semantic sources.
 
