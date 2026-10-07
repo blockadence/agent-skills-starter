@@ -34,7 +34,7 @@ Workflow orchestration, checkpoint/resume behavior, canonical-artifact reuse, op
    - design doc: create one canonical design document from the shared `explanatory-model` via `design-doc-plan` -> `design-evidence-plan` -> compose Markdown. When a reviewer profile is supplied, run `reviewer-adapt` to create a review lens over this canonical document. Only fork design-doc planning/composition when the user explicitly requests a reviewer-specific document. Composition consumes those plans as contracts: preserve disclosure classification, section purpose, proposition grammar, and selected representations rather than re-expanding reference-depth material or re-deciding evidence;
    - presentation: branch directly from the shared `explanatory-model`, then `bbp-story-plan` -> evidence/visual planning as needed -> compose one canonical HTML slide tree plus Markdown speaker notes and sibling depth/duration selections. Reviewer profiles may add delivery guidance to notes but do not create independent slide stories.
 6. Run `source-fidelity-audit`, `comprehension-audit`, and `intent-leak-audit` on semantic artifacts.
-7. Run `render-html-document` for Markdown reader artifacts that require polished HTML representations, including the design document and speaker notes by default for a complete package.
+7. Run `render-html-document` for every human-facing Markdown artifact, including the canonical design document, speaker notes, and each reviewer `review-adaptation.md`. Human-facing Markdown must itself be polished and readable; HTML is a sibling review representation, not a repair layer for ugly Markdown.
 8. Run `visual-render-audit` for rendered artifacts when visual inspection is available.
 9. Route blocking defects to the earliest owning stage and regenerate that stage and every affected downstream stage.
 10. Preserve inspectable intermediate artifacts.
@@ -68,8 +68,10 @@ design-package/
   reviewers/
     cto/
       review-adaptation.md
+      review-adaptation.html
     adversarial/
       review-adaptation.md
+      review-adaptation.html
   variants/                    # only when explicitly requested
     cto/
       ...reviewer-specific design-doc artifacts
@@ -123,7 +125,7 @@ The optional `--reviewer=<profile>` parameter selects reviewer adaptation when t
 
 Known profiles may include `collaborator`, `cto`, and `adversarial`. Resolve the requested profile through the installed reviewer profile/adaptation machinery rather than exposing the private classification inside reader-facing prose.
 
-By default, reviewer adaptation produces `review-adaptation.md`: a private review lens over the canonical design document. It should identify recommended reading order, areas to scrutinize, likely questions, evidence to foreground, relevant risks/tradeoffs, and optional delivery guidance. It must not silently create a second version of the design.
+By default, reviewer adaptation produces polished `review-adaptation.md` plus sibling `review-adaptation.html`: two representations of the same private review lens over the canonical design document. It should identify recommended reading order, areas to scrutinize, likely questions, evidence to foreground, relevant risks/tradeoffs, and optional delivery guidance. It must not silently create a second version of the design.
 
 Example:
 
@@ -168,17 +170,19 @@ Human review is the authority boundary:
 
 A complete package normally includes:
 
+- polished, human-readable Markdown for every human-facing text artifact;
 - editable Markdown design document;
 - polished navigable HTML design document;
 - BBP HTML slide deck;
 - editable Markdown per-slide speaker notes/rehearsal script;
 - polished navigable HTML speaker notes;
+- polished Markdown and navigable HTML for each requested reviewer review lens;
 - requested intermediate semantic/planning artifacts;
 - audit reports.
 
 Design-document composition must follow the approved plan's Decision / Understanding / Reference-depth classification. Reference-depth material does not return to the main narrative merely because it is available upstream. For each planned major proposition, preserve the planned conclusion -> representation -> essential reasoning -> material consequence/tradeoff structure, omitting elements only when the plan marks them inapplicable. Treat those labels as internal composition grammar, not mandatory reader-facing headings. When composition realizes a planned representation, remove or shorten prose that merely restates what the representation now communicates.
 
-Sibling outputs, review lenses, and any explicitly requested reviewer design-document variants must agree on technical truth. They need not contain the same volume of information; omission is expected when a detail is not material to that artifact or reviewer's decision task. HTML representations derive from their Markdown source and do not become independent semantic sources.
+Sibling outputs, review lenses, and any explicitly requested reviewer design-document variants must agree on technical truth. They need not contain the same volume of information; omission is expected when a detail is not material to that artifact or reviewer's decision task. HTML representations derive from their Markdown source and do not become independent semantic sources. HTML must not be used to compensate for unreadable Markdown; both representations are human-facing and must be reviewable on their own.
 
 ## Do not
 
