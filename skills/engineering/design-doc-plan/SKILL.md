@@ -24,7 +24,7 @@ Artifact-specific relevance selection, information architecture, reasoning order
 
 ## Decision-sufficiency contract
 
-The design document is an approval/review artifact, not an exhaustive replay of the source or explanatory model.
+The design document is a **decision instrument** for approval/review, not a comprehensive architecture dossier and not an exhaustive replay of the source or explanatory model. The explanatory model owns completeness; the design document owns the decision.
 
 Include the minimum information necessary for the intended reviewer to:
 
@@ -41,28 +41,42 @@ A true detail that does not materially serve one of those jobs normally remains 
 
 1. Read the explanatory model and optional reviewer adaptation.
 2. If a reviewer adaptation exists, honor its required/supporting/upstream-only relevance classification. For the default branch, perform the same decision-relevance test directly against the explanatory model.
-3. Plan the opening mental model and central design proposition.
-4. Identify the smallest set of sections needed for decision sufficiency.
-5. Sequence concepts according to dependencies and preserve mechanism before consequence.
-6. Include before/after, unchanged/modified/new, compatibility, blast radius, migration, risks, unknowns/evidence, alternatives, verification strategy, and implementation consequences only to the depth material to this decision.
-7. Separate **design consequence** from **implementation planning**:
+3. Plan the opening mental model, explicit decision/request, and central design proposition.
+4. Classify candidate information into three disclosure levels:
+   - **Decision surface:** information that could materially change approve/reject/challenge. Always reader-facing.
+   - **Understanding surface:** information necessary to understand or evaluate the decision. Reader-facing, with structured/visual representation preferred when it reduces reconstruction work.
+   - **Reference depth:** implementation detail, exhaustive mechanics, edge cases, examples, or validation specifics that remain useful but do not belong in the main review path. Keep upstream or move to an appendix/reference only when reviewers genuinely need access during this decision.
+5. Build the main document from Decision + Understanding surfaces. Reference depth must not silently expand the main narrative.
+6. Identify the smallest set of sections needed for decision sufficiency. Use this default grammar when applicable, omitting any section that has no material content:
+   1. decision / requested approval;
+   2. problem and material constraints;
+   3. design overview with one orienting system/architecture representation when supported;
+   4. a small set of major design propositions;
+   5. credible alternatives whose tradeoffs could change the decision;
+   6. material risks and unresolved questions;
+   7. compatibility / migration / rollout only when architecture-significant;
+   8. verification confidence: what evidence will show the design works, not the test inventory.
+   This is information architecture, not boilerplate. Do not emit empty or generic sections.
+7. Sequence concepts according to dependencies and preserve mechanism before consequence.
+8. Include before/after, unchanged/modified/new, compatibility, blast radius, migration, risks, unknowns/evidence, alternatives, verification strategy, and implementation consequences only to the depth material to this decision.
+9. Separate **design consequence** from **implementation planning**:
    - keep implementation facts only when they constrain feasibility, compatibility, migration, blast radius, risk, validation, or the architecture being approved;
    - keep PR topology, branch strategy, ticket decomposition, repository work queues, milestones, coding conventions, and ordinary execution ordering upstream for downstream planning;
    - include an ordering dependency only when violating it would make the approved design incorrect, unsafe, incompatible, or infeasible.
-8. Treat verification as evidence that the design is testable, not as a full test plan. Preserve validation seams and load-bearing acceptance evidence; omit exhaustive test matrices unless the decision depends on them.
-9. Do not create a section merely because a conventional design-doc template has one. Sections exist only when they answer a decision-relevant reviewer question.
-10. For every planned section, state:
+10. Treat verification as evidence that the design is testable, not as a full test plan. Preserve validation seams and load-bearing acceptance evidence; omit exhaustive test matrices unless the decision depends on them.
+11. Do not create a section merely because a conventional design-doc template has one. Sections exist only when they answer a decision-relevant reviewer question.
+12. For every planned section, state:
    - the reviewer question it answers;
    - why that question is material to approval;
    - what upstream detail is deliberately omitted.
-11. Build an internal information-priority tree for the document:
+13. Build an internal information-priority tree for the document:
    - **Scan:** design proposition, a small set of major design pillars, material consequences, and decision requested;
    - **Review:** the mechanism, tradeoffs, compatibility, risks, and evidence needed to evaluate those pillars;
    - **Deep reference:** decision-relevant edge cases, detailed alternatives, validation detail, API specifics, and other material reference information that would interrupt the main argument.
    Prefer roughly three major design pillars when the subject naturally supports it. This is a prioritization heuristic, never a quota. Deeper levels elaborate the same proposition rather than introducing a competing structure.
-12. Decide which information should remain prose and which should become a structured representation.
-13. Treat technical diagrams as compression tools, not decoration. Preserve or introduce supported context/C4, sequence, entity/data-model, state, deployment, and interface/contract views when they replace substantial prose or make a decision-critical relationship easier to inspect. Compression must not delete a useful technical representation merely because its facts also exist in prose.
-14. Write `design-doc-plan.md`.
+14. Decide which information should remain prose and which should become a structured representation.
+15. Treat technical diagrams as compression tools, not decoration. Preserve or introduce supported context/C4, sequence, entity/data-model, state, deployment, and interface/contract views when they replace substantial prose or make a decision-critical relationship easier to inspect. Compression must not delete a useful technical representation merely because its facts also exist in prose.
+16. Write `design-doc-plan.md`.
 
 ## Compression rule
 
@@ -77,6 +91,17 @@ Include a rejected alternative when understanding why it lost materially helps e
 Compression is not summarization by word deletion. Remove entire non-material branches of information before polishing the material that remains.
 
 Prefer terse engineering prose. A human design reviewer does not need the implementation agent's complete explanatory context. Keep enough causal reasoning to defend the design, then stop. If a paragraph mainly teaches established platform behavior to a reviewer who already knows it, retain only the changed behavior, non-obvious dependency, consequence, or risk.
+
+## Proposition grammar
+
+For each major design proposition, plan the reader-facing treatment in this order:
+
+1. **Conclusion:** the design choice or claim the reviewer should understand.
+2. **Primary technical representation:** the diagram, contract, table, matrix, or compact structured view that makes the relevant relationship inspectable, when supported.
+3. **Essential reasoning:** only the causal explanation needed to understand why the representation supports the conclusion.
+4. **Material consequence / tradeoff:** the cost, limitation, compatibility effect, risk, or implication relevant to approval.
+
+Do not expand a proposition into a miniature architecture dossier. Reference-depth mechanics remain upstream unless they are necessary to understand or challenge the conclusion.
 
 ## Representation rule
 
@@ -104,7 +129,9 @@ Before returning:
 2. remove sections/details that cannot justify their place;
 3. verify no material tradeoff/risk/compatibility issue was lost;
 4. inspect remaining prose for better structured representations;
-5. verify Scan, Review, and Deep-reference information elaborate one design proposition rather than competing structures;
-6. verify useful supported technical diagrams/contracts were not lost during compression.
+5. verify Decision and Understanding surfaces form the main review path while Reference depth remains upstream or explicitly separated;
+6. verify each major design proposition follows conclusion -> representation -> essential reasoning -> material consequence/tradeoff when those elements are applicable;
+7. verify Scan, Review, and Deep-reference information elaborate one design proposition rather than competing structures;
+8. verify useful supported technical diagrams/contracts were not lost during compression.
 
 Report unresolved defects with the earliest owning stage.
