@@ -35,7 +35,7 @@ Presentation narrative, title-to-resolution sequence, hierarchical progressive d
    - **Core / Anchor level:** the few ideas that are the presentation if time is severely constrained;
    - **Explanation level:** the reasoning needed to understand and evaluate each Anchor;
    - **Detail level:** supporting mechanism, evidence, examples, edge cases, and qualification needed for deeper review.
-   Prefer roughly three siblings at a major narrative level as the BBP Rule of Three heuristic. Do not invent, merge, or omit substantive concepts merely to hit three.
+   Use the BBP Rule of Three as a **cognitive-grouping heuristic, not a topology constraint**. Prefer a small number of memorable peer ideas when the subject naturally supports them, but do not invent, merge, or omit substantive concepts merely to hit three. When a branch contains more peer ideas than the audience can comfortably retain, group them into a small number of meaningful conceptual movements or add visible intermediate orientation. The movements may contain multiple slides; the goal is to reduce working-memory load, not enforce a slide count.
 5. Author and validate the **Deep view as the canonical fixed point**: the complete decision-relevant slide tree, including Anchors, Explanations, and Details. Assign every canonical slide a stable identity, narrative role, and depth membership once.
 6. Derive sibling duration/depth variants as deterministic projections of that canonical tree. Treat BBP's approximately 5-, 15-, and 45-minute versions as useful planning lenses, not clock contracts:
    - **Core view (approximately 5 minutes):** holding/opening plus the minimum Anchors and resolution needed for a coherent story;
@@ -95,7 +95,7 @@ Also include:
 - the Deep canonical slide inventory with stable slide identities, narrative roles, canonical order, and explicit Core / Standard / Deep membership;
 - deterministic Core / Standard projections from that inventory, corresponding approximately to 5- and 15-minute views while Deep corresponds approximately to 45 minutes;
 - stable slide identities so shared slides, including their notes, are identical across depth variants;
-- Rule-of-Three deviations and why the subject's natural structure warrants them;
+- cognitive-grouping plan for long narrative branches, including Rule-of-Three deviations and any conceptual movements or intermediate orientation used to keep the parent Anchor legible;
 - visual hierarchy/layout system for Anchor, Explanation, and Detail levels;
 - map-to-Anchor visual continuity plan;
 - major-transition/orientation plan stating the prior conclusion, current story position, and reason for the next Anchor;
@@ -119,7 +119,7 @@ Before returning:
 5. verify the Core view stands alone as a coherent story;
 6. verify Deep is the canonical fixed point and Core / Standard are deterministic membership projections from it;
 7. verify Core ⊆ Standard ⊆ Deep by stable slide identity and canonical order, and verify every shared slide and its notes are byte-for-byte semantically identical across views;
-8. verify the Rule of Three was used as a prioritization heuristic rather than a quota;
+8. verify the Rule of Three was used as a cognitive-grouping heuristic rather than a quota, and verify long branches are chunked or visibly re-anchored before their parent idea becomes difficult to retain;
 9. verify story levels are visually distinguishable and recurring motifs preserve orientation;
 10. at every major Anchor transition, verify the visible deck itself tells audience and presenter where they are and why the next Anchor follows; do not count a notes-only transition as sufficient;
 11. verify speaker notes collectively form a usable rehearsal script.
