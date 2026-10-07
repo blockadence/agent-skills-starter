@@ -21,6 +21,8 @@ The engineering documentation suite may be described as production-ready only wh
 - [x] Engineering substance and source/process provenance have separate source-model treatment.
 - [x] Reviewer adaptation explicitly selects required, supporting, and upstream-only information.
 - [x] Design-document planning has a decision-sufficiency/compression contract.
+- [x] Design-document planning separates Decision, Understanding, and Reference depth and uses a deterministic review-document grammar without requiring empty boilerplate.
+- [x] Evidence planning distinguishes conceptual domain models from concrete ER/persistence models and selects representations by engineering question.
 - [x] Fidelity audit distinguishes dangerous omission from successful compression.
 - [ ] Exercise every skill against at least one positive fixture.
 - [ ] Exercise every audit against at least one failing fixture.
@@ -48,6 +50,9 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] BBP output includes an inert holding/title slide before the story, passes the headline-only story test, establishes Act I orientation before solution mechanics, and preserves progressive disclosure.
 - [ ] BBP visual and verbal channels are complementary, with speaker notes forming a usable rehearsal script and visible major transitions re-orienting both audience and presenter.
 - [ ] Design-doc acceptance catches prose transcription when a supported structured representation would materially improve scanability.
+- [ ] Evals design-doc composition keeps Reference-depth material out of the main review path and follows conclusion -> representation -> essential reasoning -> material consequence/tradeoff for major propositions.
+- [ ] Evals entity/domain relationships produce a conceptual domain model when semantically supported even if persistence schema/cardinality is not.
+- [ ] Rendered Evals visuals pass semantic visual-grammar checks for grouping, containment, relationship labels, hierarchy/scan direction, contrast, and quantitative encoding where applicable.
 - [ ] Evals evidence plan explicitly considers each applicable context/boundary, runtime interaction, entity/data-model, lifecycle, persistence/data-flow, and interface/contract relationship without enforcing a diagram count.
 - [ ] Evals default design doc excludes Wayfinder/session bookkeeping and passes decision-load review.
 - [ ] Evals default design doc is materially compressed relative to the explanatory model while retaining decision-critical tradeoffs, risks, compatibility concerns, and uncertainty.
@@ -85,6 +90,6 @@ When all mandatory gates pass, the production-ready claim is supported by instal
 - [ ] Regenerated Evals design document omits downstream-only implementation planning while preserving architecture-significant implementation consequences.
 - [ ] Regenerated Evals deck demonstrates distinguishable Anchor / Explanation / Detail visual hierarchy and coherent Core / Standard / Deep inheritance.
 - [ ] Evals reviewer runs reuse the same canonical slides; Deep is the fixed canonical tree and Core / Standard are deterministic projections satisfying Core ⊆ Standard ⊆ Deep without shared-slide drift.
-- [ ] Regenerated Evals design document is materially terser, does not reteach established Conductor behavior beyond decision need, and preserves useful supported technical diagrams/contracts.
+- [ ] Regenerated Evals design document is materially terser, does not reteach established Conductor behavior beyond decision need, preserves useful supported technical diagrams/contracts, and behaves as a decision instrument rather than a comprehensive architecture dossier.
 - [ ] Regenerated Evals evidence plan uses supported diagrams/contracts as compression where they reduce prose and records an explicit representation decision for every applicable relationship class.
 - [ ] Comprehension audit rejects unnecessary authored vocabulary when ordinary engineering language is clearer.
