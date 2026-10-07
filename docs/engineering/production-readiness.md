@@ -31,13 +31,15 @@ The engineering documentation suite may be described as production-ready only wh
 - [x] Reviewer adaptation requires neutral technical-review tone rather than sales, reassurance, or defensive rhetoric.
 - [x] Reader-facing overview vocabulary prefers subject-specific engineering terms over internal `pillar/claim` planning language.
 - [x] Human-facing engineering artifacts advocate through technical causality and evidence while maintaining a neutral professional posture.
+- [x] Human-facing Markdown is formatted as a finished readable artifact rather than raw intermediate state.
+- [x] Reviewer review lenses produce polished Markdown plus sibling navigable HTML by default.
 - [x] BBP planning prohibits manufactured urgency, exaggerated before/after framing, reassurance, and sales rhetoric without prohibiting a direct technical recommendation.
 - [x] Fidelity audit distinguishes dangerous omission from successful compression.
 - [ ] Exercise every skill against at least one positive fixture.
 - [ ] Exercise every audit against at least one failing fixture.
 - [ ] Verify wrapper retry and routing behavior in Claude Code.
 - [ ] Verify `to-design-package` checkpoint/resume skips unaffected upstream stages and completes downstream closure.
-- [ ] Verify reviewer-specific resumes produce complete review lenses over the canonical design document without silently forking it.
+- [ ] Verify reviewer-specific resumes produce complete review lenses over the canonical design document without silently forking it, and emit both polished `review-adaptation.md` and `review-adaptation.html`.
 - [ ] Verify shared source artifacts and the canonical design document are reused by reviewer lenses.
 - [ ] Verify explicitly requested reviewer design-document variants are isolated, preserve technical truth, and do not overwrite the canonical design.
 - [ ] Verify reviewer runs reuse one canonical BBP slide tree rather than generating audience-specific decks.
@@ -70,7 +72,7 @@ The engineering documentation suite may be described as production-ready only wh
 - [ ] Evals evidence plan explicitly considers each applicable context/boundary, runtime interaction, entity/data-model, lifecycle, persistence/data-flow, and interface/contract relationship without enforcing a diagram count.
 - [ ] Evals default design doc excludes Wayfinder/session bookkeeping and passes decision-load review.
 - [ ] Evals default design doc is materially compressed relative to the explanatory model while retaining decision-critical tradeoffs, risks, compatibility concerns, and uncertainty.
-- [ ] Evals CTO review lens materially changes reading priority, questions, and evidence emphasis while keeping the canonical design document as the shared review artifact.
+- [ ] Evals CTO review lens materially changes reading priority, questions, and evidence emphasis while keeping the canonical design document as the shared review artifact, and its Markdown/HTML representations are both independently readable.
 - [ ] Evals canonical design doc avoids generic `claim` / `promise` framing when concrete engineering headers such as decision, behavior, commitment, constraint, or consequence are available.
 - [ ] Evals CTO review lens deprioritizes established Conductor primers and foregrounds changed behavior, non-obvious dependencies, material consequences, risks, and evidence needed for the decision.
 - [ ] Evals presentation advocates for the proposed design through constraints, mechanism, evidence, tradeoffs, risks, and consequences without sales posture, manufactured urgency, or exaggerated before/after framing.
