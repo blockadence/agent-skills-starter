@@ -38,6 +38,11 @@ source-model -> explanatory-model -> optional reviewer-adapt
 
 Artifact-specific planners then produce design-document, presentation, or PR-review communication plans. Shared fidelity, comprehension, intent-leak, and rendered-visual audits act as gates.
 
+Preparation and approval companions:
+
+- `to-charting-brief`: source-grounded Wayfinder chartering for implementable specs.
+- `to-design-briefing`: interactive understanding, defense, and reconsideration of a design.
+
 Primary orchestrators:
 
 - `to-design-package`: rigorous engineering specification to design document plus BBB-style presentation package.
