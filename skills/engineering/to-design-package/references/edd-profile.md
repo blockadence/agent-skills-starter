@@ -1,6 +1,6 @@
-# Concise EDD / approval profile
+# Concise Design Brief / approval profile
 
-Opt-in only. A one-pager is a **decision-oriented content budget**, not a universal literal page count. Follow the organization's example where supplied, without copying its technical substance. Preserve readable typography.
+Opt-in only. A Design Brief (also called an EDD, one-pager, or design proposal in some organizations) is a **decision-oriented content budget**, not a universal literal page count. Follow the organization's example where supplied, without copying its technical substance. Preserve readable typography.
 
 ## Planning
 - Reuse source-model, explanatory-model and design-doc-plan; classify decision surface, necessary understanding, and reference depth.
@@ -19,4 +19,4 @@ Opt-in only. A one-pager is a **decision-oriented content budget**, not a univer
 Can the reviewer understand the proposal, its boundaries, material tradeoffs, risks and the decision requested? Can the engineer trace consequential claims back to the spec? Is every material unknown classified? A human must review before representing the artifact as approved.
 
 ## Regression example
-The accepted Domains EDD included Domain-as-org, tenant-scoped identity, cross-Domain authorization, missing-org risk, admission/priority, retention and staged rollout. Its three-page length and headings are **not universal rules**. Its acceptance does not prove runtime behavior.
+The accepted Domains design brief included Domain-as-org, tenant-scoped identity, cross-Domain authorization, missing-org risk, admission/priority, retention and staged rollout. Its three-page length and headings are **not universal rules**. Its acceptance does not prove runtime behavior.
