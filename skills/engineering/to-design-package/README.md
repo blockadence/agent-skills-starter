@@ -71,6 +71,6 @@ AI generation is permitted. Generated artifacts remain drafts until reviewed by 
 
 `SKILL.md` is the executable agent contract. This README is human-facing orientation only. Leaf skills own transformations such as semantic modeling, planning, HTML rendering, and audits; `to-design-package` owns orchestration, canonical artifact reuse, optional reviewer-document branching, and checkpoint/resume behavior.
 
-## Concise EDD profile
+## Concise Design Brief profile
 
-Explicitly request a concise EDD / one-pager when the approval audience expects one. See `references/edd-profile.md`. It produces a separate review artifact and private decision trace without overwriting the canonical design package. Use `to-design-briefing` to understand and defend intentionally omitted source details.
+Explicitly request a concise Design Brief (EDD / one-pager / design proposal) when the approval audience expects one. See `references/edd-profile.md`. It produces a separate review artifact and private decision trace without overwriting the canonical design package. Use `to-design-briefing` to understand and defend intentionally omitted source details.
