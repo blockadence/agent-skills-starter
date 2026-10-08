@@ -24,8 +24,8 @@ Source completeness, terminology, decision status, uncertainty, contradictions, 
 
 ## Process
 
-1. Read the complete supplied source before modeling it.
-2. Record source identity and scope.
+1. Read every supplied source completely before modeling it. For multiple specifications, inventory each source and reconcile shared scope, overlaps, dependencies, terminology, decisions, assumptions, and conflicting statements. Keep source-level provenance and distinguish agreement from inferred synthesis. Do not use input order or file modification time as authority.
+2. Record source identity and scope for each source. For multiple specifications, write `source-reconciliation.md` with source inventory, overlaps, dependencies, divergences, unresolved conflicts, and support references before composing the unified `source-model.md`.
 3. Extract terminology as the source uses it.
 4. Separate existing behavior, decisions, constraints, invariants, assumptions, unknowns, limitations, out-of-scope items, and contradictions.
 5. Classify support for technical specificity as concrete, conceptual, or unsupported.

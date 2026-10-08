@@ -27,8 +27,8 @@ Workflow orchestration, checkpoint/resume behavior, canonical-artifact reuse, op
 
 ## Full pipeline
 
-1. Require and read the complete spec.
-2. Run `source-model`.
+1. Accept one or more explicitly supplied specification paths. Read every specification completely; never assume same filenames imply same contents. For multiple specs, establish one feature/work-unit scope and a source inventory, then reconcile overlaps, dependencies, terminology, decisions, assumptions, and conflicts before modeling. Preserve source identities and never silently prefer the newest spec or infer precedence from argument order.
+2. Run `source-model` over the complete reconciled source set, retaining per-spec traceability and unresolved conflicts. If a conflict materially prevents a coherent design, stop and ask for resolution rather than fabricating consensus.
 3. Run `explanatory-model`.
 4. Fork by artifact responsibility:
    - design doc: create one canonical design document from the shared `explanatory-model` via `design-doc-plan` -> `design-evidence-plan` -> compose Markdown. When a reviewer profile is supplied, run `reviewer-adapt` to create a review lens over this canonical document. Only fork design-doc planning/composition when the user explicitly requests a reviewer-specific document. Composition consumes those plans as contracts: preserve disclosure classification, section purpose, proposition grammar, and selected representations rather than re-expanding reference-depth material or re-deciding evidence;
@@ -53,6 +53,7 @@ design-package/
   source/
     source-model.md
     explanatory-model.md
+    source-reconciliation.md  # multi-spec runs only
     ...other shared source/evidence artifacts
   design/
     ...design-doc planning artifacts
@@ -77,7 +78,7 @@ design-package/
       ...reviewer-specific design-doc artifacts
 ```
 
-The original specification remains an external source input unless the user asks to copy it into the package. Shared generated artifacts may reference that source input using a stable path appropriate to the repository.
+The original specification(s) remain external source inputs unless the user asks to copy it into the package. Shared generated artifacts may reference that source input using a stable path appropriate to the repository.
 
 `source/explanatory-model.md` is the normal reviewer branch point. All reviewer variants derived from it must share the same technical truth and decision status.
 
@@ -169,6 +170,8 @@ Human review is the authority boundary:
 ## Output
 
 A complete package normally includes:
+
+- a source inventory and reconciliation checkpoint when multiple specs are supplied;
 
 - polished, human-readable Markdown for every human-facing text artifact;
 - editable Markdown design document;
