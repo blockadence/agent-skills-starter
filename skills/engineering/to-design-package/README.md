@@ -8,7 +8,10 @@ A complete package includes one canonical engineering design document, a canonic
 
 ```text
 /to-design-package spec.md
+/to-design-package specs/part-a/spec.md specs/part-b/spec.md specs/part-c/spec.md
 ```
+
+Multiple specs are reconciled into one traceable source model for the same feature/work unit. Contradictions are recorded, not silently resolved. Single-spec usage is unchanged.
 
 ## Package topology
 
