@@ -3,7 +3,7 @@
 A conversational companion for engineers who need to understand and defend a Wayfinder-derived design at approval time.
 
 ## Why
-A concise EDD is a review surface, not the entire specification. The original design may already answer a question that the EDD intentionally omits. This skill checks upstream evidence before declaring a gap.
+A concise Design Brief (sometimes called an EDD or one-pager) is a review surface, not the entire specification. The original design may already answer a question that the brief intentionally omits. This skill checks upstream evidence before declaring a gap.
 
 ## Modes and examples
 ```text
