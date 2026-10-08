@@ -6,7 +6,7 @@ Small, composable skills for engineering analysis, design communication, review 
 
 - `to-charting-brief`: normalize messy source inputs and set an implementable Wayfinder destination.
 - `to-design-briefing`: understand, defend and reconsider decisions using full spec evidence.
-- `to-design-package` supports an optional concise EDD profile (see `references/edd-profile.md`).
+- `to-design-package` supports an optional concise Design Brief profile (see `references/edd-profile.md`).
 
 ## Design communication pipeline
 
