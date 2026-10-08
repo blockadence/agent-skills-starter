@@ -6,7 +6,7 @@ description: Help an engineer understand, defend, and reconsider a researched de
 # to-design-briefing
 
 ## Contract
-Interactive, private preparation for the engineer accountable for approval. Reuse the full spec, source-model, explanatory-model, research and decision records, plus the condensed EDD. **An omitted EDD detail is not an unanswered design question.** Do not demand encyclopedic codebase familiarity or memorize generated scripts.
+Interactive, private preparation for the engineer accountable for approval. Reuse the full spec, source-model, explanatory-model, research and decision records, plus the condensed Design Brief (EDD/one-pager). **A detail omitted from the Design Brief is not an unanswered design question.** Do not demand encyclopedic codebase familiarity or memorize generated scripts.
 
 ## Grounding
 For each consequential question distinguish:
@@ -25,7 +25,7 @@ Explain a subsystem progressively: mental model, concrete scenario, ownership/au
 Rehearse the few approval-critical questions for a reviewer. Ask one at a time when requested; listen to the engineer's own explanation, then provide concise source-backed feedback and an optional meeting-ready answer. Distinguish real uncertainty from omitted reference depth.
 
 ### Reconsider
-Trace a challenged claim from EDD through explanatory/source model to spec, map and research. Separate presentation omission, misconception, verification gap and genuine design flaw. Propose revision at the earliest owning stage; do not silently modify approved sources.
+Trace a challenged claim from the Design Brief through explanatory/source model to spec, map and research. Separate presentation omission, misconception, verification gap and genuine design flaw. Propose revision at the earliest owning stage; do not silently modify approved sources.
 
 ## Output
 Conversation by default. On request, a private decision-defense sheet mapping question -> answer -> support -> status -> follow-up, or a revision queue. Keep rehearsal/reviewer strategy out of human-facing design documents.
