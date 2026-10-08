@@ -40,9 +40,9 @@ Workflow orchestration, checkpoint/resume behavior, canonical-artifact reuse, op
 10. Preserve inspectable intermediate artifacts.
 11. Stop only when the requested final outputs have been produced and blocking gates pass, or an unresolved source problem is explicitly reported.
 
-## Optional concise EDD profile
+## Optional concise Design Brief profile
 
-When explicitly requested, read `references/edd-profile.md` and produce a separate approval-oriented EDD in Markdown and HTML from the shared source and explanatory models. Preserve a private decision-to-source trace for design briefing. Do not overwrite the canonical design document or treat a condensed EDD as the completeness boundary of the design. This profile does not change default outputs or checkpoint semantics.
+When explicitly requested, read `references/edd-profile.md` and produce a separate approval-oriented Design Brief in Markdown and HTML from the shared source and explanatory models. Preserve a private decision-to-source trace for design briefing. Do not overwrite the canonical design document or treat a condensed Design Brief as the completeness boundary of the design. This profile does not change default outputs or checkpoint semantics.
 
 ## Package topology
 
