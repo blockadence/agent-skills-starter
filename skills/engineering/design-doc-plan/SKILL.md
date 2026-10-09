@@ -22,6 +22,10 @@ This skill follows the repository composition rules.
 
 Artifact-specific relevance selection, information architecture, reasoning order, progressive disclosure, compression budget, and representation intent at the section level.
 
+## Review posture
+
+Present engineering design for technical scrutiny, not persuasion or permission-seeking. Do not emit a default `Decision requested`, `Approval requested`, or equivalent section. The design should stand on its architecture, rationale, consequences, risks, and verification. Where a specific unresolved choice genuinely requires a reviewer's authority, name that concrete question and its alternatives; do not wrap the entire document in a generic plea for approval.
+
 ## Decision-sufficiency contract
 
 The design document is a **decision instrument** for approval/review, not a comprehensive architecture dossier and not an exhaustive replay of the source or explanatory model. The explanatory model owns completeness; the design document owns the decision.
@@ -33,7 +37,7 @@ Include the minimum information necessary for the intended reviewer to:
 3. evaluate material alternatives and tradeoffs;
 4. identify material risks, failure modes, and unresolved evidence;
 5. assess compatibility, migration, and blast radius when relevant;
-6. make and defend the requested decision.
+6. scrutinize the proposed direction and identify any specific unresolved choice requiring reviewer authority.
 
 A true detail that does not materially serve one of those jobs normally remains upstream.
 
@@ -41,14 +45,14 @@ A true detail that does not materially serve one of those jobs normally remains 
 
 1. Read the explanatory model and optional reviewer adaptation.
 2. If a reviewer adaptation exists, honor its required/supporting/upstream-only relevance classification. For the default branch, perform the same decision-relevance test directly against the explanatory model.
-3. Plan the opening mental model, explicit decision/request, and central design proposition.
+3. Plan the opening mental model and central design proposition. Name a specific decision only when an unresolved choice actually requires reviewer authority; never add a generic approval request.
 4. Classify candidate information into three disclosure levels:
    - **Decision surface:** information that could materially change approve/reject/challenge. Always reader-facing.
    - **Understanding surface:** information necessary to understand or evaluate the decision. Reader-facing, with structured/visual representation preferred when it reduces reconstruction work.
    - **Reference depth:** implementation detail, exhaustive mechanics, edge cases, examples, or validation specifics that remain useful but do not belong in the main review path. Keep upstream or move to an appendix/reference only when reviewers genuinely need access during this decision.
 5. Build the main document from Decision + Understanding surfaces. Reference depth must not silently expand the main narrative.
 6. Identify the smallest set of sections needed for decision sufficiency. Use this default grammar when applicable, omitting any section that has no material content:
-   1. decision / requested approval;
+   1. proposed design / architectural direction;
    2. problem and material constraints;
    3. design overview with one orienting system/architecture representation when supported;
    4. a small set of major design propositions;
@@ -70,7 +74,7 @@ A true detail that does not materially serve one of those jobs normally remains 
    - why that question is material to approval;
    - what upstream detail is deliberately omitted.
 13. Build an internal information-priority tree for the document:
-   - **Scan:** design proposition, a small set of major design pillars, material consequences, and decision requested;
+   - **Scan:** design proposition, a small set of major design pillars, material consequences, and material open questions;
    - **Review:** the mechanism, tradeoffs, compatibility, risks, and evidence needed to evaluate those pillars;
    - **Deep reference:** decision-relevant edge cases, detailed alternatives, validation detail, API specifics, and other material reference information that would interrupt the main argument.
    Prefer roughly three major design pillars when the subject naturally supports it. This is a prioritization heuristic, never a quota. Deeper levels elaborate the same proposition rather than introducing a competing structure.
