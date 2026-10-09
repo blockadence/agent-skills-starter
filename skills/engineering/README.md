@@ -2,6 +2,12 @@
 
 Small, composable skills for engineering analysis, design communication, review communication, rendering, and evidence quality.
 
+## Chartering and approval
+
+- `to-charting-brief`: normalize messy source inputs and set an implementable Wayfinder destination.
+- `to-design-briefing`: understand, defend and reconsider decisions using full spec evidence.
+- `to-design-package` supports an optional concise Design Brief profile (see `references/edd-profile.md`).
+
 ## Design communication pipeline
 
 `source-model` -> `explanatory-model` -> optional `reviewer-adapt` -> artifact planning -> composition -> rendering -> audits.
